@@ -1,0 +1,9 @@
+{
+  "DESIGN_NAME": "reversible_wrapper",
+  "VERILOG_FILES": ["src/reversable/peres-gate.v", 
+  "src/reversable/reversable-full-adder.v",
+  "src/reversable/reversable-ripple-adder.v",
+  "src/reversable/reversable-wrapper.v"],
+  "CLOCK_PERIOD": 25,
+  "CLOCK_PORT": "clk"
+}

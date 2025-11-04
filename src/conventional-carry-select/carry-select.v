@@ -1,4 +1,4 @@
-
+`timescale 1ns/1ps
 module full_adder (
     input  wire a,
     input  wire b,
@@ -8,7 +8,6 @@ module full_adder (
 );
     assign {cout, sum} = a + b + cin;
 endmodule
-
 // 4-bit ripple adder used for lower block (and for computing both cases in upper block)
 module ripple_adder_4bit (
     input  wire [3:0] a,
