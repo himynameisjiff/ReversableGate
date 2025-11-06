@@ -1,0 +1,40 @@
+Reading technology LEF file at '/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__min.tlef'…
+[INFO ODB-0227] LEF file: /Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__min.tlef, created 14 layers, 25 vias
+Reading cell LEF file at '/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef'…
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file /Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef at line 2.
+
+[INFO ODB-0227] LEF file: /Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef, created 4 library cells
+Reading cell LEF file at '/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef'…
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file /Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef at line 2.
+
+[INFO ODB-0227] LEF file: /Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef, created 437 library cells
+[INFO ODB-0127] Reading DEF file: /Users/prahalad/ReversableGate/openlane/reversable-openlane/runs/RUN_2025-11-05_20-20-54/52-odb-cellfrequencytables/reversible_wrapper.def
+[INFO ODB-0128] Design: reversible_wrapper
+[INFO ODB-0130]     Created 55 pins.
+[INFO ODB-0131]     Created 667 components and 3345 component-terminals.
+[INFO ODB-0132]     Created 2 special nets and 2534 connections.
+[INFO ODB-0133]     Created 297 nets and 808 connections.
+[INFO ODB-0134] Finished DEF file: /Users/prahalad/ReversableGate/openlane/reversable-openlane/runs/RUN_2025-11-05_20-20-54/52-odb-cellfrequencytables/reversible_wrapper.def
+Using RCX ruleset '/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/rules.openrcx.sky130A.min.calibre'…
+[INFO RCX-0431] Defined process_corner CURRENT_CORNER with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner CURRENT_CORNER
+[INFO RCX-0435] Reading extraction model file /Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/rules.openrcx.sky130A.min.calibre ...
+[INFO RCX-0436] RC segment generation reversible_wrapper (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 830 rc segments
+[INFO RCX-0439] Coupling Cap extraction reversible_wrapper ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 53% of 1441 wires extracted
+[INFO RCX-0442] 100% of 1441 wires extracted
+[INFO RCX-0045] Extract 297 nets, 1127 rsegs, 1127 caps, 1329 ccs
+Setting global connections for newly added cells…
+[INFO] Setting global connections...
+Updating metrics…
+Cell type report:                       Count       Area
+  Fill cell                               328    1963.13
+  Tap cell                                 67      83.83
+  Standard cell                           272    2613.76
+  Total                                   667    4660.72
+Writing extracted parasitics to '/Users/prahalad/ReversableGate/openlane/reversable-openlane/runs/RUN_2025-11-05_20-20-54/53-openroad-rcx/min/reversible_wrapper.min.spef'…
+[INFO RCX-0443] 297 nets finished

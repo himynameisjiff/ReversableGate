@@ -1,0 +1,2206 @@
+{
+  "creator": "Yosys 0.46 (git sha1 e97731b9dda91fa5fa53ed87df7c34163ba59a41, clang++ 16.0.6 -fPIC -O3)",
+  "modules": {
+    "reversible_wrapper": {
+      "attributes": {
+        "hdlname": "reversible_wrapper",
+        "top": "00000000000000000000000000000001",
+        "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:1.1-68.10"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "reset": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "enable": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "a": {
+          "direction": "input",
+          "bits": [ 5, 6, 7, 8, 9, 10, 11, 12 ]
+        },
+        "b": {
+          "direction": "input",
+          "bits": [ 13, 14, 15, 16, 17, 18, 19, 20 ]
+        },
+        "anc": {
+          "direction": "input",
+          "bits": [ 21, 22, 23, 24, 25, 26, 27, 28 ]
+        },
+        "cin": {
+          "direction": "input",
+          "bits": [ 29 ]
+        },
+        "sum": {
+          "direction": "output",
+          "bits": [ 30, 31, 32, 33, 34, 35, 36, 37 ]
+        },
+        "cout": {
+          "direction": "output",
+          "bits": [ 38 ]
+        },
+        "g_a": {
+          "direction": "output",
+          "bits": [ 39, 40, 41, 42, 43, 44, 45, 46 ]
+        },
+        "g_ab": {
+          "direction": "output",
+          "bits": [ 47, 48, 49, 50, 51, 52, 53, 54 ]
+        }
+      },
+      "cells": {
+        "$flatten\\u_rev.\\rfa_bits[0].rfa.\\pgate1.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 55 ],
+            "B": [ 56 ],
+            "Y": [ 57 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[0].rfa.\\pgate1.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10$3": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10.16-10.21"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 55 ],
+            "B": [ 56 ],
+            "Y": [ 58 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[0].rfa.\\pgate1.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$5": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.16-11.27"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 57 ],
+            "B": [ 59 ],
+            "Y": [ 60 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[0].rfa.\\pgate2.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 58 ],
+            "B": [ 61 ],
+            "Y": [ 62 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[0].rfa.\\pgate2.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10$3": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10.16-10.21"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 58 ],
+            "B": [ 61 ],
+            "Y": [ 63 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[0].rfa.\\pgate2.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$5": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.16-11.27"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 62 ],
+            "B": [ 60 ],
+            "Y": [ 64 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[1].rfa.\\pgate1.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 65 ],
+            "B": [ 66 ],
+            "Y": [ 67 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[1].rfa.\\pgate1.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10$3": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10.16-10.21"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 65 ],
+            "B": [ 66 ],
+            "Y": [ 68 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[1].rfa.\\pgate1.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$5": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.16-11.27"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 67 ],
+            "B": [ 69 ],
+            "Y": [ 70 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[1].rfa.\\pgate2.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 68 ],
+            "B": [ 64 ],
+            "Y": [ 71 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[1].rfa.\\pgate2.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10$3": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10.16-10.21"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 68 ],
+            "B": [ 64 ],
+            "Y": [ 72 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[1].rfa.\\pgate2.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$5": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.16-11.27"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 71 ],
+            "B": [ 70 ],
+            "Y": [ 73 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[2].rfa.\\pgate1.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 74 ],
+            "B": [ 75 ],
+            "Y": [ 76 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[2].rfa.\\pgate1.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10$3": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10.16-10.21"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 74 ],
+            "B": [ 75 ],
+            "Y": [ 77 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[2].rfa.\\pgate1.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$5": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.16-11.27"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 76 ],
+            "B": [ 78 ],
+            "Y": [ 79 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[2].rfa.\\pgate2.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 77 ],
+            "B": [ 73 ],
+            "Y": [ 80 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[2].rfa.\\pgate2.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10$3": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10.16-10.21"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 77 ],
+            "B": [ 73 ],
+            "Y": [ 81 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[2].rfa.\\pgate2.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$5": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.16-11.27"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 80 ],
+            "B": [ 79 ],
+            "Y": [ 82 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[3].rfa.\\pgate1.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 83 ],
+            "B": [ 84 ],
+            "Y": [ 85 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[3].rfa.\\pgate1.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10$3": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10.16-10.21"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 83 ],
+            "B": [ 84 ],
+            "Y": [ 86 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[3].rfa.\\pgate1.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$5": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.16-11.27"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 85 ],
+            "B": [ 87 ],
+            "Y": [ 88 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[3].rfa.\\pgate2.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 86 ],
+            "B": [ 82 ],
+            "Y": [ 89 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[3].rfa.\\pgate2.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10$3": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10.16-10.21"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 86 ],
+            "B": [ 82 ],
+            "Y": [ 90 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[3].rfa.\\pgate2.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$5": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.16-11.27"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 89 ],
+            "B": [ 88 ],
+            "Y": [ 91 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[4].rfa.\\pgate1.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 92 ],
+            "B": [ 93 ],
+            "Y": [ 94 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[4].rfa.\\pgate1.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10$3": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10.16-10.21"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 92 ],
+            "B": [ 93 ],
+            "Y": [ 95 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[4].rfa.\\pgate1.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$5": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.16-11.27"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 94 ],
+            "B": [ 96 ],
+            "Y": [ 97 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[4].rfa.\\pgate2.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 95 ],
+            "B": [ 91 ],
+            "Y": [ 98 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[4].rfa.\\pgate2.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10$3": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10.16-10.21"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 95 ],
+            "B": [ 91 ],
+            "Y": [ 99 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[4].rfa.\\pgate2.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$5": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.16-11.27"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 98 ],
+            "B": [ 97 ],
+            "Y": [ 100 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[5].rfa.\\pgate1.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 101 ],
+            "B": [ 102 ],
+            "Y": [ 103 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[5].rfa.\\pgate1.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10$3": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10.16-10.21"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 101 ],
+            "B": [ 102 ],
+            "Y": [ 104 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[5].rfa.\\pgate1.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$5": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.16-11.27"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 103 ],
+            "B": [ 105 ],
+            "Y": [ 106 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[5].rfa.\\pgate2.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 104 ],
+            "B": [ 100 ],
+            "Y": [ 107 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[5].rfa.\\pgate2.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10$3": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10.16-10.21"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 104 ],
+            "B": [ 100 ],
+            "Y": [ 108 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[5].rfa.\\pgate2.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$5": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.16-11.27"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 107 ],
+            "B": [ 106 ],
+            "Y": [ 109 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[6].rfa.\\pgate1.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 110 ],
+            "B": [ 111 ],
+            "Y": [ 112 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[6].rfa.\\pgate1.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10$3": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10.16-10.21"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 110 ],
+            "B": [ 111 ],
+            "Y": [ 113 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[6].rfa.\\pgate1.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$5": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.16-11.27"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 112 ],
+            "B": [ 114 ],
+            "Y": [ 115 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[6].rfa.\\pgate2.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 113 ],
+            "B": [ 109 ],
+            "Y": [ 116 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[6].rfa.\\pgate2.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10$3": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10.16-10.21"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 113 ],
+            "B": [ 109 ],
+            "Y": [ 117 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[6].rfa.\\pgate2.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$5": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.16-11.27"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 116 ],
+            "B": [ 115 ],
+            "Y": [ 118 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[7].rfa.\\pgate1.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 119 ],
+            "B": [ 120 ],
+            "Y": [ 121 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[7].rfa.\\pgate1.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10$3": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10.16-10.21"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 119 ],
+            "B": [ 120 ],
+            "Y": [ 122 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[7].rfa.\\pgate1.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$5": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.16-11.27"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 121 ],
+            "B": [ 123 ],
+            "Y": [ 124 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[7].rfa.\\pgate2.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 122 ],
+            "B": [ 118 ],
+            "Y": [ 125 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[7].rfa.\\pgate2.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10$3": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:10.16-10.21"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 122 ],
+            "B": [ 118 ],
+            "Y": [ 126 ]
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[7].rfa.\\pgate2.$xor$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$5": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.16-11.27"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 125 ],
+            "B": [ 124 ],
+            "Y": [ 127 ]
+          }
+        },
+        "$procdff$38": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:55.5-67.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 128, 129, 130, 131, 132, 133, 134, 135 ],
+            "Q": [ 30, 31, 32, 33, 34, 35, 36, 37 ]
+          }
+        },
+        "$procdff$39": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:55.5-67.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 136 ],
+            "Q": [ 38 ]
+          }
+        },
+        "$procdff$40": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:55.5-67.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 137, 138, 139, 140, 141, 142, 143, 144 ],
+            "Q": [ 39, 40, 41, 42, 43, 44, 45, 46 ]
+          }
+        },
+        "$procdff$41": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:55.5-67.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 145, 146, 147, 148, 149, 150, 151, 152 ],
+            "Q": [ 47, 48, 49, 50, 51, 52, 53, 54 ]
+          }
+        },
+        "$procdff$42": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:39.5-52.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 153, 154, 155, 156, 157, 158, 159, 160 ],
+            "Q": [ 55, 65, 74, 83, 92, 101, 110, 119 ]
+          }
+        },
+        "$procdff$43": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:39.5-52.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 161, 162, 163, 164, 165, 166, 167, 168 ],
+            "Q": [ 56, 66, 75, 84, 93, 102, 111, 120 ]
+          }
+        },
+        "$procdff$44": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:39.5-52.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 169, 170, 171, 172, 173, 174, 175, 176 ],
+            "Q": [ 59, 69, 78, 87, 96, 105, 114, 123 ]
+          }
+        },
+        "$procdff$45": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:39.5-52.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 177 ],
+            "Q": [ 61 ]
+          }
+        },
+        "$procmux$10": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:56.13-56.18|/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:56.9-66.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 55, 65, 74, 83, 92, 101, 110, 119 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 137, 138, 139, 140, 141, 142, 143, 144 ]
+          }
+        },
+        "$procmux$13": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:56.13-56.18|/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:56.9-66.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 127 ],
+            "B": [ "0" ],
+            "S": [ 3 ],
+            "Y": [ 136 ]
+          }
+        },
+        "$procmux$16": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:56.13-56.18|/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:56.9-66.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 63, 72, 81, 90, 99, 108, 117, 126 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 128, 129, 130, 131, 132, 133, 134, 135 ]
+          }
+        },
+        "$procmux$18": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:45.22-45.28|/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:45.18-50.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 61 ],
+            "B": [ 29 ],
+            "S": [ 4 ],
+            "Y": [ 178 ]
+          }
+        },
+        "$procmux$21": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:40.13-40.18|/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:40.9-50.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 178 ],
+            "B": [ "0" ],
+            "S": [ 3 ],
+            "Y": [ 177 ]
+          }
+        },
+        "$procmux$23": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:45.22-45.28|/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:45.18-50.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 59, 69, 78, 87, 96, 105, 114, 123 ],
+            "B": [ 21, 22, 23, 24, 25, 26, 27, 28 ],
+            "S": [ 4 ],
+            "Y": [ 179, 180, 181, 182, 183, 184, 185, 186 ]
+          }
+        },
+        "$procmux$26": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:40.13-40.18|/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:40.9-50.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 179, 180, 181, 182, 183, 184, 185, 186 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 169, 170, 171, 172, 173, 174, 175, 176 ]
+          }
+        },
+        "$procmux$28": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:45.22-45.28|/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:45.18-50.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 56, 66, 75, 84, 93, 102, 111, 120 ],
+            "B": [ 13, 14, 15, 16, 17, 18, 19, 20 ],
+            "S": [ 4 ],
+            "Y": [ 187, 188, 189, 190, 191, 192, 193, 194 ]
+          }
+        },
+        "$procmux$31": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:40.13-40.18|/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:40.9-50.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 187, 188, 189, 190, 191, 192, 193, 194 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 161, 162, 163, 164, 165, 166, 167, 168 ]
+          }
+        },
+        "$procmux$33": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:45.22-45.28|/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:45.18-50.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 55, 65, 74, 83, 92, 101, 110, 119 ],
+            "B": [ 5, 6, 7, 8, 9, 10, 11, 12 ],
+            "S": [ 4 ],
+            "Y": [ 195, 196, 197, 198, 199, 200, 201, 202 ]
+          }
+        },
+        "$procmux$36": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:40.13-40.18|/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:40.9-50.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 195, 196, 197, 198, 199, 200, 201, 202 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 153, 154, 155, 156, 157, 158, 159, 160 ]
+          }
+        },
+        "$procmux$7": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:56.13-56.18|/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:56.9-66.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 60, 70, 79, 88, 97, 106, 115, 124 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 3 ],
+            "Y": [ 145, 146, 147, 148, 149, 150, 151, 152 ]
+          }
+        }
+      },
+      "netnames": {
+        "$0\\a_r[7:0]": {
+          "hide_name": 1,
+          "bits": [ 153, 154, 155, 156, 157, 158, 159, 160 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:39.5-52.8"
+          }
+        },
+        "$0\\anc_r[7:0]": {
+          "hide_name": 1,
+          "bits": [ 169, 170, 171, 172, 173, 174, 175, 176 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:39.5-52.8"
+          }
+        },
+        "$0\\b_r[7:0]": {
+          "hide_name": 1,
+          "bits": [ 161, 162, 163, 164, 165, 166, 167, 168 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:39.5-52.8"
+          }
+        },
+        "$0\\cin_r[0:0]": {
+          "hide_name": 1,
+          "bits": [ 177 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:39.5-52.8"
+          }
+        },
+        "$0\\cout[0:0]": {
+          "hide_name": 1,
+          "bits": [ 136 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:55.5-67.8"
+          }
+        },
+        "$0\\g_a[7:0]": {
+          "hide_name": 1,
+          "bits": [ 137, 138, 139, 140, 141, 142, 143, 144 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:55.5-67.8"
+          }
+        },
+        "$0\\g_ab[7:0]": {
+          "hide_name": 1,
+          "bits": [ 145, 146, 147, 148, 149, 150, 151, 152 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:55.5-67.8"
+          }
+        },
+        "$0\\sum[7:0]": {
+          "hide_name": 1,
+          "bits": [ 128, 129, 130, 131, 132, 133, 134, 135 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:55.5-67.8"
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[0].rfa.\\pgate1.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4_Y": {
+          "hide_name": 1,
+          "bits": [ 57 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[0].rfa.\\pgate2.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4_Y": {
+          "hide_name": 1,
+          "bits": [ 62 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[1].rfa.\\pgate1.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4_Y": {
+          "hide_name": 1,
+          "bits": [ 67 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[1].rfa.\\pgate2.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4_Y": {
+          "hide_name": 1,
+          "bits": [ 71 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[2].rfa.\\pgate1.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4_Y": {
+          "hide_name": 1,
+          "bits": [ 76 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[2].rfa.\\pgate2.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4_Y": {
+          "hide_name": 1,
+          "bits": [ 80 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[3].rfa.\\pgate1.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4_Y": {
+          "hide_name": 1,
+          "bits": [ 85 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[3].rfa.\\pgate2.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4_Y": {
+          "hide_name": 1,
+          "bits": [ 89 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[4].rfa.\\pgate1.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4_Y": {
+          "hide_name": 1,
+          "bits": [ 94 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[4].rfa.\\pgate2.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4_Y": {
+          "hide_name": 1,
+          "bits": [ 98 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[5].rfa.\\pgate1.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4_Y": {
+          "hide_name": 1,
+          "bits": [ 103 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[5].rfa.\\pgate2.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4_Y": {
+          "hide_name": 1,
+          "bits": [ 107 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[6].rfa.\\pgate1.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4_Y": {
+          "hide_name": 1,
+          "bits": [ 112 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[6].rfa.\\pgate2.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4_Y": {
+          "hide_name": 1,
+          "bits": [ 116 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[7].rfa.\\pgate1.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4_Y": {
+          "hide_name": 1,
+          "bits": [ 121 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          }
+        },
+        "$flatten\\u_rev.\\rfa_bits[7].rfa.\\pgate2.$and$/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11$4_Y": {
+          "hide_name": 1,
+          "bits": [ 125 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/peres-gate.v:11.17-11.22"
+          }
+        },
+        "$procmux$18_Y": {
+          "hide_name": 1,
+          "bits": [ 178 ],
+          "attributes": {
+          }
+        },
+        "$procmux$23_Y": {
+          "hide_name": 1,
+          "bits": [ 179, 180, 181, 182, 183, 184, 185, 186 ],
+          "attributes": {
+          }
+        },
+        "$procmux$28_Y": {
+          "hide_name": 1,
+          "bits": [ 187, 188, 189, 190, 191, 192, 193, 194 ],
+          "attributes": {
+          }
+        },
+        "$procmux$33_Y": {
+          "hide_name": 1,
+          "bits": [ 195, 196, 197, 198, 199, 200, 201, 202 ],
+          "attributes": {
+          }
+        },
+        "a": {
+          "hide_name": 0,
+          "bits": [ 5, 6, 7, 8, 9, 10, 11, 12 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:5.24-5.25"
+          }
+        },
+        "a_r": {
+          "hide_name": 0,
+          "bits": [ 55, 65, 74, 83, 92, 101, 110, 119 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:15.15-15.18"
+          }
+        },
+        "anc": {
+          "hide_name": 0,
+          "bits": [ 21, 22, 23, 24, 25, 26, 27, 28 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:7.24-7.27"
+          }
+        },
+        "anc_r": {
+          "hide_name": 0,
+          "bits": [ 59, 69, 78, 87, 96, 105, 114, 123 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:17.15-17.20"
+          }
+        },
+        "b": {
+          "hide_name": 0,
+          "bits": [ 13, 14, 15, 16, 17, 18, 19, 20 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:6.24-6.25"
+          }
+        },
+        "b_r": {
+          "hide_name": 0,
+          "bits": [ 56, 66, 75, 84, 93, 102, 111, 120 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:16.15-16.18"
+          }
+        },
+        "cin": {
+          "hide_name": 0,
+          "bits": [ 29 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:8.24-8.27"
+          }
+        },
+        "cin_r": {
+          "hide_name": 0,
+          "bits": [ 61 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:18.15-18.20"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:2.24-2.27"
+          }
+        },
+        "cout": {
+          "hide_name": 0,
+          "bits": [ 38 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:10.24-10.28"
+          }
+        },
+        "cout_c": {
+          "hide_name": 0,
+          "bits": [ 127 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:22.16-22.22"
+          }
+        },
+        "enable": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:4.24-4.30"
+          }
+        },
+        "g_a": {
+          "hide_name": 0,
+          "bits": [ 39, 40, 41, 42, 43, 44, 45, 46 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:11.24-11.27"
+          }
+        },
+        "g_ab": {
+          "hide_name": 0,
+          "bits": [ 47, 48, 49, 50, 51, 52, 53, 54 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:12.24-12.28"
+          }
+        },
+        "reset": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:3.24-3.29"
+          }
+        },
+        "sum": {
+          "hide_name": 0,
+          "bits": [ 30, 31, 32, 33, 34, 35, 36, 37 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-wrapper.v:9.24-9.27"
+          }
+        },
+        "u_rev.rfa_bits[0].fa_cout": {
+          "hide_name": 0,
+          "bits": [ 64 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[0].fa_cout",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-ripple-adder.v:38.26-38.33"
+          }
+        },
+        "u_rev.rfa_bits[0].fa_gab": {
+          "hide_name": 0,
+          "bits": [ 60 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[0].fa_gab",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-ripple-adder.v:38.42-38.48"
+          }
+        },
+        "u_rev.rfa_bits[0].fa_sum": {
+          "hide_name": 0,
+          "bits": [ 63 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[0].fa_sum",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-ripple-adder.v:38.18-38.24"
+          }
+        },
+        "u_rev.rfa_bits[0].rfa.p2": {
+          "hide_name": 0,
+          "bits": [ 58 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[0].rfa p2",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-full-adder.v:43.10-43.12"
+          }
+        },
+        "u_rev.rfa_bits[1].fa_cout": {
+          "hide_name": 0,
+          "bits": [ 73 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[1].fa_cout",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-ripple-adder.v:38.26-38.33"
+          }
+        },
+        "u_rev.rfa_bits[1].fa_gab": {
+          "hide_name": 0,
+          "bits": [ 70 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[1].fa_gab",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-ripple-adder.v:38.42-38.48"
+          }
+        },
+        "u_rev.rfa_bits[1].fa_sum": {
+          "hide_name": 0,
+          "bits": [ 72 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[1].fa_sum",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-ripple-adder.v:38.18-38.24"
+          }
+        },
+        "u_rev.rfa_bits[1].rfa.p2": {
+          "hide_name": 0,
+          "bits": [ 68 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[1].rfa p2",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-full-adder.v:43.10-43.12"
+          }
+        },
+        "u_rev.rfa_bits[2].fa_cout": {
+          "hide_name": 0,
+          "bits": [ 82 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[2].fa_cout",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-ripple-adder.v:38.26-38.33"
+          }
+        },
+        "u_rev.rfa_bits[2].fa_gab": {
+          "hide_name": 0,
+          "bits": [ 79 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[2].fa_gab",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-ripple-adder.v:38.42-38.48"
+          }
+        },
+        "u_rev.rfa_bits[2].fa_sum": {
+          "hide_name": 0,
+          "bits": [ 81 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[2].fa_sum",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-ripple-adder.v:38.18-38.24"
+          }
+        },
+        "u_rev.rfa_bits[2].rfa.p2": {
+          "hide_name": 0,
+          "bits": [ 77 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[2].rfa p2",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-full-adder.v:43.10-43.12"
+          }
+        },
+        "u_rev.rfa_bits[3].fa_cout": {
+          "hide_name": 0,
+          "bits": [ 91 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[3].fa_cout",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-ripple-adder.v:38.26-38.33"
+          }
+        },
+        "u_rev.rfa_bits[3].fa_gab": {
+          "hide_name": 0,
+          "bits": [ 88 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[3].fa_gab",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-ripple-adder.v:38.42-38.48"
+          }
+        },
+        "u_rev.rfa_bits[3].fa_sum": {
+          "hide_name": 0,
+          "bits": [ 90 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[3].fa_sum",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-ripple-adder.v:38.18-38.24"
+          }
+        },
+        "u_rev.rfa_bits[3].rfa.p2": {
+          "hide_name": 0,
+          "bits": [ 86 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[3].rfa p2",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-full-adder.v:43.10-43.12"
+          }
+        },
+        "u_rev.rfa_bits[4].fa_cout": {
+          "hide_name": 0,
+          "bits": [ 100 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[4].fa_cout",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-ripple-adder.v:38.26-38.33"
+          }
+        },
+        "u_rev.rfa_bits[4].fa_gab": {
+          "hide_name": 0,
+          "bits": [ 97 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[4].fa_gab",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-ripple-adder.v:38.42-38.48"
+          }
+        },
+        "u_rev.rfa_bits[4].fa_sum": {
+          "hide_name": 0,
+          "bits": [ 99 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[4].fa_sum",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-ripple-adder.v:38.18-38.24"
+          }
+        },
+        "u_rev.rfa_bits[4].rfa.p2": {
+          "hide_name": 0,
+          "bits": [ 95 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[4].rfa p2",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-full-adder.v:43.10-43.12"
+          }
+        },
+        "u_rev.rfa_bits[5].fa_cout": {
+          "hide_name": 0,
+          "bits": [ 109 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[5].fa_cout",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-ripple-adder.v:38.26-38.33"
+          }
+        },
+        "u_rev.rfa_bits[5].fa_gab": {
+          "hide_name": 0,
+          "bits": [ 106 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[5].fa_gab",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-ripple-adder.v:38.42-38.48"
+          }
+        },
+        "u_rev.rfa_bits[5].fa_sum": {
+          "hide_name": 0,
+          "bits": [ 108 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[5].fa_sum",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-ripple-adder.v:38.18-38.24"
+          }
+        },
+        "u_rev.rfa_bits[5].rfa.p2": {
+          "hide_name": 0,
+          "bits": [ 104 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[5].rfa p2",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-full-adder.v:43.10-43.12"
+          }
+        },
+        "u_rev.rfa_bits[6].fa_cout": {
+          "hide_name": 0,
+          "bits": [ 118 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[6].fa_cout",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-ripple-adder.v:38.26-38.33"
+          }
+        },
+        "u_rev.rfa_bits[6].fa_gab": {
+          "hide_name": 0,
+          "bits": [ 115 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[6].fa_gab",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-ripple-adder.v:38.42-38.48"
+          }
+        },
+        "u_rev.rfa_bits[6].fa_sum": {
+          "hide_name": 0,
+          "bits": [ 117 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[6].fa_sum",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-ripple-adder.v:38.18-38.24"
+          }
+        },
+        "u_rev.rfa_bits[6].rfa.p2": {
+          "hide_name": 0,
+          "bits": [ 113 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[6].rfa p2",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-full-adder.v:43.10-43.12"
+          }
+        },
+        "u_rev.rfa_bits[7].fa_gab": {
+          "hide_name": 0,
+          "bits": [ 124 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[7].fa_gab",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-ripple-adder.v:38.42-38.48"
+          }
+        },
+        "u_rev.rfa_bits[7].fa_sum": {
+          "hide_name": 0,
+          "bits": [ 126 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[7].fa_sum",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-ripple-adder.v:38.18-38.24"
+          }
+        },
+        "u_rev.rfa_bits[7].rfa.p2": {
+          "hide_name": 0,
+          "bits": [ 122 ],
+          "attributes": {
+            "hdlname": "u_rev rfa_bits[7].rfa p2",
+            "src": "/Users/prahalad/ReversableGate/src/reversable/reversable-full-adder.v:43.10-43.12"
+          }
+        }
+      }
+    }
+  }
+}

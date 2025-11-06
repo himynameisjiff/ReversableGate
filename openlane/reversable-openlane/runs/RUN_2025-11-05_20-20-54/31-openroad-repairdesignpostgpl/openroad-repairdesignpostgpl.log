@@ -1,0 +1,85 @@
+Reading timing models for corner nom_tt_025C_1v80…
+Reading timing library for the 'nom_tt_025C_1v80' corner at '/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib'…
+Reading timing models for corner nom_ff_n40C_1v95…
+Reading timing library for the 'nom_ff_n40C_1v95' corner at '/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib'…
+Reading timing models for corner nom_ss_100C_1v60…
+Reading timing library for the 'nom_ss_100C_1v60' corner at '/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib'…
+Reading OpenROAD database at '/Users/prahalad/ReversableGate/openlane/reversable-openlane/runs/RUN_2025-11-05_20-20-54/27-openroad-globalplacement/reversible_wrapper.odb'…
+Reading design constraints file at '/nix/store/4an8h2zgjvxb79xycic0fl63w2yk470s-python3-3.11.9-env/lib/python3.11/site-packages/openlane/scripts/base.sdc'…
+[INFO] Using clock clk…
+[INFO] Setting output delay to: 5
+[INFO] Setting input delay to: 5
+[INFO] Setting load to: 0.033442
+[INFO] Setting clock uncertainty to: 0.25
+[INFO] Setting clock transition to: 0.1499999999999999944488848768742172978818416595458984375
+[INFO] Setting timing derate to: 5%
+[INFO] Setting RC values…
+[INFO RSZ-0027] Inserted 27 input buffers.
+[INFO RSZ-0028] Inserted 25 output buffers.
+[INFO RSZ-0058] Using max wire length 6335um.
+Iteration | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------
+        0 |       0 |       0 |             0 |       273
+       10 |       8 |       0 |             0 |       263
+       20 |      16 |       0 |             0 |       253
+       30 |      25 |       1 |             1 |       243
+       40 |      33 |       1 |             1 |       233
+       50 |      40 |       1 |             1 |       223
+       60 |      50 |       1 |             1 |       213
+       70 |      60 |       1 |             1 |       203
+       80 |      70 |       1 |             1 |       193
+       90 |      79 |       1 |             1 |       183
+      100 |      79 |       1 |             1 |       173
+      110 |      79 |       1 |             1 |       163
+      120 |      85 |       1 |             1 |       153
+      130 |      95 |       1 |             1 |       143
+      140 |     104 |       1 |             1 |       133
+      150 |     111 |       1 |             1 |       123
+      160 |     121 |       1 |             1 |       113
+      170 |     131 |       1 |             1 |       103
+      180 |     141 |       1 |             1 |        93
+      190 |     151 |       1 |             1 |        83
+      200 |     161 |       1 |             1 |        73
+      210 |     171 |       1 |             1 |        63
+      220 |     180 |       1 |             1 |        53
+      230 |     199 |      10 |             3 |        43
+      240 |     209 |      10 |             3 |        33
+      250 |     215 |      10 |             3 |        23
+      260 |     215 |      10 |             3 |        13
+      270 |     215 |      10 |             3 |         3
+    final |     215 |      10 |             3 |         0
+---------------------------------------------------------
+[INFO RSZ-0034] Found 1 slew violations.
+[INFO RSZ-0035] Found 2 fanout violations.
+[INFO RSZ-0038] Inserted 10 buffers in 3 nets.
+[INFO RSZ-0039] Resized 215 instances.
+Placement Analysis
+---------------------------------
+total displacement        750.0 u
+average displacement        2.0 u
+max displacement           11.0 u
+original HPWL            2566.9 u
+legalized HPWL           3280.0 u
+delta HPWL                   28 %
+
+[INFO DPL-0020] Mirrored 81 instances
+[INFO DPL-0021] HPWL before            3280.0 u
+[INFO DPL-0022] HPWL after             3159.4 u
+[INFO DPL-0023] HPWL delta               -3.7 %
+[INFO] Setting RC values…
+Setting global connections for newly added cells…
+[INFO] Setting global connections...
+Updating metrics…
+Cell type report:                       Count       Area
+  Fill cell                                50     187.68
+  Tap cell                                 67      83.83
+  Timing Repair Buffer                     62     280.27
+  Inverter                                  7      26.28
+  Sequential cell                          50    1000.96
+  Multi-Input combinational cell          136    1064.77
+  Total                                   372    2643.79
+Writing OpenROAD database to '/Users/prahalad/ReversableGate/openlane/reversable-openlane/runs/RUN_2025-11-05_20-20-54/31-openroad-repairdesignpostgpl/reversible_wrapper.odb'…
+Writing netlist to '/Users/prahalad/ReversableGate/openlane/reversable-openlane/runs/RUN_2025-11-05_20-20-54/31-openroad-repairdesignpostgpl/reversible_wrapper.nl.v'…
+Writing powered netlist to '/Users/prahalad/ReversableGate/openlane/reversable-openlane/runs/RUN_2025-11-05_20-20-54/31-openroad-repairdesignpostgpl/reversible_wrapper.pnl.v'…
+Writing layout to '/Users/prahalad/ReversableGate/openlane/reversable-openlane/runs/RUN_2025-11-05_20-20-54/31-openroad-repairdesignpostgpl/reversible_wrapper.def'…
+Writing timing constraints to '/Users/prahalad/ReversableGate/openlane/reversable-openlane/runs/RUN_2025-11-05_20-20-54/31-openroad-repairdesignpostgpl/reversible_wrapper.sdc'…

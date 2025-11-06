@@ -1,0 +1,5 @@
+`verilator_config
+lint_off -rule DECLFILENAME
+lint_off -rule EOFNEWLINE
+lint_off -rule UNDRIVEN -file "/Users/prahalad/ReversableGate/openlane/reversable-openlane/runs/RUN_2025-11-05_20-20-54/tmp/959ef88b93624246b8206ae7f9ff4a7a.bb.v"
+lint_off -rule UNUSEDSIGNAL -file "/Users/prahalad/ReversableGate/openlane/reversable-openlane/runs/RUN_2025-11-05_20-20-54/tmp/959ef88b93624246b8206ae7f9ff4a7a.bb.v"

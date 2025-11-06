@@ -1,0 +1,14 @@
+%Warning-GENUNNAMED: /Users/prahalad/ReversableGate/src/reversable/reversable-ripple-adder.v:40:25: Unnamed generate block 'genblk1' (IEEE 1800-2017 27.6)
+                                                                                                  : ... Suggest assign a label with 'begin : gen_<label_name>'
+   40 |             if (i == 0) begin
+      |                         ^~~~~
+                     ... For warning description see https://verilator.org/warn/GENUNNAMED?v=5.018
+                     ... Use "/* verilator lint_off GENUNNAMED */" and lint_on around source to disable this message.
+%Warning-GENUNNAMED: /Users/prahalad/ReversableGate/src/reversable/reversable-ripple-adder.v:42:22: Unnamed generate block 'genblk1' (IEEE 1800-2017 27.6)
+                                                                                                  : ... Suggest assign a label with 'begin : gen_<label_name>'
+   42 |             end else begin
+      |                      ^~~~~
+%Warning-UNUSEDSIGNAL: /Users/prahalad/ReversableGate/src/reversable/reversable-full-adder.v:43:10: Signal is not used: 'p2'
+                                                                                                  : ... note: In instance 'reversible_wrapper.u_rev.rfa_bits[7].rfa'
+   43 |     wire p2, q2, r2;
+      |          ^~
