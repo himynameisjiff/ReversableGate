@@ -1,0 +1,89 @@
+Reading OpenROAD database at '/Users/prahalad/ReversableGate/openlane/conventional-ripple-openlane/runs/RUN_2025-11-05_20-17-51/20-openroad-generatepdn/ripple_adder_wrapper.odb'…
+Reading library file at '/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib'…
+Reading design constraints file at '/nix/store/4an8h2zgjvxb79xycic0fl63w2yk470s-python3-3.11.9-env/lib/python3.11/site-packages/openlane/scripts/base.sdc'…
+[INFO] Using clock clk…
+[INFO] Setting output delay to: 5
+[INFO] Setting input delay to: 5
+[INFO] Setting load to: 0.033442
+[INFO] Setting clock uncertainty to: 0.25
+[INFO] Setting clock transition to: 0.1499999999999999944488848768742172978818416595458984375
+[INFO] Setting timing derate to: 5%
++ global_placement -density 0.638038 -skip_io -pad_right 0 -pad_left 0 -init_wirelength_coef 0.25
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.460  2.720 ) um
+[INFO GPL-0004] CoreBBox: (  5.520 10.880 ) ( 56.580 59.840 ) um
+[INFO GPL-0006] NumInstances:               171
+[INFO GPL-0007] NumPlaceInstances:          105
+[INFO GPL-0008] NumFixedInstances:           66
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                    125
+[INFO GPL-0011] NumPins:                    356
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 62.175 72.895 ) um
+[INFO GPL-0013] CoreBBox: (  5.520 10.880 ) ( 56.580 59.840 ) um
+[INFO GPL-0016] CoreArea:              2499.898 um^2
+[INFO GPL-0017] NonPlaceInstsArea:      172.666 um^2
+[INFO GPL-0018] PlaceInstsArea:        1307.504 um^2
+[INFO GPL-0019] Util:                    56.183 %
+[INFO GPL-0020] StdInstsArea:          1307.504 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[INFO GPL-0031] FillerInit:NumGCells:       119
+[INFO GPL-0032] FillerInit:NumGNets:        125
+[INFO GPL-0033] FillerInit:NumGPins:        356
+[INFO GPL-0023] TargetDensity:            0.638
+[INFO GPL-0024] AvrgPlaceInstArea:       12.452 um^2
+[INFO GPL-0025] IdealBinArea:            19.517 um^2
+[INFO GPL-0026] IdealBinCnt:                128
+[INFO GPL-0027] TotalBinArea:          2499.898 um^2
+[INFO GPL-0028] BinCnt:         8      8
+[INFO GPL-0029] BinSize: (  6.383  6.120 )
+[INFO GPL-0030] NumBins: 64
+[NesterovSolve] Iter:    1 overflow: 0.925 HPWL: 209025
+[NesterovSolve] Iter:   10 overflow: 0.887 HPWL: 153486
+[NesterovSolve] Iter:   20 overflow: 0.889 HPWL: 154363
+[NesterovSolve] Iter:   30 overflow: 0.889 HPWL: 154241
+[NesterovSolve] Iter:   40 overflow: 0.889 HPWL: 154169
+[NesterovSolve] Iter:   50 overflow: 0.889 HPWL: 154170
+[NesterovSolve] Iter:   60 overflow: 0.889 HPWL: 154297
+[NesterovSolve] Iter:   70 overflow: 0.889 HPWL: 154494
+[NesterovSolve] Iter:   80 overflow: 0.888 HPWL: 154788
+[NesterovSolve] Iter:   90 overflow: 0.887 HPWL: 155045
+[NesterovSolve] Iter:  100 overflow: 0.885 HPWL: 154129
+[NesterovSolve] Iter:  110 overflow: 0.883 HPWL: 153974
+[NesterovSolve] Iter:  120 overflow: 0.878 HPWL: 153689
+[NesterovSolve] Iter:  130 overflow: 0.869 HPWL: 153585
+[NesterovSolve] Iter:  140 overflow: 0.854 HPWL: 157604
+[NesterovSolve] Iter:  150 overflow: 0.849 HPWL: 175601
+[NesterovSolve] Iter:  160 overflow: 0.771 HPWL: 244115
+[NesterovSolve] Iter:  170 overflow: 0.730 HPWL: 280312
+[NesterovSolve] Iter:  180 overflow: 0.691 HPWL: 296120
+[NesterovSolve] Iter:  190 overflow: 0.644 HPWL: 322179
+[NesterovSolve] Iter:  200 overflow: 0.603 HPWL: 345904
+[NesterovSolve] Iter:  210 overflow: 0.552 HPWL: 379315
+[NesterovSolve] Iter:  220 overflow: 0.506 HPWL: 411695
+[NesterovSolve] Iter:  230 overflow: 0.461 HPWL: 447361
+[NesterovSolve] Iter:  240 overflow: 0.414 HPWL: 474656
+[NesterovSolve] Iter:  250 overflow: 0.366 HPWL: 494610
+[NesterovSolve] Iter:  260 overflow: 0.323 HPWL: 514203
+[NesterovSolve] Iter:  270 overflow: 0.288 HPWL: 534565
+[NesterovSolve] Iter:  280 overflow: 0.256 HPWL: 558230
+[NesterovSolve] Iter:  290 overflow: 0.222 HPWL: 575266
+[NesterovSolve] Iter:  300 overflow: 0.188 HPWL: 588345
+[NesterovSolve] Iter:  310 overflow: 0.151 HPWL: 605943
+[NesterovSolve] Iter:  320 overflow: 0.122 HPWL: 619778
+[NesterovSolve] Iter:  330 overflow: 0.102 HPWL: 631407
+[NesterovSolve] Finished with Overflow: 0.098693
+[INFO] Setting RC values…
+Setting global connections for newly added cells…
+[INFO] Setting global connections...
+Updating metrics…
+Cell type report:                       Count       Area
+  Fill cell                                36     135.13
+  Tap cell                                 30      37.54
+  Sequential cell                          26     553.03
+  Multi-Input combinational cell           79     754.47
+  Total                                   171    1480.17
+Writing OpenROAD database to '/Users/prahalad/ReversableGate/openlane/conventional-ripple-openlane/runs/RUN_2025-11-05_20-17-51/23-openroad-globalplacementskipio/ripple_adder_wrapper.odb'…
+Writing netlist to '/Users/prahalad/ReversableGate/openlane/conventional-ripple-openlane/runs/RUN_2025-11-05_20-17-51/23-openroad-globalplacementskipio/ripple_adder_wrapper.nl.v'…
+Writing powered netlist to '/Users/prahalad/ReversableGate/openlane/conventional-ripple-openlane/runs/RUN_2025-11-05_20-17-51/23-openroad-globalplacementskipio/ripple_adder_wrapper.pnl.v'…
+Writing layout to '/Users/prahalad/ReversableGate/openlane/conventional-ripple-openlane/runs/RUN_2025-11-05_20-17-51/23-openroad-globalplacementskipio/ripple_adder_wrapper.def'…
+Writing timing constraints to '/Users/prahalad/ReversableGate/openlane/conventional-ripple-openlane/runs/RUN_2025-11-05_20-17-51/23-openroad-globalplacementskipio/ripple_adder_wrapper.sdc'…

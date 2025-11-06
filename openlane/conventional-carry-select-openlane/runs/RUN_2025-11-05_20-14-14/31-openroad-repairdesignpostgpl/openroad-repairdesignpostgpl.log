@@ -1,0 +1,71 @@
+Reading timing models for corner nom_tt_025C_1v80…
+Reading timing library for the 'nom_tt_025C_1v80' corner at '/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib'…
+Reading timing models for corner nom_ff_n40C_1v95…
+Reading timing library for the 'nom_ff_n40C_1v95' corner at '/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib'…
+Reading timing models for corner nom_ss_100C_1v60…
+Reading timing library for the 'nom_ss_100C_1v60' corner at '/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib'…
+Reading OpenROAD database at '/Users/prahalad/ReversableGate/openlane/conventional-carry-select-openlane/runs/RUN_2025-11-05_20-14-14/27-openroad-globalplacement/carry_select_wrapper.odb'…
+Reading design constraints file at '/nix/store/4an8h2zgjvxb79xycic0fl63w2yk470s-python3-3.11.9-env/lib/python3.11/site-packages/openlane/scripts/base.sdc'…
+[INFO] Using clock clk…
+[INFO] Setting output delay to: 5
+[INFO] Setting input delay to: 5
+[INFO] Setting load to: 0.033442
+[INFO] Setting clock uncertainty to: 0.25
+[INFO] Setting clock transition to: 0.1499999999999999944488848768742172978818416595458984375
+[INFO] Setting timing derate to: 5%
+[INFO] Setting RC values…
+[INFO RSZ-0027] Inserted 18 input buffers.
+[INFO RSZ-0028] Inserted 9 output buffers.
+[INFO RSZ-0058] Using max wire length 6335um.
+Iteration | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------
+        0 |       0 |       0 |             0 |       149
+       10 |       7 |       0 |             0 |       139
+       20 |      15 |       0 |             0 |       129
+       30 |      24 |       0 |             0 |       119
+       40 |      34 |       0 |             0 |       109
+       50 |      43 |       0 |             0 |        99
+       60 |      53 |       0 |             0 |        89
+       70 |      63 |       0 |             0 |        79
+       80 |      73 |       0 |             0 |        69
+       90 |      80 |       0 |             0 |        59
+      100 |      80 |       0 |             0 |        49
+      110 |      80 |       0 |             0 |        39
+      120 |      87 |       0 |             0 |        29
+      130 |     100 |       3 |             1 |        19
+      140 |     101 |       3 |             1 |         9
+    final |     101 |       3 |             1 |         0
+---------------------------------------------------------
+[INFO RSZ-0035] Found 1 fanout violations.
+[INFO RSZ-0038] Inserted 3 buffers in 1 nets.
+[INFO RSZ-0039] Resized 101 instances.
+Placement Analysis
+---------------------------------
+total displacement        354.0 u
+average displacement        1.8 u
+max displacement            7.4 u
+original HPWL            1076.6 u
+legalized HPWL           1429.3 u
+delta HPWL                   33 %
+
+[INFO DPL-0020] Mirrored 52 instances
+[INFO DPL-0021] HPWL before            1429.3 u
+[INFO DPL-0022] HPWL after             1379.9 u
+[INFO DPL-0023] HPWL delta               -3.5 %
+[INFO] Setting RC values…
+Setting global connections for newly added cells…
+[INFO] Setting global connections...
+Updating metrics…
+Cell type report:                       Count       Area
+  Fill cell                                36     135.13
+  Tap cell                                 30      37.54
+  Timing Repair Buffer                     30     135.13
+  Inverter                                 28     105.10
+  Sequential cell                          26     650.62
+  Multi-Input combinational cell           49     329.07
+  Total                                   199    1392.59
+Writing OpenROAD database to '/Users/prahalad/ReversableGate/openlane/conventional-carry-select-openlane/runs/RUN_2025-11-05_20-14-14/31-openroad-repairdesignpostgpl/carry_select_wrapper.odb'…
+Writing netlist to '/Users/prahalad/ReversableGate/openlane/conventional-carry-select-openlane/runs/RUN_2025-11-05_20-14-14/31-openroad-repairdesignpostgpl/carry_select_wrapper.nl.v'…
+Writing powered netlist to '/Users/prahalad/ReversableGate/openlane/conventional-carry-select-openlane/runs/RUN_2025-11-05_20-14-14/31-openroad-repairdesignpostgpl/carry_select_wrapper.pnl.v'…
+Writing layout to '/Users/prahalad/ReversableGate/openlane/conventional-carry-select-openlane/runs/RUN_2025-11-05_20-14-14/31-openroad-repairdesignpostgpl/carry_select_wrapper.def'…
+Writing timing constraints to '/Users/prahalad/ReversableGate/openlane/conventional-carry-select-openlane/runs/RUN_2025-11-05_20-14-14/31-openroad-repairdesignpostgpl/carry_select_wrapper.sdc'…

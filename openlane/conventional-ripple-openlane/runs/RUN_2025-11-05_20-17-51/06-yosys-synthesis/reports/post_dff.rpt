@@ -1,0 +1,34 @@
+108. Printing statistics.
+
+=== ripple_adder_wrapper ===
+
+   Number of wires:                108
+   Number of wire bits:            129
+   Number of public wires:          34
+   Number of public wire bits:      55
+   Number of ports:                  8
+   Number of port bits:             29
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                109
+     $_ANDNOT_                      16
+     $_MUX_                         43
+     $_NAND_                         1
+     $_ORNOT_                        6
+     $_OR_                           1
+     $_XNOR_                         9
+     $_XOR_                          7
+     sky130_fd_sc_hd__dfxtp_2       26
+
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+
+   Chip area for module '\ripple_adder_wrapper': 553.030400
+     of which used for sequential elements: 553.030400 (100.00%)
+

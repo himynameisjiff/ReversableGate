@@ -1,0 +1,1085 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2024  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.46 (git sha1 e97731b9dda91fa5fa53ed87df7c34163ba59a41, clang++ 16.0.6 -fPIC -O3)
+Loaded SDC plugin
+
+1. Executing Liberty frontend: /Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Imported 428 cell types from liberty file.
+[INFO] Using SDC file '/Users/prahalad/ReversableGate/openlane/conventional-ripple-openlane/runs/RUN_2025-11-05_20-17-51/06-yosys-synthesis/synthesis.abc.sdc' for ABC…
+
+2. Executing Verilog-2005 frontend: /Users/prahalad/ReversableGate/src/conventional-ripple/ripper-adder-wrapper.v
+Parsing SystemVerilog input from `/Users/prahalad/ReversableGate/src/conventional-ripple/ripper-adder-wrapper.v' to AST representation.
+Storing AST representation for module `$abstract\ripple_adder_wrapper'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: /Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v
+Parsing SystemVerilog input from `/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v' to AST representation.
+Storing AST representation for module `$abstract\full_adder'.
+Storing AST representation for module `$abstract\ripple_adder'.
+Successfully finished Verilog frontend.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+
+5. Executing AST frontend in derive mode using pre-parsed AST for module `\ripple_adder_wrapper'.
+Generating RTLIL representation for module `\ripple_adder_wrapper'.
+
+5.1. Analyzing design hierarchy..
+Top module:  \ripple_adder_wrapper
+
+5.2. Executing AST frontend in derive mode using pre-parsed AST for module `\ripple_adder'.
+Generating RTLIL representation for module `\ripple_adder'.
+
+5.3. Analyzing design hierarchy..
+Top module:  \ripple_adder_wrapper
+Used module:     \ripple_adder
+
+5.4. Executing AST frontend in derive mode using pre-parsed AST for module `\full_adder'.
+Generating RTLIL representation for module `\full_adder'.
+
+5.5. Analyzing design hierarchy..
+Top module:  \ripple_adder_wrapper
+Used module:     \ripple_adder
+Used module:         \full_adder
+
+5.6. Analyzing design hierarchy..
+Top module:  \ripple_adder_wrapper
+Used module:     \ripple_adder
+Used module:         \full_adder
+Removing unused module `$abstract\ripple_adder'.
+Removing unused module `$abstract\full_adder'.
+Removing unused module `$abstract\ripple_adder_wrapper'.
+Removed 3 unused modules.
+Renaming module ripple_adder_wrapper to ripple_adder_wrapper.
+
+6. Generating Graphviz representation of design.
+Writing dot description to `/Users/prahalad/ReversableGate/openlane/conventional-ripple-openlane/runs/RUN_2025-11-05_20-17-51/06-yosys-synthesis/hierarchy.dot'.
+Dumping module ripple_adder_wrapper to page 1.
+
+7. Executing TRIBUF pass.
+
+8. Executing HIERARCHY pass (managing design hierarchy).
+
+8.1. Analyzing design hierarchy..
+Top module:  \ripple_adder_wrapper
+Used module:     \ripple_adder
+Used module:         \full_adder
+
+8.2. Analyzing design hierarchy..
+Top module:  \ripple_adder_wrapper
+Used module:     \ripple_adder
+Used module:         \full_adder
+Removed 0 unused modules.
+
+9. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+10. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/Users/prahalad/ReversableGate/src/conventional-ripple/ripper-adder-wrapper.v:43$2 in module ripple_adder_wrapper.
+Marked 1 switch rules as full_case in process $proc$/Users/prahalad/ReversableGate/src/conventional-ripple/ripper-adder-wrapper.v:29$1 in module ripple_adder_wrapper.
+Removed a total of 0 dead cases.
+
+11. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 2 redundant assignments.
+Promoted 0 assignments to connections.
+
+12. Executing PROC_INIT pass (extract init attributes).
+
+13. Executing PROC_ARST pass (detect async resets in processes).
+
+14. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~3 debug messages>
+
+15. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\ripple_adder_wrapper.$proc$/Users/prahalad/ReversableGate/src/conventional-ripple/ripper-adder-wrapper.v:43$2'.
+     1/2: $0\cout[0:0]
+     2/2: $0\sum[7:0]
+Creating decoders for process `\ripple_adder_wrapper.$proc$/Users/prahalad/ReversableGate/src/conventional-ripple/ripper-adder-wrapper.v:29$1'.
+     1/3: $0\cin_r[0:0]
+     2/3: $0\b_r[7:0]
+     3/3: $0\a_r[7:0]
+
+16. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+17. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\ripple_adder_wrapper.\sum' using process `\ripple_adder_wrapper.$proc$/Users/prahalad/ReversableGate/src/conventional-ripple/ripper-adder-wrapper.v:43$2'.
+  created $dff cell `$procdff$26' with positive edge clock.
+Creating register for signal `\ripple_adder_wrapper.\cout' using process `\ripple_adder_wrapper.$proc$/Users/prahalad/ReversableGate/src/conventional-ripple/ripper-adder-wrapper.v:43$2'.
+  created $dff cell `$procdff$27' with positive edge clock.
+Creating register for signal `\ripple_adder_wrapper.\a_r' using process `\ripple_adder_wrapper.$proc$/Users/prahalad/ReversableGate/src/conventional-ripple/ripper-adder-wrapper.v:29$1'.
+  created $dff cell `$procdff$28' with positive edge clock.
+Creating register for signal `\ripple_adder_wrapper.\b_r' using process `\ripple_adder_wrapper.$proc$/Users/prahalad/ReversableGate/src/conventional-ripple/ripper-adder-wrapper.v:29$1'.
+  created $dff cell `$procdff$29' with positive edge clock.
+Creating register for signal `\ripple_adder_wrapper.\cin_r' using process `\ripple_adder_wrapper.$proc$/Users/prahalad/ReversableGate/src/conventional-ripple/ripper-adder-wrapper.v:29$1'.
+  created $dff cell `$procdff$30' with positive edge clock.
+
+18. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+19. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\ripple_adder_wrapper.$proc$/Users/prahalad/ReversableGate/src/conventional-ripple/ripper-adder-wrapper.v:43$2'.
+Removing empty process `ripple_adder_wrapper.$proc$/Users/prahalad/ReversableGate/src/conventional-ripple/ripper-adder-wrapper.v:43$2'.
+Found and cleaned up 2 empty switches in `\ripple_adder_wrapper.$proc$/Users/prahalad/ReversableGate/src/conventional-ripple/ripper-adder-wrapper.v:29$1'.
+Removing empty process `ripple_adder_wrapper.$proc$/Users/prahalad/ReversableGate/src/conventional-ripple/ripper-adder-wrapper.v:29$1'.
+Cleaned up 3 empty switches.
+
+20. Executing CHECK pass (checking for obvious problems).
+Checking module ripple_adder_wrapper...
+Checking module ripple_adder...
+Checking module full_adder...
+Found and reported 0 problems.
+
+21. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ripple_adder_wrapper.
+Optimizing module ripple_adder.
+Optimizing module full_adder.
+
+22. Executing FLATTEN pass (flatten design).
+Deleting now unused module ripple_adder.
+Deleting now unused module full_adder.
+<suppressed ~9 debug messages>
+
+23. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ripple_adder_wrapper.
+
+24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ripple_adder_wrapper..
+Removed 0 unused cells and 21 unused wires.
+<suppressed ~1 debug messages>
+
+25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ripple_adder_wrapper.
+
+26. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ripple_adder_wrapper'.
+Removed a total of 0 cells.
+
+27. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ripple_adder_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~5 debug messages>
+
+28. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ripple_adder_wrapper.
+Performed a total of 0 changes.
+
+29. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ripple_adder_wrapper'.
+Removed a total of 0 cells.
+
+30. Executing OPT_DFF pass (perform DFF optimizations).
+
+31. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ripple_adder_wrapper..
+
+32. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ripple_adder_wrapper.
+
+33. Executing FSM pass (extract and optimize FSM).
+
+33.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+33.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+33.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+33.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ripple_adder_wrapper..
+
+33.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+33.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+33.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+33.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+34. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ripple_adder_wrapper.
+
+35. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ripple_adder_wrapper'.
+Removed a total of 0 cells.
+
+36. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ripple_adder_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~5 debug messages>
+
+37. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ripple_adder_wrapper.
+Performed a total of 0 changes.
+
+38. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ripple_adder_wrapper'.
+Removed a total of 0 cells.
+
+39. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$30 ($dff) from module ripple_adder_wrapper (D = $procmux$11_Y, Q = \cin_r, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$40 ($sdff) from module ripple_adder_wrapper (D = \cin, Q = \cin_r).
+Adding SRST signal on $procdff$29 ($dff) from module ripple_adder_wrapper (D = $procmux$16_Y, Q = \b_r, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:266:slice$42 ($sdff) from module ripple_adder_wrapper (D = \b, Q = \b_r).
+Adding SRST signal on $procdff$28 ($dff) from module ripple_adder_wrapper (D = $procmux$21_Y, Q = \a_r, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:266:slice$44 ($sdff) from module ripple_adder_wrapper (D = \a, Q = \a_r).
+Adding SRST signal on $procdff$27 ($dff) from module ripple_adder_wrapper (D = \cout_c, Q = \cout, rval = 1'0).
+Adding SRST signal on $procdff$26 ($dff) from module ripple_adder_wrapper (D = \sum_c, Q = \sum, rval = 8'00000000).
+
+40. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ripple_adder_wrapper..
+Removed 8 unused cells and 8 unused wires.
+<suppressed ~9 debug messages>
+
+41. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ripple_adder_wrapper.
+
+42. Rerunning OPT passes. (Maybe there is more to do…)
+
+43. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ripple_adder_wrapper..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+44. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ripple_adder_wrapper.
+Performed a total of 0 changes.
+
+45. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ripple_adder_wrapper'.
+Removed a total of 0 cells.
+
+46. Executing OPT_DFF pass (perform DFF optimizations).
+
+47. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ripple_adder_wrapper..
+
+48. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ripple_adder_wrapper.
+
+49. Executing WREDUCE pass (reducing word size of cells).
+
+50. Executing PEEPOPT pass (run peephole optimizers).
+
+51. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ripple_adder_wrapper..
+
+52. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module ripple_adder_wrapper:
+  creating $macc model for $flatten\u_rip.\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$3 ($add).
+  creating $macc model for $flatten\u_rip.\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4 ($add).
+  creating $macc model for $flatten\u_rip.\gen_fa[1].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$3 ($add).
+  creating $macc model for $flatten\u_rip.\gen_fa[1].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4 ($add).
+  creating $macc model for $flatten\u_rip.\gen_fa[2].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$3 ($add).
+  creating $macc model for $flatten\u_rip.\gen_fa[2].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4 ($add).
+  creating $macc model for $flatten\u_rip.\gen_fa[3].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$3 ($add).
+  creating $macc model for $flatten\u_rip.\gen_fa[3].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4 ($add).
+  creating $macc model for $flatten\u_rip.\gen_fa[4].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$3 ($add).
+  creating $macc model for $flatten\u_rip.\gen_fa[4].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4 ($add).
+  creating $macc model for $flatten\u_rip.\gen_fa[5].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$3 ($add).
+  creating $macc model for $flatten\u_rip.\gen_fa[5].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4 ($add).
+  creating $macc model for $flatten\u_rip.\gen_fa[6].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$3 ($add).
+  creating $macc model for $flatten\u_rip.\gen_fa[6].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4 ($add).
+  creating $macc model for $flatten\u_rip.\gen_fa[7].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$3 ($add).
+  creating $macc model for $flatten\u_rip.\gen_fa[7].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4 ($add).
+  merging $macc model for $flatten\u_rip.\gen_fa[7].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$3 into $flatten\u_rip.\gen_fa[7].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4.
+  merging $macc model for $flatten\u_rip.\gen_fa[6].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$3 into $flatten\u_rip.\gen_fa[6].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4.
+  merging $macc model for $flatten\u_rip.\gen_fa[5].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$3 into $flatten\u_rip.\gen_fa[5].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4.
+  merging $macc model for $flatten\u_rip.\gen_fa[4].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$3 into $flatten\u_rip.\gen_fa[4].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4.
+  merging $macc model for $flatten\u_rip.\gen_fa[3].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$3 into $flatten\u_rip.\gen_fa[3].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4.
+  merging $macc model for $flatten\u_rip.\gen_fa[2].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$3 into $flatten\u_rip.\gen_fa[2].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4.
+  merging $macc model for $flatten\u_rip.\gen_fa[1].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$3 into $flatten\u_rip.\gen_fa[1].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4.
+  merging $macc model for $flatten\u_rip.\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$3 into $flatten\u_rip.\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4.
+  creating $alu model for $macc $flatten\u_rip.\gen_fa[3].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4.
+  creating $alu model for $macc $flatten\u_rip.\gen_fa[4].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4.
+  creating $alu model for $macc $flatten\u_rip.\gen_fa[2].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4.
+  creating $alu model for $macc $flatten\u_rip.\gen_fa[6].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4.
+  creating $alu model for $macc $flatten\u_rip.\gen_fa[1].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4.
+  creating $alu model for $macc $flatten\u_rip.\gen_fa[5].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4.
+  creating $alu model for $macc $flatten\u_rip.\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4.
+  creating $alu model for $macc $flatten\u_rip.\gen_fa[7].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4.
+  creating $alu cell for $flatten\u_rip.\gen_fa[7].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4: $auto$alumacc.cc:485:replace_alu$48
+  creating $alu cell for $flatten\u_rip.\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4: $auto$alumacc.cc:485:replace_alu$51
+  creating $alu cell for $flatten\u_rip.\gen_fa[5].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4: $auto$alumacc.cc:485:replace_alu$54
+  creating $alu cell for $flatten\u_rip.\gen_fa[1].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4: $auto$alumacc.cc:485:replace_alu$57
+  creating $alu cell for $flatten\u_rip.\gen_fa[6].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4: $auto$alumacc.cc:485:replace_alu$60
+  creating $alu cell for $flatten\u_rip.\gen_fa[2].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4: $auto$alumacc.cc:485:replace_alu$63
+  creating $alu cell for $flatten\u_rip.\gen_fa[4].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4: $auto$alumacc.cc:485:replace_alu$66
+  creating $alu cell for $flatten\u_rip.\gen_fa[3].fa.$add$/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v:8$4: $auto$alumacc.cc:485:replace_alu$69
+  created 8 $alu and 0 $macc cells.
+
+53. Executing SHARE pass (SAT-based resource sharing).
+
+54. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ripple_adder_wrapper.
+
+55. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ripple_adder_wrapper'.
+Removed a total of 0 cells.
+
+56. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ripple_adder_wrapper..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+57. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ripple_adder_wrapper.
+Performed a total of 0 changes.
+
+58. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ripple_adder_wrapper'.
+Removed a total of 0 cells.
+
+59. Executing OPT_DFF pass (perform DFF optimizations).
+
+60. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ripple_adder_wrapper..
+Removed 8 unused cells and 8 unused wires.
+<suppressed ~9 debug messages>
+
+61. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ripple_adder_wrapper.
+
+62. Rerunning OPT passes. (Maybe there is more to do…)
+
+63. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ripple_adder_wrapper..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+64. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ripple_adder_wrapper.
+Performed a total of 0 changes.
+
+65. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ripple_adder_wrapper'.
+Removed a total of 0 cells.
+
+66. Executing OPT_DFF pass (perform DFF optimizations).
+
+67. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ripple_adder_wrapper..
+
+68. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ripple_adder_wrapper.
+
+69. Executing MEMORY pass.
+
+69.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+69.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+69.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+69.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+69.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+69.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ripple_adder_wrapper..
+
+69.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+69.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+69.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ripple_adder_wrapper..
+
+69.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+70. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ripple_adder_wrapper..
+
+71. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ripple_adder_wrapper.
+
+72. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ripple_adder_wrapper'.
+Removed a total of 0 cells.
+
+73. Executing OPT_DFF pass (perform DFF optimizations).
+
+74. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ripple_adder_wrapper..
+
+75. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+76. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ripple_adder_wrapper.
+
+77. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ripple_adder_wrapper'.
+Removed a total of 0 cells.
+
+78. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ripple_adder_wrapper..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+79. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ripple_adder_wrapper.
+Performed a total of 0 changes.
+
+80. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ripple_adder_wrapper'.
+Removed a total of 0 cells.
+
+81. Executing OPT_SHARE pass.
+
+82. Executing OPT_DFF pass (perform DFF optimizations).
+
+83. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ripple_adder_wrapper..
+
+84. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ripple_adder_wrapper.
+
+85. Executing TECHMAP pass (map to technology primitives).
+
+85.1. Executing Verilog-2005 frontend: /nix/store/6zc2kdlrqrp4xxm125k2rsl0lf5n3bqz-yosys-with-plugins/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/nix/store/6zc2kdlrqrp4xxm125k2rsl0lf5n3bqz-yosys-with-plugins/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+85.2. Continuing TECHMAP pass.
+Using template $paramod$1d1e68f77481583066c6d429218f48ea9d5739b3\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $sdff.
+Using extmapper simplemap for cells of type $sdffe.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $and.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000010 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $or.
+No more expansions possible.
+<suppressed ~308 debug messages>
+
+86. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ripple_adder_wrapper.
+<suppressed ~72 debug messages>
+
+87. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ripple_adder_wrapper'.
+Removed a total of 0 cells.
+
+88. Executing OPT_DFF pass (perform DFF optimizations).
+
+89. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ripple_adder_wrapper..
+Removed 8 unused cells and 208 unused wires.
+<suppressed ~9 debug messages>
+
+90. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ripple_adder_wrapper.
+
+91. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ripple_adder_wrapper'.
+Removed a total of 0 cells.
+
+92. Executing OPT_DFF pass (perform DFF optimizations).
+
+93. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ripple_adder_wrapper..
+
+94. Executing ABC pass (technology mapping using ABC).
+
+94.1. Extracting gate netlist of module `\ripple_adder_wrapper' to `<abc-temp-dir>/input.blif'..
+Extracted 40 gates and 57 wires to a netlist network with 17 inputs and 9 outputs.
+
+94.1.1. Executing ABC.
+Running ABC command: "/nix/store/nfc55yg37krxzn5va3s91rns1l725sc8-yosys-abc/bin/abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: Entered genlib library with 13 gates from file "<abc-temp-dir>/stdcells.genlib".
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+94.1.2. Re-integrating ABC results.
+ABC RESULTS:              NAND cells:        1
+ABC RESULTS:             ORNOT cells:        6
+ABC RESULTS:               XOR cells:        7
+ABC RESULTS:              XNOR cells:        9
+ABC RESULTS:            ANDNOT cells:       16
+ABC RESULTS:                OR cells:        1
+ABC RESULTS:        internal signals:       31
+ABC RESULTS:           input signals:       17
+ABC RESULTS:          output signals:        9
+Removing temp directory.
+
+95. Executing OPT pass (performing simple optimizations).
+
+95.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ripple_adder_wrapper.
+
+95.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ripple_adder_wrapper'.
+Removed a total of 0 cells.
+
+95.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+95.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ripple_adder_wrapper..
+Removed 0 unused cells and 50 unused wires.
+<suppressed ~1 debug messages>
+
+95.5. Finished fast OPT passes.
+
+96. Executing HIERARCHY pass (managing design hierarchy).
+
+96.1. Analyzing design hierarchy..
+Top module:  \ripple_adder_wrapper
+
+96.2. Analyzing design hierarchy..
+Top module:  \ripple_adder_wrapper
+Removed 0 unused modules.
+
+97. Executing CHECK pass (checking for obvious problems).
+Checking module ripple_adder_wrapper...
+Found and reported 0 problems.
+
+98. Printing statistics.
+
+=== ripple_adder_wrapper ===
+
+   Number of wires:                 90
+   Number of wire bits:            160
+   Number of public wires:          59
+   Number of public wire bits:     129
+   Number of ports:                  8
+   Number of port bits:             29
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 75
+     $_ANDNOT_                      16
+     $_NAND_                         1
+     $_ORNOT_                        6
+     $_OR_                           1
+     $_SDFFE_PP0P_                  17
+     $_SDFF_PP0_                     9
+     $_XNOR_                         9
+     $_XOR_                          7
+     $scopeinfo                      9
+
+99. Generating Graphviz representation of design.
+Writing dot description to `/Users/prahalad/ReversableGate/openlane/conventional-ripple-openlane/runs/RUN_2025-11-05_20-17-51/06-yosys-synthesis/primitive_techmap.dot'.
+Dumping module ripple_adder_wrapper to page 1.
+
+100. Executing OPT pass (performing simple optimizations).
+
+100.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ripple_adder_wrapper.
+
+100.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ripple_adder_wrapper'.
+Removed a total of 0 cells.
+
+100.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ripple_adder_wrapper..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+100.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ripple_adder_wrapper.
+Performed a total of 0 changes.
+
+100.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ripple_adder_wrapper'.
+Removed a total of 0 cells.
+
+100.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+100.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ripple_adder_wrapper..
+
+100.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ripple_adder_wrapper.
+
+100.9. Finished OPT passes. (There is nothing left to do.)
+
+101. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ripple_adder_wrapper..
+Removed 9 unused cells and 25 unused wires.
+<suppressed ~34 debug messages>
+{
+   "creator": "Yosys 0.46 (git sha1 e97731b9dda91fa5fa53ed87df7c34163ba59a41, clang++ 16.0.6 -fPIC -O3)",
+   "invocation": "stat -json -liberty /Users/prahalad/ReversableGate/openlane/conventional-ripple-openlane/runs/RUN_2025-11-05_20-17-51/tmp/d4131846affc4efa88cca8d42c239c47.lib ",
+   "modules": {
+      "\\ripple_adder_wrapper": {
+         "num_wires":         65,
+         "num_wire_bits":     86,
+         "num_pub_wires":     34,
+         "num_pub_wire_bits": 55,
+         "num_ports":         8,
+         "num_port_bits":     29,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         66,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 16,
+            "$_NAND_": 1,
+            "$_ORNOT_": 6,
+            "$_OR_": 1,
+            "$_SDFFE_PP0P_": 17,
+            "$_SDFF_PP0_": 9,
+            "$_XNOR_": 9,
+            "$_XOR_": 7
+         }
+      }
+   },
+      "design": {
+         "num_wires":         65,
+         "num_wire_bits":     86,
+         "num_pub_wires":     34,
+         "num_pub_wire_bits": 55,
+         "num_ports":         8,
+         "num_port_bits":     29,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         66,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 16,
+            "$_NAND_": 1,
+            "$_ORNOT_": 6,
+            "$_OR_": 1,
+            "$_SDFFE_PP0P_": 17,
+            "$_SDFF_PP0_": 9,
+            "$_XNOR_": 9,
+            "$_XOR_": 7
+         }
+      }
+}
+
+102. Printing statistics.
+
+=== ripple_adder_wrapper ===
+
+   Number of wires:                 65
+   Number of wire bits:             86
+   Number of public wires:          34
+   Number of public wire bits:      55
+   Number of ports:                  8
+   Number of port bits:             29
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 66
+     $_ANDNOT_                      16
+     $_NAND_                         1
+     $_ORNOT_                        6
+     $_OR_                           1
+     $_SDFFE_PP0P_                  17
+     $_SDFF_PP0_                     9
+     $_XNOR_                         9
+     $_XOR_                          7
+
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_SDFF_PP0_ is unknown!
+   Area for cell type $_SDFFE_PP0P_ is unknown!
+
+[INFO] Applying tri-state buffer mapping from '/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v'…
+
+103. Executing TECHMAP pass (map to technology primitives).
+
+103.1. Executing Verilog-2005 frontend: /Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v
+Parsing Verilog input from `/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v' to AST representation.
+Generating RTLIL representation for module `\$_TBUF_'.
+Successfully finished Verilog frontend.
+
+103.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~3 debug messages>
+
+104. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+[INFO] Applying latch mapping from '/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v'…
+
+105. Executing TECHMAP pass (map to technology primitives).
+
+105.1. Executing Verilog-2005 frontend: /Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v
+Parsing Verilog input from `/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v' to AST representation.
+Generating RTLIL representation for module `\$_DLATCH_P_'.
+Generating RTLIL representation for module `\$_DLATCH_N_'.
+Successfully finished Verilog frontend.
+
+105.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~4 debug messages>
+
+106. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+107. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_2 (noninv, pins=3, area=21.27) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtp_2 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_2 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__dfbbn_2 (noninv, pins=6, area=35.03) is a direct match for cell type $_DFFSR_NNN_.
+  final dff cell mappings:
+    unmapped dff cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_2 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    unmapped dff cell: $_DFF_NN0_
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_2 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_2 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    \sky130_fd_sc_hd__dfbbn_2 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    unmapped dff cell: $_DFFSR_PNN_
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+107.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+Mapping DFF cells in module `\ripple_adder_wrapper':
+  mapped 26 $_DFF_P_ cells to \sky130_fd_sc_hd__dfxtp_2 cells.
+{
+   "creator": "Yosys 0.46 (git sha1 e97731b9dda91fa5fa53ed87df7c34163ba59a41, clang++ 16.0.6 -fPIC -O3)",
+   "invocation": "stat -json -liberty /Users/prahalad/ReversableGate/openlane/conventional-ripple-openlane/runs/RUN_2025-11-05_20-17-51/tmp/d4131846affc4efa88cca8d42c239c47.lib ",
+   "modules": {
+      "\\ripple_adder_wrapper": {
+         "num_wires":         108,
+         "num_wire_bits":     129,
+         "num_pub_wires":     34,
+         "num_pub_wire_bits": 55,
+         "num_ports":         8,
+         "num_port_bits":     29,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         109,
+         "area":              553.030400,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 16,
+            "$_MUX_": 43,
+            "$_NAND_": 1,
+            "$_ORNOT_": 6,
+            "$_OR_": 1,
+            "$_XNOR_": 9,
+            "$_XOR_": 7,
+            "sky130_fd_sc_hd__dfxtp_2": 26
+         }
+      }
+   },
+      "design": {
+         "num_wires":         108,
+         "num_wire_bits":     129,
+         "num_pub_wires":     34,
+         "num_pub_wire_bits": 55,
+         "num_ports":         8,
+         "num_port_bits":     29,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         109,
+         "area":              553.030400,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 16,
+            "$_MUX_": 43,
+            "$_NAND_": 1,
+            "$_ORNOT_": 6,
+            "$_OR_": 1,
+            "$_XNOR_": 9,
+            "$_XOR_": 7,
+            "sky130_fd_sc_hd__dfxtp_2": 26
+         }
+      }
+}
+
+108. Printing statistics.
+
+=== ripple_adder_wrapper ===
+
+   Number of wires:                108
+   Number of wire bits:            129
+   Number of public wires:          34
+   Number of public wire bits:      55
+   Number of ports:                  8
+   Number of port bits:             29
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                109
+     $_ANDNOT_                      16
+     $_MUX_                         43
+     $_NAND_                         1
+     $_ORNOT_                        6
+     $_OR_                           1
+     $_XNOR_                         9
+     $_XOR_                          7
+     sky130_fd_sc_hd__dfxtp_2       26
+
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+
+   Chip area for module '\ripple_adder_wrapper': 553.030400
+     of which used for sequential elements: 553.030400 (100.00%)
+
+[INFO] Using generated ABC script '/Users/prahalad/ReversableGate/openlane/conventional-ripple-openlane/runs/RUN_2025-11-05_20-17-51/06-yosys-synthesis/AREA_0.abc'…
+
+109. Executing ABC pass (technology mapping using ABC).
+
+109.1. Extracting gate netlist of module `\ripple_adder_wrapper' to `/tmp/yosys-abc-qxghN8/input.blif'..
+Extracted 83 gates and 120 wires to a netlist network with 36 inputs and 26 outputs.
+
+109.1.1. Executing ABC.
+Running ABC command: "/nix/store/nfc55yg37krxzn5va3s91rns1l725sc8-yosys-abc/bin/abc" -s -f /tmp/yosys-abc-qxghN8/abc.script 2>&1
+ABC: ABC command line: "source /tmp/yosys-abc-qxghN8/abc.script".
+ABC: 
+ABC: + read_blif /tmp/yosys-abc-qxghN8/input.blif 
+ABC: + read_lib -w /Users/prahalad/ReversableGate/openlane/conventional-ripple-openlane/runs/RUN_2025-11-05_20-17-51/tmp/d4131846affc4efa88cca8d42c239c47.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.03 sec
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_8".
+ABC: Library "sky130_fd_sc_hd__tt_025C_1v80" from "/Users/prahalad/ReversableGate/openlane/conventional-ripple-openlane/runs/RUN_2025-11-05_20-17-51/tmp/d4131846affc4efa88cca8d42c239c47.lib" has 175 cells (17 skipped: 14 seq; 3 tri-state; 0 no func; 0 dont_use).  Time =     0.05 sec
+ABC: Memory =    9.54 MB. Time =     0.05 sec
+ABC: Warning: Detected 2 multi-output gates (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + read_constr -v /Users/prahalad/ReversableGate/openlane/conventional-ripple-openlane/runs/RUN_2025-11-05_20-17-51/06-yosys-synthesis/synthesis.abc.sdc 
+ABC: Setting driving cell to be "sky130_fd_sc_hd__inv_2/Y".
+ABC: Setting output load to be 33.442001.
+ABC: + source /Users/prahalad/ReversableGate/openlane/conventional-ripple-openlane/runs/RUN_2025-11-05_20-17-51/06-yosys-synthesis/AREA_0.abc 
+ABC: Error: The network is combinational.
+ABC: Cannot find the default PI driving cell (sky130_fd_sc_hd__inv_2/Y) in the library.
+ABC: WireLoad = "none"  Gates =     79 (  0.0 %)   Cap = 12.3 ff (  6.6 %)   Area =      754.47 ( 75.9 %)   Delay =  2944.62 ps  ( 25.3 %)               
+ABC: Path  0 --       1 : 0    3 pi                        A =   0.00  Df =   0.0   -0.0 ps  S =   0.0 ps  Cin =  0.0 ff  Cout =   7.7 ff  Cmax =   0.0 ff  G =    0  
+ABC: Path  1 --      63 : 2    3 sky130_fd_sc_hd__or2_2    A =   6.26  Df = 307.0 -196.2 ps  S =  78.1 ps  Cin =  1.5 ff  Cout =  11.2 ff  Cmax = 299.4 ff  G =  740  
+ABC: Path  2 --      68 : 3    2 sky130_fd_sc_hd__a21boi_2 A =  11.26  Df = 497.5 -290.9 ps  S = 154.4 ps  Cin =  3.6 ff  Cout =   9.9 ff  Cmax = 129.1 ff  G =  268  
+ABC: Path  3 --      70 : 2    2 sky130_fd_sc_hd__xnor2_2  A =  16.27  Df = 671.2 -325.8 ps  S = 138.7 ps  Cin =  8.5 ff  Cout =   6.1 ff  Cmax = 121.8 ff  G =   68  
+ABC: Path  4 --      72 : 2    3 sky130_fd_sc_hd__nand2_2  A =   6.26  Df = 754.0 -327.9 ps  S =  65.4 ps  Cin =  4.4 ff  Cout =   8.7 ff  Cmax = 295.7 ff  G =  188  
+ABC: Path  5 --      75 : 3    2 sky130_fd_sc_hd__a21bo_2  A =  10.01  Df = 875.7 -242.3 ps  S =  34.9 ps  Cin =  2.0 ff  Cout =   2.9 ff  Cmax = 288.4 ff  G =  138  
+ABC: Path  6 --      79 : 3    2 sky130_fd_sc_hd__a21bo_2  A =  10.01  Df =1114.1 -264.8 ps  S =  83.5 ps  Cin =  2.0 ff  Cout =  13.1 ff  Cmax = 288.4 ff  G =  618  
+ABC: Path  7 --      81 : 2    2 sky130_fd_sc_hd__xor2_2   A =  16.27  Df =1261.7 -257.6 ps  S = 128.5 ps  Cin =  8.6 ff  Cout =   6.1 ff  Cmax = 130.0 ff  G =   67  
+ABC: Path  8 --      83 : 2    3 sky130_fd_sc_hd__nand2_2  A =   6.26  Df =1340.6 -257.6 ps  S =  65.2 ps  Cin =  4.4 ff  Cout =   8.7 ff  Cmax = 295.7 ff  G =  188  
+ABC: Path  9 --      86 : 3    2 sky130_fd_sc_hd__a21bo_2  A =  10.01  Df =1462.3 -172.4 ps  S =  34.9 ps  Cin =  2.0 ff  Cout =   2.9 ff  Cmax = 288.4 ff  G =  138  
+ABC: Path 10 --      90 : 3    2 sky130_fd_sc_hd__a21bo_2  A =  10.01  Df =1700.6 -194.9 ps  S =  83.5 ps  Cin =  2.0 ff  Cout =  13.1 ff  Cmax = 288.4 ff  G =  618  
+ABC: Path 11 --      92 : 2    2 sky130_fd_sc_hd__xor2_2   A =  16.27  Df =1848.2 -187.8 ps  S = 128.5 ps  Cin =  8.6 ff  Cout =   6.1 ff  Cmax = 130.0 ff  G =   67  
+ABC: Path 12 --      94 : 2    3 sky130_fd_sc_hd__nand2_2  A =   6.26  Df =1927.2 -187.7 ps  S =  65.2 ps  Cin =  4.4 ff  Cout =   8.7 ff  Cmax = 295.7 ff  G =  188  
+ABC: Path 13 --      97 : 3    2 sky130_fd_sc_hd__a21bo_2  A =  10.01  Df =2049.9 -102.8 ps  S =  35.5 ps  Cin =  2.0 ff  Cout =   3.2 ff  Cmax = 288.4 ff  G =  148  
+ABC: Path 14 --     101 : 3    2 sky130_fd_sc_hd__a21boi_2 A =  11.26  Df =2237.1 -127.8 ps  S = 154.3 ps  Cin =  3.6 ff  Cout =   9.9 ff  Cmax = 129.1 ff  G =  268  
+ABC: Path 15 --     103 : 2    2 sky130_fd_sc_hd__xnor2_2  A =  16.27  Df =2410.8 -162.6 ps  S = 138.7 ps  Cin =  8.5 ff  Cout =   6.1 ff  Cmax = 121.8 ff  G =   68  
+ABC: Path 16 --     104 : 2    1 sky130_fd_sc_hd__or2_2    A =   6.26  Df =2672.5 -303.5 ps  S =  49.3 ps  Cin =  1.5 ff  Cout =   1.5 ff  Cmax = 299.4 ff  G =  103  
+ABC: Path 17 --     106 : 3    1 sky130_fd_sc_hd__and3b_2  A =  10.01  Df =2944.6 -163.7 ps  S = 182.2 ps  Cin =  1.5 ff  Cout =  33.4 ff  Cmax = 309.5 ff  G = 2264  
+ABC: Start-point = pi0 (\cin_r).  End-point = po7 ($auto$rtlil.cc:2739:MuxGate$363).
+ABC: netlist                       : i/o =   36/   26  lat =    0  nd =    79  edge =    199  area =754.58  delay =17.00  lev = 17
+ABC: + write_blif /tmp/yosys-abc-qxghN8/output.blif 
+
+109.1.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__and3_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor3_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__xor2_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nand3b_2 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__a21bo_2 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__and2_2 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__o21a_2 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__a21boi_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nand2b_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__or2_2 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__nand2_2 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__and3b_2 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__mux2_1 cells:       17
+ABC RESULTS:   sky130_fd_sc_hd__and2b_2 cells:       17
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_2 cells:        5
+ABC RESULTS:        internal signals:       58
+ABC RESULTS:           input signals:       36
+ABC RESULTS:          output signals:       26
+Removing temp directory.
+
+110. Executing SETUNDEF pass (replace undef values with defined constants).
+
+111. Executing HILOMAP pass (mapping to constant drivers).
+
+112. Executing SPLITNETS pass (splitting up multi-bit signals).
+
+113. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ripple_adder_wrapper..
+Removed 0 unused cells and 119 unused wires.
+<suppressed ~10 debug messages>
+
+114. Executing INSBUF pass (insert buffer cells for connected wires).
+
+115. Executing CHECK pass (checking for obvious problems).
+Checking module ripple_adder_wrapper...
+Found and reported 0 problems.
+{
+   "creator": "Yosys 0.46 (git sha1 e97731b9dda91fa5fa53ed87df7c34163ba59a41, clang++ 16.0.6 -fPIC -O3)",
+   "invocation": "stat -json -liberty /Users/prahalad/ReversableGate/openlane/conventional-ripple-openlane/runs/RUN_2025-11-05_20-17-51/tmp/d4131846affc4efa88cca8d42c239c47.lib ",
+   "modules": {
+      "\\ripple_adder_wrapper": {
+         "num_wires":         104,
+         "num_wire_bits":     125,
+         "num_pub_wires":     25,
+         "num_pub_wire_bits": 46,
+         "num_ports":         8,
+         "num_port_bits":     29,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         105,
+         "area":              1307.504000,
+         "num_cells_by_type": {
+            "sky130_fd_sc_hd__a21bo_2": 5,
+            "sky130_fd_sc_hd__a21boi_2": 2,
+            "sky130_fd_sc_hd__a21oi_2": 5,
+            "sky130_fd_sc_hd__and2_2": 3,
+            "sky130_fd_sc_hd__and2b_2": 17,
+            "sky130_fd_sc_hd__and3_2": 1,
+            "sky130_fd_sc_hd__and3b_2": 4,
+            "sky130_fd_sc_hd__dfxtp_2": 26,
+            "sky130_fd_sc_hd__mux2_1": 17,
+            "sky130_fd_sc_hd__nand2_2": 7,
+            "sky130_fd_sc_hd__nand2b_2": 2,
+            "sky130_fd_sc_hd__nand3b_2": 3,
+            "sky130_fd_sc_hd__nor3_2": 1,
+            "sky130_fd_sc_hd__o21a_2": 3,
+            "sky130_fd_sc_hd__or2_2": 5,
+            "sky130_fd_sc_hd__xnor2_2": 2,
+            "sky130_fd_sc_hd__xor2_2": 2
+         }
+      }
+   },
+      "design": {
+         "num_wires":         104,
+         "num_wire_bits":     125,
+         "num_pub_wires":     25,
+         "num_pub_wire_bits": 46,
+         "num_ports":         8,
+         "num_port_bits":     29,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         105,
+         "area":              1307.504000,
+         "num_cells_by_type": {
+            "sky130_fd_sc_hd__a21bo_2": 5,
+            "sky130_fd_sc_hd__a21boi_2": 2,
+            "sky130_fd_sc_hd__a21oi_2": 5,
+            "sky130_fd_sc_hd__and2_2": 3,
+            "sky130_fd_sc_hd__and2b_2": 17,
+            "sky130_fd_sc_hd__and3_2": 1,
+            "sky130_fd_sc_hd__and3b_2": 4,
+            "sky130_fd_sc_hd__dfxtp_2": 26,
+            "sky130_fd_sc_hd__mux2_1": 17,
+            "sky130_fd_sc_hd__nand2_2": 7,
+            "sky130_fd_sc_hd__nand2b_2": 2,
+            "sky130_fd_sc_hd__nand3b_2": 3,
+            "sky130_fd_sc_hd__nor3_2": 1,
+            "sky130_fd_sc_hd__o21a_2": 3,
+            "sky130_fd_sc_hd__or2_2": 5,
+            "sky130_fd_sc_hd__xnor2_2": 2,
+            "sky130_fd_sc_hd__xor2_2": 2
+         }
+      }
+}
+
+116. Printing statistics.
+
+=== ripple_adder_wrapper ===
+
+   Number of wires:                104
+   Number of wire bits:            125
+   Number of public wires:          25
+   Number of public wire bits:      46
+   Number of ports:                  8
+   Number of port bits:             29
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                105
+     sky130_fd_sc_hd__a21bo_2        5
+     sky130_fd_sc_hd__a21boi_2       2
+     sky130_fd_sc_hd__a21oi_2        5
+     sky130_fd_sc_hd__and2_2         3
+     sky130_fd_sc_hd__and2b_2       17
+     sky130_fd_sc_hd__and3_2         1
+     sky130_fd_sc_hd__and3b_2        4
+     sky130_fd_sc_hd__dfxtp_2       26
+     sky130_fd_sc_hd__mux2_1        17
+     sky130_fd_sc_hd__nand2_2        7
+     sky130_fd_sc_hd__nand2b_2       2
+     sky130_fd_sc_hd__nand3b_2       3
+     sky130_fd_sc_hd__nor3_2         1
+     sky130_fd_sc_hd__o21a_2         3
+     sky130_fd_sc_hd__or2_2          5
+     sky130_fd_sc_hd__xnor2_2        2
+     sky130_fd_sc_hd__xor2_2         2
+
+   Chip area for module '\ripple_adder_wrapper': 1307.504000
+     of which used for sequential elements: 553.030400 (42.30%)
+
+117. Executing Verilog backend.
+Dumping module `\ripple_adder_wrapper'.
+
+118. Executing JSON backend.

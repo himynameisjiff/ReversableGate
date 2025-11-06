@@ -1,0 +1,75 @@
+{
+   "creator": "Yosys 0.46 (git sha1 e97731b9dda91fa5fa53ed87df7c34163ba59a41, clang++ 16.0.6 -fPIC -O3)",
+   "invocation": "stat -json -liberty /Users/prahalad/ReversableGate/openlane/conventional-carry-select-openlane/runs/RUN_2025-11-05_20-14-14/tmp/1df5b0c4e11d4aa5a806587ae47aa706.lib ",
+   "modules": {
+      "\\carry_select_wrapper": {
+         "num_wires":         101,
+         "num_wire_bits":     122,
+         "num_pub_wires":     33,
+         "num_pub_wire_bits": 54,
+         "num_ports":         7,
+         "num_port_bits":     28,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         103,
+         "area":              1248.697600,
+         "num_cells_by_type": {
+            "sky130_fd_sc_hd__a211o_2": 1,
+            "sky130_fd_sc_hd__a21boi_2": 2,
+            "sky130_fd_sc_hd__a21oi_2": 5,
+            "sky130_fd_sc_hd__a32o_2": 1,
+            "sky130_fd_sc_hd__and2_2": 1,
+            "sky130_fd_sc_hd__and2b_2": 4,
+            "sky130_fd_sc_hd__and3_2": 2,
+            "sky130_fd_sc_hd__dfrtp_2": 26,
+            "sky130_fd_sc_hd__inv_2": 28,
+            "sky130_fd_sc_hd__mux2_1": 2,
+            "sky130_fd_sc_hd__nand2_2": 8,
+            "sky130_fd_sc_hd__nand2b_2": 2,
+            "sky130_fd_sc_hd__nor2_2": 5,
+            "sky130_fd_sc_hd__nor3b_2": 1,
+            "sky130_fd_sc_hd__o21a_2": 2,
+            "sky130_fd_sc_hd__or2_2": 4,
+            "sky130_fd_sc_hd__or3b_2": 1,
+            "sky130_fd_sc_hd__xnor2_2": 5,
+            "sky130_fd_sc_hd__xor2_2": 3
+         }
+      }
+   },
+      "design": {
+         "num_wires":         101,
+         "num_wire_bits":     122,
+         "num_pub_wires":     33,
+         "num_pub_wire_bits": 54,
+         "num_ports":         7,
+         "num_port_bits":     28,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         103,
+         "area":              1248.697600,
+         "num_cells_by_type": {
+            "sky130_fd_sc_hd__a211o_2": 1,
+            "sky130_fd_sc_hd__a21boi_2": 2,
+            "sky130_fd_sc_hd__a21oi_2": 5,
+            "sky130_fd_sc_hd__a32o_2": 1,
+            "sky130_fd_sc_hd__and2_2": 1,
+            "sky130_fd_sc_hd__and2b_2": 4,
+            "sky130_fd_sc_hd__and3_2": 2,
+            "sky130_fd_sc_hd__dfrtp_2": 26,
+            "sky130_fd_sc_hd__inv_2": 28,
+            "sky130_fd_sc_hd__mux2_1": 2,
+            "sky130_fd_sc_hd__nand2_2": 8,
+            "sky130_fd_sc_hd__nand2b_2": 2,
+            "sky130_fd_sc_hd__nor2_2": 5,
+            "sky130_fd_sc_hd__nor3b_2": 1,
+            "sky130_fd_sc_hd__o21a_2": 2,
+            "sky130_fd_sc_hd__or2_2": 4,
+            "sky130_fd_sc_hd__or3b_2": 1,
+            "sky130_fd_sc_hd__xnor2_2": 5,
+            "sky130_fd_sc_hd__xor2_2": 3
+         }
+      }
+}
+

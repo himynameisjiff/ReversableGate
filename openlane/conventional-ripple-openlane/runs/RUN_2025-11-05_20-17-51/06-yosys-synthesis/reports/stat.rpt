@@ -1,0 +1,35 @@
+116. Printing statistics.
+
+=== ripple_adder_wrapper ===
+
+   Number of wires:                104
+   Number of wire bits:            125
+   Number of public wires:          25
+   Number of public wire bits:      46
+   Number of ports:                  8
+   Number of port bits:             29
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                105
+     sky130_fd_sc_hd__a21bo_2        5
+     sky130_fd_sc_hd__a21boi_2       2
+     sky130_fd_sc_hd__a21oi_2        5
+     sky130_fd_sc_hd__and2_2         3
+     sky130_fd_sc_hd__and2b_2       17
+     sky130_fd_sc_hd__and3_2         1
+     sky130_fd_sc_hd__and3b_2        4
+     sky130_fd_sc_hd__dfxtp_2       26
+     sky130_fd_sc_hd__mux2_1        17
+     sky130_fd_sc_hd__nand2_2        7
+     sky130_fd_sc_hd__nand2b_2       2
+     sky130_fd_sc_hd__nand3b_2       3
+     sky130_fd_sc_hd__nor3_2         1
+     sky130_fd_sc_hd__o21a_2         3
+     sky130_fd_sc_hd__or2_2          5
+     sky130_fd_sc_hd__xnor2_2        2
+     sky130_fd_sc_hd__xor2_2         2
+
+   Chip area for module '\ripple_adder_wrapper': 1307.504000
+     of which used for sequential elements: 553.030400 (42.30%)
+

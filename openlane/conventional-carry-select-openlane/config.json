@@ -1,6 +1,6 @@
 {
   "DESIGN_NAME": "carry_select_wrapper",
-  "VERILOG_FILES": ["src/conventional-carry-select/carry-select-wrapper.v", "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v"],
+  "VERILOG_FILES": ["/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v", "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v"],
   "CLOCK_PERIOD": 25,
   "CLOCK_PORT": "clk"
 }

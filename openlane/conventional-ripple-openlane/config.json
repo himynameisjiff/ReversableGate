@@ -1,6 +1,7 @@
 {
   "DESIGN_NAME": "ripple_adder_wrapper",
-  "VERILOG_FILES": ["src/conventional-ripple/ripper-adder-wrapper.v", "src/conventional-ripple/ripple-adder.v"],
+  "VERILOG_FILES": ["/Users/prahalad/ReversableGate/src/conventional-ripple/ripper-adder-wrapper.v", 
+  "/Users/prahalad/ReversableGate/src/conventional-ripple/ripple-adder.v"],
   "CLOCK_PERIOD": 25,
   "CLOCK_PORT": "clk"
 }

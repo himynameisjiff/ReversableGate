@@ -1,0 +1,1137 @@
+{
+  "creator": "Yosys 0.46 (git sha1 e97731b9dda91fa5fa53ed87df7c34163ba59a41, clang++ 16.0.6 -fPIC -O3)",
+  "modules": {
+    "carry_select_wrapper": {
+      "attributes": {
+        "hdlname": "carry_select_wrapper",
+        "top": "00000000000000000000000000000001",
+        "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:8.1-50.10"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "reset": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "a": {
+          "direction": "input",
+          "bits": [ 4, 5, 6, 7, 8, 9, 10, 11 ]
+        },
+        "b": {
+          "direction": "input",
+          "bits": [ 12, 13, 14, 15, 16, 17, 18, 19 ]
+        },
+        "cin": {
+          "direction": "input",
+          "bits": [ 20 ]
+        },
+        "sum": {
+          "direction": "output",
+          "bits": [ 21, 22, 23, 24, 25, 26, 27, 28 ]
+        },
+        "cout": {
+          "direction": "output",
+          "bits": [ 29 ]
+        }
+      },
+      "cells": {
+        "$flatten\\u_cs.$ternary$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:71$3": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:71.31-71.69"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 30 ],
+            "B": [ 31 ],
+            "S": [ 32 ],
+            "Y": [ 33 ]
+          }
+        },
+        "$flatten\\u_cs.$ternary$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:71$4": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:71.31-71.69"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 34 ],
+            "B": [ 35 ],
+            "S": [ 32 ],
+            "Y": [ 36 ]
+          }
+        },
+        "$flatten\\u_cs.$ternary$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:71$5": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:71.31-71.69"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 37 ],
+            "B": [ 38 ],
+            "S": [ 32 ],
+            "Y": [ 39 ]
+          }
+        },
+        "$flatten\\u_cs.$ternary$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:71$6": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:71.31-71.69"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 40 ],
+            "B": [ 41 ],
+            "S": [ 32 ],
+            "Y": [ 42 ]
+          }
+        },
+        "$flatten\\u_cs.$ternary$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:76$2": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:76.19-76.53"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 43 ],
+            "B": [ 44 ],
+            "S": [ 32 ],
+            "Y": [ 45 ]
+          }
+        },
+        "$flatten\\u_cs.\\hi_block_c0.\\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.31"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 46 ],
+            "B": [ 47 ],
+            "Y": [ 48, 49 ]
+          }
+        },
+        "$flatten\\u_cs.\\hi_block_c0.\\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 48, 49 ],
+            "B": [ "0" ],
+            "Y": [ 30, 50 ]
+          }
+        },
+        "$flatten\\u_cs.\\hi_block_c0.\\fa1.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.31"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 51 ],
+            "B": [ 52 ],
+            "Y": [ 53, 54 ]
+          }
+        },
+        "$flatten\\u_cs.\\hi_block_c0.\\fa1.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 53, 54 ],
+            "B": [ 50 ],
+            "Y": [ 34, 55 ]
+          }
+        },
+        "$flatten\\u_cs.\\hi_block_c0.\\fa2.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.31"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 56 ],
+            "B": [ 57 ],
+            "Y": [ 58, 59 ]
+          }
+        },
+        "$flatten\\u_cs.\\hi_block_c0.\\fa2.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 58, 59 ],
+            "B": [ 55 ],
+            "Y": [ 37, 60 ]
+          }
+        },
+        "$flatten\\u_cs.\\hi_block_c0.\\fa3.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.31"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 61 ],
+            "B": [ 62 ],
+            "Y": [ 63, 64 ]
+          }
+        },
+        "$flatten\\u_cs.\\hi_block_c0.\\fa3.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 63, 64 ],
+            "B": [ 60 ],
+            "Y": [ 40, 43 ]
+          }
+        },
+        "$flatten\\u_cs.\\hi_block_c1.\\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.31"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 46 ],
+            "B": [ 47 ],
+            "Y": [ 65, 66 ]
+          }
+        },
+        "$flatten\\u_cs.\\hi_block_c1.\\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 65, 66 ],
+            "B": [ "1" ],
+            "Y": [ 31, 67 ]
+          }
+        },
+        "$flatten\\u_cs.\\hi_block_c1.\\fa1.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.31"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 51 ],
+            "B": [ 52 ],
+            "Y": [ 68, 69 ]
+          }
+        },
+        "$flatten\\u_cs.\\hi_block_c1.\\fa1.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 68, 69 ],
+            "B": [ 67 ],
+            "Y": [ 35, 70 ]
+          }
+        },
+        "$flatten\\u_cs.\\hi_block_c1.\\fa2.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.31"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 56 ],
+            "B": [ 57 ],
+            "Y": [ 71, 72 ]
+          }
+        },
+        "$flatten\\u_cs.\\hi_block_c1.\\fa2.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 71, 72 ],
+            "B": [ 70 ],
+            "Y": [ 38, 73 ]
+          }
+        },
+        "$flatten\\u_cs.\\hi_block_c1.\\fa3.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.31"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 61 ],
+            "B": [ 62 ],
+            "Y": [ 74, 75 ]
+          }
+        },
+        "$flatten\\u_cs.\\hi_block_c1.\\fa3.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 74, 75 ],
+            "B": [ 73 ],
+            "Y": [ 41, 44 ]
+          }
+        },
+        "$flatten\\u_cs.\\lo_block.\\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.31"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 76 ],
+            "B": [ 77 ],
+            "Y": [ 78, 79 ]
+          }
+        },
+        "$flatten\\u_cs.\\lo_block.\\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 78, 79 ],
+            "B": [ 80 ],
+            "Y": [ 81, 82 ]
+          }
+        },
+        "$flatten\\u_cs.\\lo_block.\\fa1.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.31"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 83 ],
+            "B": [ 84 ],
+            "Y": [ 85, 86 ]
+          }
+        },
+        "$flatten\\u_cs.\\lo_block.\\fa1.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 85, 86 ],
+            "B": [ 82 ],
+            "Y": [ 87, 88 ]
+          }
+        },
+        "$flatten\\u_cs.\\lo_block.\\fa2.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.31"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 89 ],
+            "B": [ 90 ],
+            "Y": [ 91, 92 ]
+          }
+        },
+        "$flatten\\u_cs.\\lo_block.\\fa2.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 91, 92 ],
+            "B": [ 88 ],
+            "Y": [ 93, 94 ]
+          }
+        },
+        "$flatten\\u_cs.\\lo_block.\\fa3.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.31"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 95 ],
+            "B": [ 96 ],
+            "Y": [ 97, 98 ]
+          }
+        },
+        "$flatten\\u_cs.\\lo_block.\\fa3.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000010"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 97, 98 ],
+            "B": [ 94 ],
+            "Y": [ 99, 32 ]
+          }
+        },
+        "$procdff$11": {
+          "hide_name": 1,
+          "type": "$adff",
+          "parameters": {
+            "ARST_POLARITY": "1",
+            "ARST_VALUE": "00000000",
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:35.5-49.8"
+          },
+          "port_directions": {
+            "ARST": "input",
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "ARST": [ 3 ],
+            "CLK": [ 2 ],
+            "D": [ 81, 87, 93, 99, 33, 36, 39, 42 ],
+            "Q": [ 21, 22, 23, 24, 25, 26, 27, 28 ]
+          }
+        },
+        "$procdff$14": {
+          "hide_name": 1,
+          "type": "$adff",
+          "parameters": {
+            "ARST_POLARITY": "1",
+            "ARST_VALUE": "0",
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:35.5-49.8"
+          },
+          "port_directions": {
+            "ARST": "input",
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "ARST": [ 3 ],
+            "CLK": [ 2 ],
+            "D": [ 45 ],
+            "Q": [ 29 ]
+          }
+        },
+        "$procdff$17": {
+          "hide_name": 1,
+          "type": "$adff",
+          "parameters": {
+            "ARST_POLARITY": "1",
+            "ARST_VALUE": "00000000",
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:35.5-49.8"
+          },
+          "port_directions": {
+            "ARST": "input",
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "ARST": [ 3 ],
+            "CLK": [ 2 ],
+            "D": [ 4, 5, 6, 7, 8, 9, 10, 11 ],
+            "Q": [ 76, 83, 89, 95, 46, 51, 56, 61 ]
+          }
+        },
+        "$procdff$20": {
+          "hide_name": 1,
+          "type": "$adff",
+          "parameters": {
+            "ARST_POLARITY": "1",
+            "ARST_VALUE": "00000000",
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:35.5-49.8"
+          },
+          "port_directions": {
+            "ARST": "input",
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "ARST": [ 3 ],
+            "CLK": [ 2 ],
+            "D": [ 12, 13, 14, 15, 16, 17, 18, 19 ],
+            "Q": [ 77, 84, 90, 96, 47, 52, 57, 62 ]
+          }
+        },
+        "$procdff$23": {
+          "hide_name": 1,
+          "type": "$adff",
+          "parameters": {
+            "ARST_POLARITY": "1",
+            "ARST_VALUE": "0",
+            "CLK_POLARITY": "1",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:35.5-49.8"
+          },
+          "port_directions": {
+            "ARST": "input",
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "ARST": [ 3 ],
+            "CLK": [ 2 ],
+            "D": [ 20 ],
+            "Q": [ 80 ]
+          }
+        }
+      },
+      "netnames": {
+        "$flatten\\u_cs.\\hi_block_c0.\\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7_Y": {
+          "hide_name": 1,
+          "bits": [ 48, 49 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.31"
+          }
+        },
+        "$flatten\\u_cs.\\hi_block_c0.\\fa1.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7_Y": {
+          "hide_name": 1,
+          "bits": [ 53, 54 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.31"
+          }
+        },
+        "$flatten\\u_cs.\\hi_block_c0.\\fa2.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7_Y": {
+          "hide_name": 1,
+          "bits": [ 58, 59 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.31"
+          }
+        },
+        "$flatten\\u_cs.\\hi_block_c0.\\fa3.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7_Y": {
+          "hide_name": 1,
+          "bits": [ 63, 64 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.31"
+          }
+        },
+        "$flatten\\u_cs.\\hi_block_c1.\\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7_Y": {
+          "hide_name": 1,
+          "bits": [ 65, 66 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.31"
+          }
+        },
+        "$flatten\\u_cs.\\hi_block_c1.\\fa1.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7_Y": {
+          "hide_name": 1,
+          "bits": [ 68, 69 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.31"
+          }
+        },
+        "$flatten\\u_cs.\\hi_block_c1.\\fa2.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7_Y": {
+          "hide_name": 1,
+          "bits": [ 71, 72 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.31"
+          }
+        },
+        "$flatten\\u_cs.\\hi_block_c1.\\fa3.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7_Y": {
+          "hide_name": 1,
+          "bits": [ 74, 75 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.31"
+          }
+        },
+        "$flatten\\u_cs.\\lo_block.\\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7_Y": {
+          "hide_name": 1,
+          "bits": [ 78, 79 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.31"
+          }
+        },
+        "$flatten\\u_cs.\\lo_block.\\fa1.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7_Y": {
+          "hide_name": 1,
+          "bits": [ 85, 86 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.31"
+          }
+        },
+        "$flatten\\u_cs.\\lo_block.\\fa2.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7_Y": {
+          "hide_name": 1,
+          "bits": [ 91, 92 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.31"
+          }
+        },
+        "$flatten\\u_cs.\\lo_block.\\fa3.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7_Y": {
+          "hide_name": 1,
+          "bits": [ 97, 98 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9.26-9.31"
+          }
+        },
+        "a": {
+          "hide_name": 0,
+          "bits": [ 4, 5, 6, 7, 8, 9, 10, 11 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:11.24-11.25"
+          }
+        },
+        "a_r": {
+          "hide_name": 0,
+          "bits": [ 76, 83, 89, 95, 46, 51, 56, 61 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:18.15-18.18"
+          }
+        },
+        "b": {
+          "hide_name": 0,
+          "bits": [ 12, 13, 14, 15, 16, 17, 18, 19 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:12.24-12.25"
+          }
+        },
+        "b_r": {
+          "hide_name": 0,
+          "bits": [ 77, 84, 90, 96, 47, 52, 57, 62 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:19.15-19.18"
+          }
+        },
+        "cin": {
+          "hide_name": 0,
+          "bits": [ 20 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:13.24-13.27"
+          }
+        },
+        "cin_r": {
+          "hide_name": 0,
+          "bits": [ 80 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:20.15-20.20"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:9.24-9.27"
+          }
+        },
+        "cout": {
+          "hide_name": 0,
+          "bits": [ 29 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:15.24-15.28"
+          }
+        },
+        "cout_c": {
+          "hide_name": 0,
+          "bits": [ 45 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:24.16-24.22"
+          }
+        },
+        "reset": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:10.24-10.29"
+          }
+        },
+        "sum": {
+          "hide_name": 0,
+          "bits": [ 21, 22, 23, 24, 25, 26, 27, 28 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:14.24-14.27"
+          }
+        },
+        "sum_c": {
+          "hide_name": 0,
+          "bits": [ 81, 87, 93, 99, 33, 36, 39, 42 ],
+          "attributes": {
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:23.16-23.21"
+          }
+        },
+        "u_cs.carry_lo": {
+          "hide_name": 0,
+          "bits": [ 32 ],
+          "attributes": {
+            "hdlname": "u_cs carry_lo",
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:38.16-38.24"
+          }
+        },
+        "u_cs.cout_hi_c0": {
+          "hide_name": 0,
+          "bits": [ 43 ],
+          "attributes": {
+            "hdlname": "u_cs cout_hi_c0",
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:49.16-49.26"
+          }
+        },
+        "u_cs.cout_hi_c1": {
+          "hide_name": 0,
+          "bits": [ 44 ],
+          "attributes": {
+            "hdlname": "u_cs cout_hi_c1",
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:49.28-49.38"
+          }
+        },
+        "u_cs.hi_block_c0.c": {
+          "hide_name": 0,
+          "bits": [ 50, 55, 60, 43 ],
+          "attributes": {
+            "hdlname": "u_cs hi_block_c0 c",
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:19.16-19.17"
+          }
+        },
+        "u_cs.hi_block_c0.fa0.sum": {
+          "hide_name": 0,
+          "bits": [ 30 ],
+          "attributes": {
+            "hdlname": "u_cs hi_block_c0 fa0 sum",
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:6.17-6.20"
+          }
+        },
+        "u_cs.hi_block_c0.fa1.sum": {
+          "hide_name": 0,
+          "bits": [ 34 ],
+          "attributes": {
+            "hdlname": "u_cs hi_block_c0 fa1 sum",
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:6.17-6.20"
+          }
+        },
+        "u_cs.hi_block_c0.fa2.sum": {
+          "hide_name": 0,
+          "bits": [ 37 ],
+          "attributes": {
+            "hdlname": "u_cs hi_block_c0 fa2 sum",
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:6.17-6.20"
+          }
+        },
+        "u_cs.hi_block_c0.fa3.sum": {
+          "hide_name": 0,
+          "bits": [ 40 ],
+          "attributes": {
+            "hdlname": "u_cs hi_block_c0 fa3 sum",
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:6.17-6.20"
+          }
+        },
+        "u_cs.hi_block_c1.c": {
+          "hide_name": 0,
+          "bits": [ 67, 70, 73, 44 ],
+          "attributes": {
+            "hdlname": "u_cs hi_block_c1 c",
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:19.16-19.17"
+          }
+        },
+        "u_cs.hi_block_c1.fa0.sum": {
+          "hide_name": 0,
+          "bits": [ 31 ],
+          "attributes": {
+            "hdlname": "u_cs hi_block_c1 fa0 sum",
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:6.17-6.20"
+          }
+        },
+        "u_cs.hi_block_c1.fa1.sum": {
+          "hide_name": 0,
+          "bits": [ 35 ],
+          "attributes": {
+            "hdlname": "u_cs hi_block_c1 fa1 sum",
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:6.17-6.20"
+          }
+        },
+        "u_cs.hi_block_c1.fa2.sum": {
+          "hide_name": 0,
+          "bits": [ 38 ],
+          "attributes": {
+            "hdlname": "u_cs hi_block_c1 fa2 sum",
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:6.17-6.20"
+          }
+        },
+        "u_cs.hi_block_c1.fa3.sum": {
+          "hide_name": 0,
+          "bits": [ 41 ],
+          "attributes": {
+            "hdlname": "u_cs hi_block_c1 fa3 sum",
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:6.17-6.20"
+          }
+        },
+        "u_cs.lo_block.c": {
+          "hide_name": 0,
+          "bits": [ 82, 88, 94, 32 ],
+          "attributes": {
+            "hdlname": "u_cs lo_block c",
+            "src": "/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:19.16-19.17"
+          }
+        }
+      }
+    }
+  }
+}

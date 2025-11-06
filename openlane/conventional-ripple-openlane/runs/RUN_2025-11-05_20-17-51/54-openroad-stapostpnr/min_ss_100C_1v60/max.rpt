@@ -1,0 +1,1785 @@
+
+===========================================================================
+report_checks -path_delay max (Setup)
+============================================================================
+======================= min_ss_100C_1v60 Corner ===================================
+
+Startpoint: _182_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _183_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.013699    0.106475    0.070783    0.070783 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000    0.070783 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237786    0.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000327    0.308897 ^ clkbuf_1_0__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    14    0.038964    0.093038    0.247128    0.556024 ^ clkbuf_1_0__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.093042    0.000728    0.556752 ^ _182_/CLK (sky130_fd_sc_hd__dfxtp_1)
+     3    0.006356    0.075850    0.611588    1.168340 v _182_/Q (sky130_fd_sc_hd__dfxtp_1)
+                                                         cin_r (net)
+                      0.075850    0.000018    1.168358 v _079_/A (sky130_fd_sc_hd__or2_1)
+     3    0.008205    0.143149    0.556890    1.725247 v _079_/X (sky130_fd_sc_hd__or2_1)
+                                                         _048_ (net)
+                      0.143149    0.000060    1.725307 v _084_/A2 (sky130_fd_sc_hd__a21boi_1)
+     2    0.008248    0.342652    0.383949    2.109256 ^ _084_/Y (sky130_fd_sc_hd__a21boi_1)
+                                                         _052_ (net)
+                      0.342652    0.000132    2.109388 ^ _086_/B (sky130_fd_sc_hd__xnor2_1)
+     2    0.007203    0.339190    0.342175    2.451563 ^ _086_/Y (sky130_fd_sc_hd__xnor2_1)
+                                                         _054_ (net)
+                      0.339190    0.000045    2.451608 ^ _088_/B (sky130_fd_sc_hd__nand2_1)
+     3    0.008887    0.176396    0.276296    2.727904 v _088_/Y (sky130_fd_sc_hd__nand2_1)
+                                                         _056_ (net)
+                      0.176396    0.000128    2.728032 v _091_/A2 (sky130_fd_sc_hd__a21bo_1)
+     2    0.004117    0.073175    0.393033    3.121065 v _091_/X (sky130_fd_sc_hd__a21bo_1)
+                                                         _058_ (net)
+                      0.073175    0.000036    3.121101 v _095_/B1_N (sky130_fd_sc_hd__a21bo_1)
+     2    0.008271    0.127935    0.388549    3.509650 ^ _095_/X (sky130_fd_sc_hd__a21bo_1)
+                                                         _061_ (net)
+                      0.127935    0.000075    3.509725 ^ _097_/B (sky130_fd_sc_hd__xor2_1)
+     2    0.005432    0.266130    0.324246    3.833971 ^ _097_/X (sky130_fd_sc_hd__xor2_1)
+                                                         _063_ (net)
+                      0.266130    0.000028    3.833998 ^ _099_/B (sky130_fd_sc_hd__nand2_1)
+     3    0.008564    0.163730    0.247275    4.081273 v _099_/Y (sky130_fd_sc_hd__nand2_1)
+                                                         _065_ (net)
+                      0.163730    0.000134    4.081408 v _102_/A2 (sky130_fd_sc_hd__a21bo_1)
+     2    0.005090    0.081002    0.397089    4.478497 v _102_/X (sky130_fd_sc_hd__a21bo_1)
+                                                         _067_ (net)
+                      0.081002    0.000056    4.478552 v _106_/B1_N (sky130_fd_sc_hd__a21bo_1)
+     2    0.010893    0.160230    0.416087    4.894639 ^ _106_/X (sky130_fd_sc_hd__a21bo_1)
+                                                         _070_ (net)
+                      0.160230    0.000269    4.894908 ^ _108_/B (sky130_fd_sc_hd__xor2_1)
+     2    0.004888    0.249710    0.324456    5.219365 ^ _108_/X (sky130_fd_sc_hd__xor2_1)
+                                                         _072_ (net)
+                      0.249710    0.000032    5.219397 ^ _110_/B (sky130_fd_sc_hd__nand2_1)
+     3    0.007805    0.150683    0.232463    5.451860 v _110_/Y (sky130_fd_sc_hd__nand2_1)
+                                                         _074_ (net)
+                      0.150683    0.000114    5.451974 v _113_/A2 (sky130_fd_sc_hd__a21bo_1)
+     2    0.003969    0.071913    0.380931    5.832905 v _113_/X (sky130_fd_sc_hd__a21bo_1)
+                                                         _076_ (net)
+                      0.071913    0.000048    5.832953 v _117_/B1_N (sky130_fd_sc_hd__a21boi_1)
+     2    0.007319    0.152701    0.288873    6.121826 v _117_/Y (sky130_fd_sc_hd__a21boi_1)
+                                                         _026_ (net)
+                      0.152701    0.000054    6.121880 v _119_/B (sky130_fd_sc_hd__xnor2_1)
+     2    0.007290    0.342081    0.359186    6.481067 ^ _119_/Y (sky130_fd_sc_hd__xnor2_1)
+                                                         _028_ (net)
+                      0.342081    0.000102    6.481168 ^ _121_/B (sky130_fd_sc_hd__nand2_1)
+     2    0.005654    0.129703    0.235351    6.716519 v _121_/Y (sky130_fd_sc_hd__nand2_1)
+                                                         _030_ (net)
+                      0.129703    0.000056    6.716575 v _157_/A2 (sky130_fd_sc_hd__a21oi_1)
+     1    0.002973    0.177611    0.254962    6.971537 ^ _157_/Y (sky130_fd_sc_hd__a21oi_1)
+                                                         _025_ (net)
+                      0.177611    0.000038    6.971575 ^ hold6/A (sky130_fd_sc_hd__dlygate4sd3_1)
+     1    0.001978    0.084320    1.071077    8.042652 ^ hold6/X (sky130_fd_sc_hd__dlygate4sd3_1)
+                                                         net39 (net)
+                      0.084320    0.000018    8.042670 ^ _183_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              8.042670   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000306   25.308874 ^ clkbuf_1_1__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    13    0.035731    0.088366    0.242633   25.551506 ^ clkbuf_1_1__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.088366    0.000176   25.551682 ^ _183_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.301683   clock uncertainty
+                                  0.000000   25.301683   clock reconvergence pessimism
+                                 -0.128986   25.172697   library setup time
+                                             25.172697   data required time
+---------------------------------------------------------------------------------------------
+                                             25.172697   data required time
+                                             -8.042670   data arrival time
+---------------------------------------------------------------------------------------------
+                                             17.130028   slack (MET)
+
+
+Startpoint: _182_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _164_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.013699    0.106475    0.070783    0.070783 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000    0.070783 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237786    0.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000327    0.308897 ^ clkbuf_1_0__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    14    0.038964    0.093038    0.247128    0.556024 ^ clkbuf_1_0__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.093042    0.000728    0.556752 ^ _182_/CLK (sky130_fd_sc_hd__dfxtp_1)
+     3    0.006356    0.075850    0.611588    1.168340 v _182_/Q (sky130_fd_sc_hd__dfxtp_1)
+                                                         cin_r (net)
+                      0.075850    0.000018    1.168358 v _079_/A (sky130_fd_sc_hd__or2_1)
+     3    0.008205    0.143149    0.556890    1.725247 v _079_/X (sky130_fd_sc_hd__or2_1)
+                                                         _048_ (net)
+                      0.143149    0.000060    1.725307 v _084_/A2 (sky130_fd_sc_hd__a21boi_1)
+     2    0.008248    0.342652    0.383949    2.109256 ^ _084_/Y (sky130_fd_sc_hd__a21boi_1)
+                                                         _052_ (net)
+                      0.342652    0.000132    2.109388 ^ _086_/B (sky130_fd_sc_hd__xnor2_1)
+     2    0.007203    0.339190    0.342175    2.451563 ^ _086_/Y (sky130_fd_sc_hd__xnor2_1)
+                                                         _054_ (net)
+                      0.339190    0.000045    2.451608 ^ _088_/B (sky130_fd_sc_hd__nand2_1)
+     3    0.008887    0.176396    0.276296    2.727904 v _088_/Y (sky130_fd_sc_hd__nand2_1)
+                                                         _056_ (net)
+                      0.176396    0.000128    2.728032 v _091_/A2 (sky130_fd_sc_hd__a21bo_1)
+     2    0.004117    0.073175    0.393033    3.121065 v _091_/X (sky130_fd_sc_hd__a21bo_1)
+                                                         _058_ (net)
+                      0.073175    0.000036    3.121101 v _095_/B1_N (sky130_fd_sc_hd__a21bo_1)
+     2    0.008271    0.127935    0.388549    3.509650 ^ _095_/X (sky130_fd_sc_hd__a21bo_1)
+                                                         _061_ (net)
+                      0.127935    0.000075    3.509725 ^ _097_/B (sky130_fd_sc_hd__xor2_1)
+     2    0.005432    0.266130    0.324246    3.833971 ^ _097_/X (sky130_fd_sc_hd__xor2_1)
+                                                         _063_ (net)
+                      0.266130    0.000028    3.833998 ^ _099_/B (sky130_fd_sc_hd__nand2_1)
+     3    0.008564    0.163730    0.247275    4.081273 v _099_/Y (sky130_fd_sc_hd__nand2_1)
+                                                         _065_ (net)
+                      0.163730    0.000134    4.081408 v _102_/A2 (sky130_fd_sc_hd__a21bo_1)
+     2    0.005090    0.081002    0.397089    4.478497 v _102_/X (sky130_fd_sc_hd__a21bo_1)
+                                                         _067_ (net)
+                      0.081002    0.000056    4.478552 v _106_/B1_N (sky130_fd_sc_hd__a21bo_1)
+     2    0.010893    0.160230    0.416087    4.894639 ^ _106_/X (sky130_fd_sc_hd__a21bo_1)
+                                                         _070_ (net)
+                      0.160230    0.000269    4.894908 ^ _108_/B (sky130_fd_sc_hd__xor2_1)
+     2    0.004888    0.249710    0.324456    5.219365 ^ _108_/X (sky130_fd_sc_hd__xor2_1)
+                                                         _072_ (net)
+                      0.249710    0.000032    5.219397 ^ _110_/B (sky130_fd_sc_hd__nand2_1)
+     3    0.007805    0.150683    0.232463    5.451860 v _110_/Y (sky130_fd_sc_hd__nand2_1)
+                                                         _074_ (net)
+                      0.150683    0.000114    5.451974 v _113_/A2 (sky130_fd_sc_hd__a21bo_1)
+     2    0.003969    0.071913    0.380931    5.832905 v _113_/X (sky130_fd_sc_hd__a21bo_1)
+                                                         _076_ (net)
+                      0.071913    0.000039    5.832944 v _114_/B (sky130_fd_sc_hd__and2_1)
+     2    0.005786    0.091758    0.341574    6.174519 v _114_/X (sky130_fd_sc_hd__and2_1)
+                                                         _077_ (net)
+                      0.091758    0.000056    6.174575 v _116_/A2 (sky130_fd_sc_hd__o21a_1)
+     1    0.002155    0.059525    0.306747    6.481322 v _116_/X (sky130_fd_sc_hd__o21a_1)
+                                                         _006_ (net)
+                      0.059525    0.000022    6.481344 v hold2/A (sky130_fd_sc_hd__dlygate4sd3_1)
+     1    0.002144    0.102563    1.107827    7.589170 v hold2/X (sky130_fd_sc_hd__dlygate4sd3_1)
+                                                         net35 (net)
+                      0.102563    0.000021    7.589192 v _164_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              7.589192   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000306   25.308874 ^ clkbuf_1_1__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    13    0.035731    0.088366    0.242633   25.551506 ^ clkbuf_1_1__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.088367    0.000460   25.551966 ^ _164_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.301968   clock uncertainty
+                                  0.000000   25.301968   clock reconvergence pessimism
+                                 -0.277563   25.024405   library setup time
+                                             25.024405   data required time
+---------------------------------------------------------------------------------------------
+                                             25.024405   data required time
+                                             -7.589192   data arrival time
+---------------------------------------------------------------------------------------------
+                                             17.435213   slack (MET)
+
+
+Startpoint: reset (input port clocked by clk)
+Endpoint: _160_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.002955    0.033283    0.016591    5.016591 ^ reset (in)
+                                                         reset (net)
+                      0.033283    0.000000    5.016591 ^ input19/A (sky130_fd_sc_hd__clkbuf_1)
+     1    0.002453    0.069030    0.129145    5.145736 ^ input19/X (sky130_fd_sc_hd__clkbuf_1)
+                                                         net19 (net)
+                      0.069030    0.000020    5.145756 ^ fanout31/A (sky130_fd_sc_hd__clkbuf_2)
+     8    0.023726    0.209152    0.292605    5.438362 ^ fanout31/X (sky130_fd_sc_hd__clkbuf_2)
+                                                         net31 (net)
+                      0.209152    0.000561    5.438922 ^ fanout30/A (sky130_fd_sc_hd__clkbuf_2)
+    10    0.032202    0.278013    0.405342    5.844264 ^ fanout30/X (sky130_fd_sc_hd__clkbuf_2)
+                                                         net30 (net)
+                      0.278013    0.001033    5.845297 ^ _093_/B1 (sky130_fd_sc_hd__a21oi_1)
+     1    0.003628    0.105171    0.151425    5.996722 v _093_/Y (sky130_fd_sc_hd__a21oi_1)
+                                                         _060_ (net)
+                      0.105171    0.000050    5.996772 v _094_/B1 (sky130_fd_sc_hd__o21a_1)
+     1    0.003070    0.067537    0.206620    6.203391 v _094_/X (sky130_fd_sc_hd__o21a_1)
+                                                         _002_ (net)
+                      0.067537    0.000038    6.203430 v hold8/A (sky130_fd_sc_hd__dlygate4sd3_1)
+     1    0.001806    0.098675    1.105526    7.308956 v hold8/X (sky130_fd_sc_hd__dlygate4sd3_1)
+                                                         net41 (net)
+                      0.098675    0.000015    7.308970 v _160_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              7.308970   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000327   25.308895 ^ clkbuf_1_0__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    14    0.038964    0.093038    0.247129   25.556025 ^ clkbuf_1_0__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.093040    0.000616   25.556641 ^ _160_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.306641   clock uncertainty
+                                  0.000000   25.306641   clock reconvergence pessimism
+                                 -0.274688   25.031952   library setup time
+                                             25.031952   data required time
+---------------------------------------------------------------------------------------------
+                                             25.031952   data required time
+                                             -7.308970   data arrival time
+---------------------------------------------------------------------------------------------
+                                             17.722982   slack (MET)
+
+
+Startpoint: reset (input port clocked by clk)
+Endpoint: _162_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.002955    0.033283    0.016591    5.016591 ^ reset (in)
+                                                         reset (net)
+                      0.033283    0.000000    5.016591 ^ input19/A (sky130_fd_sc_hd__clkbuf_1)
+     1    0.002453    0.069030    0.129145    5.145736 ^ input19/X (sky130_fd_sc_hd__clkbuf_1)
+                                                         net19 (net)
+                      0.069030    0.000020    5.145756 ^ fanout31/A (sky130_fd_sc_hd__clkbuf_2)
+     8    0.023726    0.209152    0.292605    5.438362 ^ fanout31/X (sky130_fd_sc_hd__clkbuf_2)
+                                                         net31 (net)
+                      0.209152    0.000561    5.438922 ^ fanout30/A (sky130_fd_sc_hd__clkbuf_2)
+    10    0.032202    0.278013    0.405342    5.844264 ^ fanout30/X (sky130_fd_sc_hd__clkbuf_2)
+                                                         net30 (net)
+                      0.278013    0.000617    5.844881 ^ _104_/B1 (sky130_fd_sc_hd__a21oi_1)
+     1    0.003106    0.100930    0.145529    5.990410 v _104_/Y (sky130_fd_sc_hd__a21oi_1)
+                                                         _069_ (net)
+                      0.100930    0.000024    5.990434 v _105_/B1 (sky130_fd_sc_hd__o21a_1)
+     1    0.002328    0.060970    0.196515    6.186949 v _105_/X (sky130_fd_sc_hd__o21a_1)
+                                                         _004_ (net)
+                      0.060970    0.000023    6.186972 v hold4/A (sky130_fd_sc_hd__dlygate4sd3_1)
+     1    0.002072    0.101745    1.107232    7.294204 v hold4/X (sky130_fd_sc_hd__dlygate4sd3_1)
+                                                         net37 (net)
+                      0.101745    0.000019    7.294223 v _162_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              7.294223   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000306   25.308874 ^ clkbuf_1_1__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    13    0.035731    0.088366    0.242633   25.551506 ^ clkbuf_1_1__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.088366    0.000167   25.551674 ^ _162_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.301674   clock uncertainty
+                                  0.000000   25.301674   clock reconvergence pessimism
+                                 -0.277224   25.024450   library setup time
+                                             25.024450   data required time
+---------------------------------------------------------------------------------------------
+                                             25.024450   data required time
+                                             -7.294223   data arrival time
+---------------------------------------------------------------------------------------------
+                                             17.730228   slack (MET)
+
+
+Startpoint: _182_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _165_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.013699    0.106475    0.070783    0.070783 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000    0.070783 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237786    0.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000327    0.308897 ^ clkbuf_1_0__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    14    0.038964    0.093038    0.247128    0.556024 ^ clkbuf_1_0__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.093042    0.000728    0.556752 ^ _182_/CLK (sky130_fd_sc_hd__dfxtp_1)
+     3    0.006356    0.075850    0.611588    1.168340 v _182_/Q (sky130_fd_sc_hd__dfxtp_1)
+                                                         cin_r (net)
+                      0.075850    0.000018    1.168358 v _079_/A (sky130_fd_sc_hd__or2_1)
+     3    0.008205    0.143149    0.556890    1.725247 v _079_/X (sky130_fd_sc_hd__or2_1)
+                                                         _048_ (net)
+                      0.143149    0.000060    1.725307 v _084_/A2 (sky130_fd_sc_hd__a21boi_1)
+     2    0.008248    0.342652    0.383949    2.109256 ^ _084_/Y (sky130_fd_sc_hd__a21boi_1)
+                                                         _052_ (net)
+                      0.342652    0.000132    2.109388 ^ _086_/B (sky130_fd_sc_hd__xnor2_1)
+     2    0.007203    0.339190    0.342175    2.451563 ^ _086_/Y (sky130_fd_sc_hd__xnor2_1)
+                                                         _054_ (net)
+                      0.339190    0.000045    2.451608 ^ _088_/B (sky130_fd_sc_hd__nand2_1)
+     3    0.008887    0.176396    0.276296    2.727904 v _088_/Y (sky130_fd_sc_hd__nand2_1)
+                                                         _056_ (net)
+                      0.176396    0.000128    2.728032 v _091_/A2 (sky130_fd_sc_hd__a21bo_1)
+     2    0.004117    0.073175    0.393033    3.121065 v _091_/X (sky130_fd_sc_hd__a21bo_1)
+                                                         _058_ (net)
+                      0.073175    0.000036    3.121101 v _095_/B1_N (sky130_fd_sc_hd__a21bo_1)
+     2    0.008271    0.127935    0.388549    3.509650 ^ _095_/X (sky130_fd_sc_hd__a21bo_1)
+                                                         _061_ (net)
+                      0.127935    0.000075    3.509725 ^ _097_/B (sky130_fd_sc_hd__xor2_1)
+     2    0.005432    0.266130    0.324246    3.833971 ^ _097_/X (sky130_fd_sc_hd__xor2_1)
+                                                         _063_ (net)
+                      0.266130    0.000028    3.833998 ^ _099_/B (sky130_fd_sc_hd__nand2_1)
+     3    0.008564    0.163730    0.247275    4.081273 v _099_/Y (sky130_fd_sc_hd__nand2_1)
+                                                         _065_ (net)
+                      0.163730    0.000134    4.081408 v _102_/A2 (sky130_fd_sc_hd__a21bo_1)
+     2    0.005090    0.081002    0.397089    4.478497 v _102_/X (sky130_fd_sc_hd__a21bo_1)
+                                                         _067_ (net)
+                      0.081002    0.000056    4.478552 v _106_/B1_N (sky130_fd_sc_hd__a21bo_1)
+     2    0.010893    0.160230    0.416087    4.894639 ^ _106_/X (sky130_fd_sc_hd__a21bo_1)
+                                                         _070_ (net)
+                      0.160230    0.000269    4.894908 ^ _108_/B (sky130_fd_sc_hd__xor2_1)
+     2    0.004888    0.249710    0.324456    5.219365 ^ _108_/X (sky130_fd_sc_hd__xor2_1)
+                                                         _072_ (net)
+                      0.249710    0.000032    5.219397 ^ _110_/B (sky130_fd_sc_hd__nand2_1)
+     3    0.007805    0.150683    0.232463    5.451860 v _110_/Y (sky130_fd_sc_hd__nand2_1)
+                                                         _074_ (net)
+                      0.150683    0.000114    5.451974 v _113_/A2 (sky130_fd_sc_hd__a21bo_1)
+     2    0.003969    0.071913    0.380931    5.832905 v _113_/X (sky130_fd_sc_hd__a21bo_1)
+                                                         _076_ (net)
+                      0.071913    0.000048    5.832953 v _117_/B1_N (sky130_fd_sc_hd__a21boi_1)
+     2    0.007319    0.152701    0.288873    6.121826 v _117_/Y (sky130_fd_sc_hd__a21boi_1)
+                                                         _026_ (net)
+                      0.152701    0.000054    6.121880 v _119_/B (sky130_fd_sc_hd__xnor2_1)
+     2    0.006973    0.151242    0.289842    6.411723 v _119_/Y (sky130_fd_sc_hd__xnor2_1)
+                                                         _028_ (net)
+                      0.151242    0.000055    6.411777 v _120_/B (sky130_fd_sc_hd__or2_1)
+     1    0.002585    0.094542    0.484435    6.896212 v _120_/X (sky130_fd_sc_hd__or2_1)
+                                                         _029_ (net)
+                      0.094542    0.000030    6.896242 v _122_/B (sky130_fd_sc_hd__and3b_1)
+     1    0.002110    0.064261    0.329064    7.225307 v _122_/X (sky130_fd_sc_hd__and3b_1)
+                                                         _007_ (net)
+                      0.064261    0.000020    7.225326 v _165_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              7.225326   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000306   25.308874 ^ clkbuf_1_1__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    13    0.035731    0.088366    0.242633   25.551506 ^ clkbuf_1_1__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.088366    0.000217   25.551723 ^ _165_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.301723   clock uncertainty
+                                  0.000000   25.301723   clock reconvergence pessimism
+                                 -0.261648   25.040075   library setup time
+                                             25.040075   data required time
+---------------------------------------------------------------------------------------------
+                                             25.040075   data required time
+                                             -7.225326   data arrival time
+---------------------------------------------------------------------------------------------
+                                             17.814749   slack (MET)
+
+
+Startpoint: _163_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: sum[5] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.013699    0.106475    0.070783    0.070783 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000    0.070783 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237786    0.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000306    0.308875 ^ clkbuf_1_1__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    13    0.035731    0.088366    0.242632    0.551507 ^ clkbuf_1_1__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.088366    0.000187    0.551694 ^ _163_/CLK (sky130_fd_sc_hd__dfxtp_1)
+     1    0.002889    0.070308    0.632820    1.184513 ^ _163_/Q (sky130_fd_sc_hd__dfxtp_1)
+                                                         net26 (net)
+                      0.070308    0.000035    1.184549 ^ output26/A (sky130_fd_sc_hd__buf_2)
+     1    0.034670    0.275050    0.346027    1.530576 ^ output26/X (sky130_fd_sc_hd__buf_2)
+                                                         sum[5] (net)
+                      0.275050    0.000309    1.530885 ^ sum[5] (out)
+                                              1.530885   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock network delay (propagated)
+                                 -0.250000   24.750000   clock uncertainty
+                                  0.000000   24.750000   clock reconvergence pessimism
+                                 -5.000000   19.750000   output external delay
+                                             19.750000   data required time
+---------------------------------------------------------------------------------------------
+                                             19.750000   data required time
+                                             -1.530885   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.219116   slack (MET)
+
+
+Startpoint: _162_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: sum[4] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.013699    0.106475    0.070783    0.070783 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000    0.070783 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237786    0.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000306    0.308875 ^ clkbuf_1_1__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    13    0.035731    0.088366    0.242632    0.551507 ^ clkbuf_1_1__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.088366    0.000168    0.551675 ^ _162_/CLK (sky130_fd_sc_hd__dfxtp_1)
+     1    0.002661    0.066812    0.630104    1.181779 ^ _162_/Q (sky130_fd_sc_hd__dfxtp_1)
+                                                         net25 (net)
+                      0.066812    0.000031    1.181810 ^ output25/A (sky130_fd_sc_hd__buf_2)
+     1    0.034875    0.276580    0.345477    1.527287 ^ output25/X (sky130_fd_sc_hd__buf_2)
+                                                         sum[4] (net)
+                      0.276580    0.000362    1.527649 ^ sum[4] (out)
+                                              1.527649   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock network delay (propagated)
+                                 -0.250000   24.750000   clock uncertainty
+                                  0.000000   24.750000   clock reconvergence pessimism
+                                 -5.000000   19.750000   output external delay
+                                             19.750000   data required time
+---------------------------------------------------------------------------------------------
+                                             19.750000   data required time
+                                             -1.527649   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.222351   slack (MET)
+
+
+Startpoint: _158_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: sum[0] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.013699    0.106475    0.070783    0.070783 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000    0.070783 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237786    0.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000327    0.308897 ^ clkbuf_1_0__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    14    0.038964    0.093038    0.247128    0.556024 ^ clkbuf_1_0__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.093040    0.000635    0.556660 ^ _158_/CLK (sky130_fd_sc_hd__dfxtp_1)
+     1    0.002338    0.063174    0.628444    1.185104 ^ _158_/Q (sky130_fd_sc_hd__dfxtp_1)
+                                                         net21 (net)
+                      0.063174    0.000022    1.185126 ^ output21/A (sky130_fd_sc_hd__buf_2)
+     1    0.034310    0.272382    0.340811    1.525938 ^ output21/X (sky130_fd_sc_hd__buf_2)
+                                                         sum[0] (net)
+                      0.272382    0.000364    1.526301 ^ sum[0] (out)
+                                              1.526301   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock network delay (propagated)
+                                 -0.250000   24.750000   clock uncertainty
+                                  0.000000   24.750000   clock reconvergence pessimism
+                                 -5.000000   19.750000   output external delay
+                                             19.750000   data required time
+---------------------------------------------------------------------------------------------
+                                             19.750000   data required time
+                                             -1.526301   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.223700   slack (MET)
+
+
+Startpoint: _161_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: sum[3] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.013699    0.106475    0.070783    0.070783 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000    0.070783 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237786    0.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000327    0.308897 ^ clkbuf_1_0__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    14    0.038964    0.093038    0.247128    0.556024 ^ clkbuf_1_0__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.093038    0.000294    0.556319 ^ _161_/CLK (sky130_fd_sc_hd__dfxtp_1)
+     1    0.002278    0.062519    0.627733    1.184051 ^ _161_/Q (sky130_fd_sc_hd__dfxtp_1)
+                                                         net24 (net)
+                      0.062519    0.000021    1.184072 ^ output24/A (sky130_fd_sc_hd__buf_2)
+     1    0.034381    0.272889    0.340937    1.525009 ^ output24/X (sky130_fd_sc_hd__buf_2)
+                                                         sum[3] (net)
+                      0.272889    0.000290    1.525300 ^ sum[3] (out)
+                                              1.525300   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock network delay (propagated)
+                                 -0.250000   24.750000   clock uncertainty
+                                  0.000000   24.750000   clock reconvergence pessimism
+                                 -5.000000   19.750000   output external delay
+                                             19.750000   data required time
+---------------------------------------------------------------------------------------------
+                                             19.750000   data required time
+                                             -1.525300   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.224701   slack (MET)
+
+
+Startpoint: _159_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: sum[1] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.013699    0.106475    0.070783    0.070783 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000    0.070783 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237786    0.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000327    0.308897 ^ clkbuf_1_0__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    14    0.038964    0.093038    0.247128    0.556024 ^ clkbuf_1_0__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.093039    0.000554    0.556579 ^ _159_/CLK (sky130_fd_sc_hd__dfxtp_1)
+     1    0.002058    0.060149    0.625112    1.181691 ^ _159_/Q (sky130_fd_sc_hd__dfxtp_1)
+                                                         net22 (net)
+                      0.060149    0.000018    1.181709 ^ output22/A (sky130_fd_sc_hd__buf_2)
+     1    0.034264    0.272031    0.339193    1.520902 ^ output22/X (sky130_fd_sc_hd__buf_2)
+                                                         sum[1] (net)
+                      0.272031    0.000345    1.521247 ^ sum[1] (out)
+                                              1.521247   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock network delay (propagated)
+                                 -0.250000   24.750000   clock uncertainty
+                                  0.000000   24.750000   clock reconvergence pessimism
+                                 -5.000000   19.750000   output external delay
+                                             19.750000   data required time
+---------------------------------------------------------------------------------------------
+                                             19.750000   data required time
+                                             -1.521247   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.228752   slack (MET)
+
+
+Startpoint: _160_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: sum[2] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.013699    0.106475    0.070783    0.070783 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000    0.070783 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237786    0.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000327    0.308897 ^ clkbuf_1_0__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    14    0.038964    0.093038    0.247128    0.556024 ^ clkbuf_1_0__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.093040    0.000617    0.556642 ^ _160_/CLK (sky130_fd_sc_hd__dfxtp_1)
+     1    0.002015    0.059694    0.624599    1.181241 ^ _160_/Q (sky130_fd_sc_hd__dfxtp_1)
+                                                         net23 (net)
+                      0.059694    0.000017    1.181258 ^ output23/A (sky130_fd_sc_hd__buf_2)
+     1    0.034081    0.270636    0.338127    1.519385 ^ output23/X (sky130_fd_sc_hd__buf_2)
+                                                         sum[2] (net)
+                      0.270636    0.000184    1.519568 ^ sum[2] (out)
+                                              1.519568   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock network delay (propagated)
+                                 -0.250000   24.750000   clock uncertainty
+                                  0.000000   24.750000   clock reconvergence pessimism
+                                 -5.000000   19.750000   output external delay
+                                             19.750000   data required time
+---------------------------------------------------------------------------------------------
+                                             19.750000   data required time
+                                             -1.519568   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.230431   slack (MET)
+
+
+Startpoint: _165_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: sum[7] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.013699    0.106475    0.070783    0.070783 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000    0.070783 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237786    0.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000306    0.308875 ^ clkbuf_1_1__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    13    0.035731    0.088366    0.242632    0.551507 ^ clkbuf_1_1__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.088366    0.000218    0.551725 ^ _165_/CLK (sky130_fd_sc_hd__dfxtp_1)
+     1    0.002214    0.061824    0.624788    1.176513 ^ _165_/Q (sky130_fd_sc_hd__dfxtp_1)
+                                                         net28 (net)
+                      0.061824    0.000022    1.176534 ^ output28/A (sky130_fd_sc_hd__buf_2)
+     1    0.034558    0.274229    0.341474    1.518009 ^ output28/X (sky130_fd_sc_hd__buf_2)
+                                                         sum[7] (net)
+                      0.274229    0.000411    1.518420 ^ sum[7] (out)
+                                              1.518420   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock network delay (propagated)
+                                 -0.250000   24.750000   clock uncertainty
+                                  0.000000   24.750000   clock reconvergence pessimism
+                                 -5.000000   19.750000   output external delay
+                                             19.750000   data required time
+---------------------------------------------------------------------------------------------
+                                             19.750000   data required time
+                                             -1.518420   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.231581   slack (MET)
+
+
+Startpoint: _164_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: sum[6] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.013699    0.106475    0.070783    0.070783 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000    0.070783 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237786    0.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000306    0.308875 ^ clkbuf_1_1__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    13    0.035731    0.088366    0.242632    0.551507 ^ clkbuf_1_1__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.088367    0.000461    0.551967 ^ _164_/CLK (sky130_fd_sc_hd__dfxtp_1)
+     1    0.002093    0.060521    0.623344    1.175312 ^ _164_/Q (sky130_fd_sc_hd__dfxtp_1)
+                                                         net27 (net)
+                      0.060521    0.000019    1.175330 ^ output27/A (sky130_fd_sc_hd__buf_2)
+     1    0.034502    0.273815    0.340584    1.515915 ^ output27/X (sky130_fd_sc_hd__buf_2)
+                                                         sum[6] (net)
+                      0.273815    0.000410    1.516324 ^ sum[6] (out)
+                                              1.516324   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock network delay (propagated)
+                                 -0.250000   24.750000   clock uncertainty
+                                  0.000000   24.750000   clock reconvergence pessimism
+                                 -5.000000   19.750000   output external delay
+                                             19.750000   data required time
+---------------------------------------------------------------------------------------------
+                                             19.750000   data required time
+                                             -1.516324   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.233675   slack (MET)
+
+
+Startpoint: _183_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: cout (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.013699    0.106475    0.070783    0.070783 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000    0.070783 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237786    0.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000306    0.308875 ^ clkbuf_1_1__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    13    0.035731    0.088366    0.242632    0.551507 ^ clkbuf_1_1__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.088366    0.000177    0.551684 ^ _183_/CLK (sky130_fd_sc_hd__dfxtp_1)
+     1    0.001987    0.059402    0.622083    1.173767 ^ _183_/Q (sky130_fd_sc_hd__dfxtp_1)
+                                                         net20 (net)
+                      0.059402    0.000017    1.173784 ^ output20/A (sky130_fd_sc_hd__buf_2)
+     1    0.034562    0.274255    0.340386    1.514170 ^ output20/X (sky130_fd_sc_hd__buf_2)
+                                                         cout (net)
+                      0.274255    0.000411    1.514581 ^ cout (out)
+                                              1.514581   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock network delay (propagated)
+                                 -0.250000   24.750000   clock uncertainty
+                                  0.000000   24.750000   clock reconvergence pessimism
+                                 -5.000000   19.750000   output external delay
+                                             19.750000   data required time
+---------------------------------------------------------------------------------------------
+                                             19.750000   data required time
+                                             -1.514581   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.235418   slack (MET)
+
+
+Startpoint: enable (input port clocked by clk)
+Endpoint: _167_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.002648    0.031251    0.014966    5.014966 ^ enable (in)
+                                                         enable (net)
+                      0.031251    0.000000    5.014966 ^ input18/A (sky130_fd_sc_hd__buf_1)
+     2    0.008231    0.169025    0.203970    5.218936 ^ input18/X (sky130_fd_sc_hd__buf_1)
+                                                         net18 (net)
+                      0.169025    0.000168    5.219104 ^ fanout32/A (sky130_fd_sc_hd__clkbuf_4)
+    10    0.045970    0.230686    0.411626    5.630730 ^ fanout32/X (sky130_fd_sc_hd__clkbuf_4)
+                                                         net32 (net)
+                      0.230702    0.002131    5.632861 ^ _125_/S (sky130_fd_sc_hd__mux2_1)
+     1    0.003680    0.119316    0.772363    6.405223 v _125_/X (sky130_fd_sc_hd__mux2_1)
+                                                         _032_ (net)
+                      0.119316    0.000058    6.405282 v _126_/B (sky130_fd_sc_hd__and2b_1)
+     1    0.001992    0.059443    0.329341    6.734622 v _126_/X (sky130_fd_sc_hd__and2b_1)
+                                                         _009_ (net)
+                      0.059443    0.000018    6.734641 v _167_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              6.734641   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000327   25.308895 ^ clkbuf_1_0__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    14    0.038964    0.093038    0.247129   25.556025 ^ clkbuf_1_0__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.093040    0.000616   25.556641 ^ _167_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.306641   clock uncertainty
+                                  0.000000   25.306641   clock reconvergence pessimism
+                                 -0.258387   25.048254   library setup time
+                                             25.048254   data required time
+---------------------------------------------------------------------------------------------
+                                             25.048254   data required time
+                                             -6.734641   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.313614   slack (MET)
+
+
+Startpoint: enable (input port clocked by clk)
+Endpoint: _168_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.002648    0.031251    0.014966    5.014966 ^ enable (in)
+                                                         enable (net)
+                      0.031251    0.000000    5.014966 ^ input18/A (sky130_fd_sc_hd__buf_1)
+     2    0.008231    0.169025    0.203970    5.218936 ^ input18/X (sky130_fd_sc_hd__buf_1)
+                                                         net18 (net)
+                      0.169025    0.000168    5.219104 ^ fanout32/A (sky130_fd_sc_hd__clkbuf_4)
+    10    0.045970    0.230686    0.411626    5.630730 ^ fanout32/X (sky130_fd_sc_hd__clkbuf_4)
+                                                         net32 (net)
+                      0.230701    0.002119    5.632849 ^ _127_/S (sky130_fd_sc_hd__mux2_1)
+     1    0.003217    0.114109    0.764465    6.397314 v _127_/X (sky130_fd_sc_hd__mux2_1)
+                                                         _033_ (net)
+                      0.114109    0.000045    6.397359 v _128_/B (sky130_fd_sc_hd__and2b_1)
+     1    0.002479    0.063196    0.332166    6.729525 v _128_/X (sky130_fd_sc_hd__and2b_1)
+                                                         _010_ (net)
+                      0.063196    0.000026    6.729551 v _168_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              6.729551   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000327   25.308895 ^ clkbuf_1_0__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    14    0.038964    0.093038    0.247129   25.556025 ^ clkbuf_1_0__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.093038    0.000384   25.556408 ^ _168_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.306408   clock uncertainty
+                                  0.000000   25.306408   clock reconvergence pessimism
+                                 -0.259947   25.046461   library setup time
+                                             25.046461   data required time
+---------------------------------------------------------------------------------------------
+                                             25.046461   data required time
+                                             -6.729551   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.316912   slack (MET)
+
+
+Startpoint: enable (input port clocked by clk)
+Endpoint: _173_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.002648    0.031251    0.014966    5.014966 ^ enable (in)
+                                                         enable (net)
+                      0.031251    0.000000    5.014966 ^ input18/A (sky130_fd_sc_hd__buf_1)
+     2    0.008231    0.169025    0.203970    5.218936 ^ input18/X (sky130_fd_sc_hd__buf_1)
+                                                         net18 (net)
+                      0.169025    0.000168    5.219104 ^ fanout32/A (sky130_fd_sc_hd__clkbuf_4)
+    10    0.045970    0.230686    0.411626    5.630730 ^ fanout32/X (sky130_fd_sc_hd__clkbuf_4)
+                                                         net32 (net)
+                      0.230686    0.000368    5.631098 ^ _137_/S (sky130_fd_sc_hd__mux2_1)
+     1    0.002563    0.107826    0.753289    6.384387 v _137_/X (sky130_fd_sc_hd__mux2_1)
+                                                         _038_ (net)
+                      0.107826    0.000028    6.384415 v _138_/B (sky130_fd_sc_hd__and2b_1)
+     1    0.002257    0.061456    0.326498    6.710913 v _138_/X (sky130_fd_sc_hd__and2b_1)
+                                                         _015_ (net)
+                      0.061456    0.000022    6.710935 v _173_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              6.710935   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000306   25.308874 ^ clkbuf_1_1__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    13    0.035731    0.088366    0.242633   25.551506 ^ clkbuf_1_1__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.088366    0.000371   25.551878 ^ _173_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.301878   clock uncertainty
+                                  0.000000   25.301878   clock reconvergence pessimism
+                                 -0.260482   25.041397   library setup time
+                                             25.041397   data required time
+---------------------------------------------------------------------------------------------
+                                             25.041397   data required time
+                                             -6.710935   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.330463   slack (MET)
+
+
+Startpoint: enable (input port clocked by clk)
+Endpoint: _181_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.002648    0.031251    0.014966    5.014966 ^ enable (in)
+                                                         enable (net)
+                      0.031251    0.000000    5.014966 ^ input18/A (sky130_fd_sc_hd__buf_1)
+     2    0.008231    0.169025    0.203970    5.218936 ^ input18/X (sky130_fd_sc_hd__buf_1)
+                                                         net18 (net)
+                      0.169025    0.000018    5.218954 ^ fanout33/A (sky130_fd_sc_hd__buf_2)
+     7    0.035528    0.281679    0.396569    5.615523 ^ fanout33/X (sky130_fd_sc_hd__buf_2)
+                                                         net33 (net)
+                      0.281679    0.000245    5.615768 ^ _153_/S (sky130_fd_sc_hd__mux2_1)
+     1    0.002097    0.105508    0.758866    6.374634 v _153_/X (sky130_fd_sc_hd__mux2_1)
+                                                         _046_ (net)
+                      0.105508    0.000019    6.374653 v _154_/B (sky130_fd_sc_hd__and2b_1)
+     1    0.002872    0.066252    0.332222    6.706875 v _154_/X (sky130_fd_sc_hd__and2b_1)
+                                                         _023_ (net)
+                      0.066252    0.000039    6.706914 v _181_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              6.706914   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000306   25.308874 ^ clkbuf_1_1__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    13    0.035731    0.088366    0.242633   25.551506 ^ clkbuf_1_1__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.088366    0.000149   25.551655 ^ _181_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.301657   clock uncertainty
+                                  0.000000   25.301657   clock reconvergence pessimism
+                                 -0.262475   25.039183   library setup time
+                                             25.039183   data required time
+---------------------------------------------------------------------------------------------
+                                             25.039183   data required time
+                                             -6.706914   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.332268   slack (MET)
+
+
+Startpoint: enable (input port clocked by clk)
+Endpoint: _180_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.002648    0.031251    0.014966    5.014966 ^ enable (in)
+                                                         enable (net)
+                      0.031251    0.000000    5.014966 ^ input18/A (sky130_fd_sc_hd__buf_1)
+     2    0.008231    0.169025    0.203970    5.218936 ^ input18/X (sky130_fd_sc_hd__buf_1)
+                                                         net18 (net)
+                      0.169025    0.000168    5.219104 ^ fanout32/A (sky130_fd_sc_hd__clkbuf_4)
+    10    0.045970    0.230686    0.411626    5.630730 ^ fanout32/X (sky130_fd_sc_hd__clkbuf_4)
+                                                         net32 (net)
+                      0.230686    0.000977    5.631706 ^ _151_/S (sky130_fd_sc_hd__mux2_1)
+     1    0.002472    0.109816    0.751742    6.383449 v _151_/X (sky130_fd_sc_hd__mux2_1)
+                                                         _045_ (net)
+                      0.109816    0.000018    6.383466 v _152_/B (sky130_fd_sc_hd__and2b_1)
+     1    0.001950    0.059085    0.324063    6.707530 v _152_/X (sky130_fd_sc_hd__and2b_1)
+                                                         _022_ (net)
+                      0.059085    0.000017    6.707547 v _180_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              6.707547   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000306   25.308874 ^ clkbuf_1_1__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    13    0.035731    0.088366    0.242633   25.551506 ^ clkbuf_1_1__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.088368    0.000554   25.552061 ^ _180_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.302061   clock uncertainty
+                                  0.000000   25.302061   clock reconvergence pessimism
+                                 -0.259496   25.042564   library setup time
+                                             25.042564   data required time
+---------------------------------------------------------------------------------------------
+                                             25.042564   data required time
+                                             -6.707547   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.335018   slack (MET)
+
+
+Startpoint: enable (input port clocked by clk)
+Endpoint: _170_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.002648    0.031251    0.014966    5.014966 ^ enable (in)
+                                                         enable (net)
+                      0.031251    0.000000    5.014966 ^ input18/A (sky130_fd_sc_hd__buf_1)
+     2    0.008231    0.169025    0.203970    5.218936 ^ input18/X (sky130_fd_sc_hd__buf_1)
+                                                         net18 (net)
+                      0.169025    0.000018    5.218954 ^ fanout33/A (sky130_fd_sc_hd__buf_2)
+     7    0.035528    0.281679    0.396569    5.615523 ^ fanout33/X (sky130_fd_sc_hd__buf_2)
+                                                         net33 (net)
+                      0.281679    0.000506    5.616029 ^ _131_/S (sky130_fd_sc_hd__mux2_1)
+     1    0.002526    0.107440    0.766224    6.382253 v _131_/X (sky130_fd_sc_hd__mux2_1)
+                                                         _035_ (net)
+                      0.107440    0.000028    6.382282 v _132_/B (sky130_fd_sc_hd__and2b_1)
+     1    0.002016    0.059591    0.323605    6.705886 v _132_/X (sky130_fd_sc_hd__and2b_1)
+                                                         _012_ (net)
+                      0.059591    0.000018    6.705904 v _170_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              6.705904   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000306   25.308874 ^ clkbuf_1_1__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    13    0.035731    0.088366    0.242633   25.551506 ^ clkbuf_1_1__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.088366    0.000155   25.551661 ^ _170_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.301662   clock uncertainty
+                                  0.000000   25.301662   clock reconvergence pessimism
+                                 -0.259707   25.041956   library setup time
+                                             25.041956   data required time
+---------------------------------------------------------------------------------------------
+                                             25.041956   data required time
+                                             -6.705904   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.336050   slack (MET)
+
+
+Startpoint: enable (input port clocked by clk)
+Endpoint: _169_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.002648    0.031251    0.014966    5.014966 ^ enable (in)
+                                                         enable (net)
+                      0.031251    0.000000    5.014966 ^ input18/A (sky130_fd_sc_hd__buf_1)
+     2    0.008231    0.169025    0.203970    5.218936 ^ input18/X (sky130_fd_sc_hd__buf_1)
+                                                         net18 (net)
+                      0.169025    0.000018    5.218954 ^ fanout33/A (sky130_fd_sc_hd__buf_2)
+     7    0.035528    0.281679    0.396569    5.615523 ^ fanout33/X (sky130_fd_sc_hd__buf_2)
+                                                         net33 (net)
+                      0.281679    0.000730    5.616253 ^ _129_/S (sky130_fd_sc_hd__mux2_1)
+     1    0.002404    0.106093    0.764129    6.380383 v _129_/X (sky130_fd_sc_hd__mux2_1)
+                                                         _034_ (net)
+                      0.106093    0.000026    6.380409 v _130_/B (sky130_fd_sc_hd__and2b_1)
+     1    0.002036    0.059747    0.323155    6.703564 v _130_/X (sky130_fd_sc_hd__and2b_1)
+                                                         _011_ (net)
+                      0.059747    0.000019    6.703583 v _169_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              6.703583   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000327   25.308895 ^ clkbuf_1_0__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    14    0.038964    0.093038    0.247129   25.556025 ^ clkbuf_1_0__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.093038    0.000236   25.556259 ^ _169_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.306261   clock uncertainty
+                                  0.000000   25.306261   clock reconvergence pessimism
+                                 -0.258514   25.047749   library setup time
+                                             25.047749   data required time
+---------------------------------------------------------------------------------------------
+                                             25.047749   data required time
+                                             -6.703583   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.344164   slack (MET)
+
+
+Startpoint: enable (input port clocked by clk)
+Endpoint: _179_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.002648    0.031251    0.014966    5.014966 ^ enable (in)
+                                                         enable (net)
+                      0.031251    0.000000    5.014966 ^ input18/A (sky130_fd_sc_hd__buf_1)
+     2    0.008231    0.169025    0.203970    5.218936 ^ input18/X (sky130_fd_sc_hd__buf_1)
+                                                         net18 (net)
+                      0.169025    0.000168    5.219104 ^ fanout32/A (sky130_fd_sc_hd__clkbuf_4)
+    10    0.045970    0.230686    0.411626    5.630730 ^ fanout32/X (sky130_fd_sc_hd__clkbuf_4)
+                                                         net32 (net)
+                      0.230691    0.001484    5.632214 ^ _149_/S (sky130_fd_sc_hd__mux2_1)
+     1    0.002066    0.105259    0.744797    6.377010 v _149_/X (sky130_fd_sc_hd__mux2_1)
+                                                         _044_ (net)
+                      0.105259    0.000019    6.377029 v _150_/B (sky130_fd_sc_hd__and2b_1)
+     1    0.002295    0.061746    0.325629    6.702659 v _150_/X (sky130_fd_sc_hd__and2b_1)
+                                                         _021_ (net)
+                      0.061746    0.000023    6.702682 v _179_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              6.702682   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000327   25.308895 ^ clkbuf_1_0__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    14    0.038964    0.093038    0.247129   25.556025 ^ clkbuf_1_0__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.093038    0.000272   25.556295 ^ _179_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.306297   clock uncertainty
+                                  0.000000   25.306297   clock reconvergence pessimism
+                                 -0.259344   25.046951   library setup time
+                                             25.046951   data required time
+---------------------------------------------------------------------------------------------
+                                             25.046951   data required time
+                                             -6.702682   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.344271   slack (MET)
+
+
+Startpoint: enable (input port clocked by clk)
+Endpoint: _178_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.002648    0.031251    0.014966    5.014966 ^ enable (in)
+                                                         enable (net)
+                      0.031251    0.000000    5.014966 ^ input18/A (sky130_fd_sc_hd__buf_1)
+     2    0.008231    0.169025    0.203970    5.218936 ^ input18/X (sky130_fd_sc_hd__buf_1)
+                                                         net18 (net)
+                      0.169025    0.000018    5.218954 ^ fanout33/A (sky130_fd_sc_hd__buf_2)
+     7    0.035528    0.281679    0.396569    5.615523 ^ fanout33/X (sky130_fd_sc_hd__buf_2)
+                                                         net33 (net)
+                      0.281679    0.000284    5.615808 ^ _147_/S (sky130_fd_sc_hd__mux2_1)
+     1    0.002083    0.105539    0.758625    6.374432 v _147_/X (sky130_fd_sc_hd__mux2_1)
+                                                         _043_ (net)
+                      0.105539    0.000012    6.374444 v _148_/B (sky130_fd_sc_hd__and2b_1)
+     1    0.001921    0.058847    0.321577    6.696022 v _148_/X (sky130_fd_sc_hd__and2b_1)
+                                                         _020_ (net)
+                      0.058847    0.000016    6.696039 v _178_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              6.696039   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000306   25.308874 ^ clkbuf_1_1__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    13    0.035731    0.088366    0.242633   25.551506 ^ clkbuf_1_1__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.088366    0.000119   25.551626 ^ _178_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.301626   clock uncertainty
+                                  0.000000   25.301626   clock reconvergence pessimism
+                                 -0.259398   25.042229   library setup time
+                                             25.042229   data required time
+---------------------------------------------------------------------------------------------
+                                             25.042229   data required time
+                                             -6.696039   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.346189   slack (MET)
+
+
+Startpoint: enable (input port clocked by clk)
+Endpoint: _182_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.002648    0.031251    0.014966    5.014966 ^ enable (in)
+                                                         enable (net)
+                      0.031251    0.000000    5.014966 ^ input18/A (sky130_fd_sc_hd__buf_1)
+     2    0.008231    0.169025    0.203970    5.218936 ^ input18/X (sky130_fd_sc_hd__buf_1)
+                                                         net18 (net)
+                      0.169025    0.000168    5.219104 ^ fanout32/A (sky130_fd_sc_hd__clkbuf_4)
+    10    0.045970    0.230686    0.411626    5.630730 ^ fanout32/X (sky130_fd_sc_hd__clkbuf_4)
+                                                         net32 (net)
+                      0.230694    0.001724    5.632454 ^ _155_/S (sky130_fd_sc_hd__mux2_1)
+     1    0.002165    0.106276    0.746494    6.378948 v _155_/X (sky130_fd_sc_hd__mux2_1)
+                                                         _047_ (net)
+                      0.106276    0.000014    6.378962 v _156_/B (sky130_fd_sc_hd__and2b_1)
+     1    0.001977    0.059283    0.322577    6.701539 v _156_/X (sky130_fd_sc_hd__and2b_1)
+                                                         _024_ (net)
+                      0.059283    0.000017    6.701556 v _182_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              6.701556   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000327   25.308895 ^ clkbuf_1_0__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    14    0.038964    0.093038    0.247129   25.556025 ^ clkbuf_1_0__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.093042    0.000728   25.556751 ^ _182_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.306753   clock uncertainty
+                                  0.000000   25.306753   clock reconvergence pessimism
+                                 -0.258320   25.048433   library setup time
+                                             25.048433   data required time
+---------------------------------------------------------------------------------------------
+                                             25.048433   data required time
+                                             -6.701556   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.346878   slack (MET)
+
+
+Startpoint: enable (input port clocked by clk)
+Endpoint: _166_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.002648    0.031251    0.014966    5.014966 ^ enable (in)
+                                                         enable (net)
+                      0.031251    0.000000    5.014966 ^ input18/A (sky130_fd_sc_hd__buf_1)
+     2    0.008231    0.169025    0.203970    5.218936 ^ input18/X (sky130_fd_sc_hd__buf_1)
+                                                         net18 (net)
+                      0.169025    0.000168    5.219104 ^ fanout32/A (sky130_fd_sc_hd__clkbuf_4)
+    10    0.045970    0.230686    0.411626    5.630730 ^ fanout32/X (sky130_fd_sc_hd__clkbuf_4)
+                                                         net32 (net)
+                      0.230693    0.001679    5.632409 ^ _123_/S (sky130_fd_sc_hd__mux2_1)
+     1    0.002050    0.105027    0.744530    6.376938 v _123_/X (sky130_fd_sc_hd__mux2_1)
+                                                         _031_ (net)
+                      0.105027    0.000020    6.376958 v _124_/B (sky130_fd_sc_hd__and2b_1)
+     1    0.002114    0.060300    0.323486    6.700444 v _124_/X (sky130_fd_sc_hd__and2b_1)
+                                                         _008_ (net)
+                      0.060300    0.000020    6.700464 v _166_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              6.700464   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000327   25.308895 ^ clkbuf_1_0__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    14    0.038964    0.093038    0.247129   25.556025 ^ clkbuf_1_0__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.093042    0.000737   25.556761 ^ _166_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.306763   clock uncertainty
+                                  0.000000   25.306763   clock reconvergence pessimism
+                                 -0.258743   25.048019   library setup time
+                                             25.048019   data required time
+---------------------------------------------------------------------------------------------
+                                             25.048019   data required time
+                                             -6.700464   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.347555   slack (MET)
+
+
+Startpoint: enable (input port clocked by clk)
+Endpoint: _177_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.002648    0.031251    0.014966    5.014966 ^ enable (in)
+                                                         enable (net)
+                      0.031251    0.000000    5.014966 ^ input18/A (sky130_fd_sc_hd__buf_1)
+     2    0.008231    0.169025    0.203970    5.218936 ^ input18/X (sky130_fd_sc_hd__buf_1)
+                                                         net18 (net)
+                      0.169025    0.000018    5.218954 ^ fanout33/A (sky130_fd_sc_hd__buf_2)
+     7    0.035528    0.281679    0.396569    5.615523 ^ fanout33/X (sky130_fd_sc_hd__buf_2)
+                                                         net33 (net)
+                      0.281679    0.000802    5.616325 ^ _145_/S (sky130_fd_sc_hd__mux2_1)
+     1    0.001936    0.103923    0.756108    6.372434 v _145_/X (sky130_fd_sc_hd__mux2_1)
+                                                         _042_ (net)
+                      0.103923    0.000010    6.372443 v _146_/B (sky130_fd_sc_hd__and2b_1)
+     1    0.002209    0.061078    0.323994    6.696437 v _146_/X (sky130_fd_sc_hd__and2b_1)
+                                                         _019_ (net)
+                      0.061078    0.000021    6.696458 v _177_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              6.696458   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000327   25.308895 ^ clkbuf_1_0__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    14    0.038964    0.093038    0.247129   25.556025 ^ clkbuf_1_0__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.093038    0.000275   25.556299 ^ _177_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.306299   clock uncertainty
+                                  0.000000   25.306299   clock reconvergence pessimism
+                                 -0.259067   25.047232   library setup time
+                                             25.047232   data required time
+---------------------------------------------------------------------------------------------
+                                             25.047232   data required time
+                                             -6.696458   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.350775   slack (MET)
+
+
+Startpoint: enable (input port clocked by clk)
+Endpoint: _174_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.002648    0.031251    0.014966    5.014966 ^ enable (in)
+                                                         enable (net)
+                      0.031251    0.000000    5.014966 ^ input18/A (sky130_fd_sc_hd__buf_1)
+     2    0.008231    0.169025    0.203970    5.218936 ^ input18/X (sky130_fd_sc_hd__buf_1)
+                                                         net18 (net)
+                      0.169025    0.000168    5.219104 ^ fanout32/A (sky130_fd_sc_hd__clkbuf_4)
+    10    0.045970    0.230686    0.411626    5.630730 ^ fanout32/X (sky130_fd_sc_hd__clkbuf_4)
+                                                         net32 (net)
+                      0.230698    0.001960    5.632690 ^ _139_/S (sky130_fd_sc_hd__mux2_1)
+     1    0.001897    0.103463    0.741924    6.374614 v _139_/X (sky130_fd_sc_hd__mux2_1)
+                                                         _039_ (net)
+                      0.103463    0.000009    6.374623 v _140_/B (sky130_fd_sc_hd__and2b_1)
+     1    0.002051    0.059854    0.321992    6.696615 v _140_/X (sky130_fd_sc_hd__and2b_1)
+                                                         _016_ (net)
+                      0.059854    0.000019    6.696634 v _174_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              6.696634   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000327   25.308895 ^ clkbuf_1_0__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    14    0.038964    0.093038    0.247129   25.556025 ^ clkbuf_1_0__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.093041    0.000689   25.556713 ^ _174_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.306713   clock uncertainty
+                                  0.000000   25.306713   clock reconvergence pessimism
+                                 -0.258557   25.048157   library setup time
+                                             25.048157   data required time
+---------------------------------------------------------------------------------------------
+                                             25.048157   data required time
+                                             -6.696634   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.351522   slack (MET)
+
+
+Startpoint: enable (input port clocked by clk)
+Endpoint: _172_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.002648    0.031251    0.014966    5.014966 ^ enable (in)
+                                                         enable (net)
+                      0.031251    0.000000    5.014966 ^ input18/A (sky130_fd_sc_hd__buf_1)
+     2    0.008231    0.169025    0.203970    5.218936 ^ input18/X (sky130_fd_sc_hd__buf_1)
+                                                         net18 (net)
+                      0.169025    0.000168    5.219104 ^ fanout32/A (sky130_fd_sc_hd__clkbuf_4)
+    10    0.045970    0.230686    0.411626    5.630730 ^ fanout32/X (sky130_fd_sc_hd__clkbuf_4)
+                                                         net32 (net)
+                      0.230688    0.001283    5.632012 ^ _135_/S (sky130_fd_sc_hd__mux2_1)
+     1    0.001650    0.100629    0.737696    6.369709 v _135_/X (sky130_fd_sc_hd__mux2_1)
+                                                         _037_ (net)
+                      0.100629    0.000006    6.369715 v _136_/B (sky130_fd_sc_hd__and2b_1)
+     1    0.001895    0.058632    0.318807    6.688522 v _136_/X (sky130_fd_sc_hd__and2b_1)
+                                                         _014_ (net)
+                      0.058632    0.000016    6.688538 v _172_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              6.688538   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000306   25.308874 ^ clkbuf_1_1__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    13    0.035731    0.088366    0.242633   25.551506 ^ clkbuf_1_1__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.088368    0.000583   25.552090 ^ _172_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.302090   clock uncertainty
+                                  0.000000   25.302090   clock reconvergence pessimism
+                                 -0.259308   25.042782   library setup time
+                                             25.042782   data required time
+---------------------------------------------------------------------------------------------
+                                             25.042782   data required time
+                                             -6.688538   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.354242   slack (MET)
+
+
+Startpoint: enable (input port clocked by clk)
+Endpoint: _171_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.002648    0.031251    0.014966    5.014966 ^ enable (in)
+                                                         enable (net)
+                      0.031251    0.000000    5.014966 ^ input18/A (sky130_fd_sc_hd__buf_1)
+     2    0.008231    0.169025    0.203970    5.218936 ^ input18/X (sky130_fd_sc_hd__buf_1)
+                                                         net18 (net)
+                      0.169025    0.000168    5.219104 ^ fanout32/A (sky130_fd_sc_hd__clkbuf_4)
+    10    0.045970    0.230686    0.411626    5.630730 ^ fanout32/X (sky130_fd_sc_hd__clkbuf_4)
+                                                         net32 (net)
+                      0.230690    0.001413    5.632143 ^ _133_/S (sky130_fd_sc_hd__mux2_1)
+     1    0.001632    0.100426    0.737380    6.369524 v _133_/X (sky130_fd_sc_hd__mux2_1)
+                                                         _036_ (net)
+                      0.100426    0.000006    6.369530 v _134_/B (sky130_fd_sc_hd__and2b_1)
+     1    0.001880    0.058518    0.318541    6.688070 v _134_/X (sky130_fd_sc_hd__and2b_1)
+                                                         _013_ (net)
+                      0.058518    0.000016    6.688086 v _171_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              6.688086   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000306   25.308874 ^ clkbuf_1_1__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    13    0.035731    0.088366    0.242633   25.551506 ^ clkbuf_1_1__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.088368    0.000592   25.552097 ^ _171_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.302099   clock uncertainty
+                                  0.000000   25.302099   clock reconvergence pessimism
+                                 -0.259261   25.042837   library setup time
+                                             25.042837   data required time
+---------------------------------------------------------------------------------------------
+                                             25.042837   data required time
+                                             -6.688086   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.354752   slack (MET)
+
+
+Startpoint: enable (input port clocked by clk)
+Endpoint: _175_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.002648    0.031251    0.014966    5.014966 ^ enable (in)
+                                                         enable (net)
+                      0.031251    0.000000    5.014966 ^ input18/A (sky130_fd_sc_hd__buf_1)
+     2    0.008231    0.169025    0.203970    5.218936 ^ input18/X (sky130_fd_sc_hd__buf_1)
+                                                         net18 (net)
+                      0.169025    0.000018    5.218954 ^ fanout33/A (sky130_fd_sc_hd__buf_2)
+     7    0.035528    0.281679    0.396569    5.615523 ^ fanout33/X (sky130_fd_sc_hd__buf_2)
+                                                         net33 (net)
+                      0.281679    0.001005    5.616529 ^ _141_/S (sky130_fd_sc_hd__mux2_1)
+     1    0.001672    0.100938    0.751575    6.368103 v _141_/X (sky130_fd_sc_hd__mux2_1)
+                                                         _040_ (net)
+                      0.100938    0.000007    6.368110 v _142_/B (sky130_fd_sc_hd__and2b_1)
+     1    0.001968    0.059202    0.319785    6.687895 v _142_/X (sky130_fd_sc_hd__and2b_1)
+                                                         _017_ (net)
+                      0.059202    0.000017    6.687912 v _175_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              6.687912   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000327   25.308895 ^ clkbuf_1_0__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    14    0.038964    0.093038    0.247129   25.556025 ^ clkbuf_1_0__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.093039    0.000508   25.556532 ^ _175_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.306532   clock uncertainty
+                                  0.000000   25.306532   clock reconvergence pessimism
+                                 -0.258287   25.048244   library setup time
+                                             25.048244   data required time
+---------------------------------------------------------------------------------------------
+                                             25.048244   data required time
+                                             -6.687912   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.360332   slack (MET)
+
+
+Startpoint: enable (input port clocked by clk)
+Endpoint: _176_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.002648    0.031251    0.014966    5.014966 ^ enable (in)
+                                                         enable (net)
+                      0.031251    0.000000    5.014966 ^ input18/A (sky130_fd_sc_hd__buf_1)
+     2    0.008231    0.169025    0.203970    5.218936 ^ input18/X (sky130_fd_sc_hd__buf_1)
+                                                         net18 (net)
+                      0.169025    0.000018    5.218954 ^ fanout33/A (sky130_fd_sc_hd__buf_2)
+     7    0.035528    0.281679    0.396569    5.615523 ^ fanout33/X (sky130_fd_sc_hd__buf_2)
+                                                         net33 (net)
+                      0.281679    0.000938    5.616461 ^ _143_/S (sky130_fd_sc_hd__mux2_1)
+     1    0.001630    0.100484    0.750853    6.367314 v _143_/X (sky130_fd_sc_hd__mux2_1)
+                                                         _041_ (net)
+                      0.100484    0.000006    6.367321 v _144_/B (sky130_fd_sc_hd__and2b_1)
+     1    0.001945    0.059023    0.319298    6.686619 v _144_/X (sky130_fd_sc_hd__and2b_1)
+                                                         _018_ (net)
+                      0.059023    0.000017    6.686636 v _176_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              6.686636   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000327   25.308895 ^ clkbuf_1_0__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    14    0.038964    0.093038    0.247129   25.556025 ^ clkbuf_1_0__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.093040    0.000604   25.556627 ^ _176_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.306629   clock uncertainty
+                                  0.000000   25.306629   clock reconvergence pessimism
+                                 -0.258212   25.048416   library setup time
+                                             25.048416   data required time
+---------------------------------------------------------------------------------------------
+                                             25.048416   data required time
+                                             -6.686636   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.361780   slack (MET)
+
+
+Startpoint: reset (input port clocked by clk)
+Endpoint: _163_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.002955    0.033283    0.016591    5.016591 ^ reset (in)
+                                                         reset (net)
+                      0.033283    0.000000    5.016591 ^ input19/A (sky130_fd_sc_hd__clkbuf_1)
+     1    0.002453    0.069030    0.129145    5.145736 ^ input19/X (sky130_fd_sc_hd__clkbuf_1)
+                                                         net19 (net)
+                      0.069030    0.000020    5.145756 ^ fanout31/A (sky130_fd_sc_hd__clkbuf_2)
+     8    0.023726    0.209152    0.292605    5.438362 ^ fanout31/X (sky130_fd_sc_hd__clkbuf_2)
+                                                         net31 (net)
+                      0.209152    0.000151    5.438512 ^ fanout29/A (sky130_fd_sc_hd__clkbuf_2)
+    10    0.028218    0.245677    0.382950    5.821462 ^ fanout29/X (sky130_fd_sc_hd__clkbuf_2)
+                                                         net29 (net)
+                      0.245677    0.000249    5.821711 ^ _111_/A_N (sky130_fd_sc_hd__and3b_1)
+     1    0.005149    0.089998    0.444116    6.265828 v _111_/X (sky130_fd_sc_hd__and3b_1)
+                                                         _005_ (net)
+                      0.089998    0.000079    6.265907 v _163_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              6.265907   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000306   25.308874 ^ clkbuf_1_1__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    13    0.035731    0.088366    0.242633   25.551506 ^ clkbuf_1_1__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_1__leaf_clk (net)
+                      0.088366    0.000187   25.551693 ^ _163_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.301693   clock uncertainty
+                                  0.000000   25.301693   clock reconvergence pessimism
+                                 -0.272342   25.029352   library setup time
+                                             25.029352   data required time
+---------------------------------------------------------------------------------------------
+                                             25.029352   data required time
+                                             -6.265907   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.763445   slack (MET)
+
+
+Startpoint: reset (input port clocked by clk)
+Endpoint: _159_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.002955    0.033283    0.016591    5.016591 ^ reset (in)
+                                                         reset (net)
+                      0.033283    0.000000    5.016591 ^ input19/A (sky130_fd_sc_hd__clkbuf_1)
+     1    0.002453    0.069030    0.129145    5.145736 ^ input19/X (sky130_fd_sc_hd__clkbuf_1)
+                                                         net19 (net)
+                      0.069030    0.000020    5.145756 ^ fanout31/A (sky130_fd_sc_hd__clkbuf_2)
+     8    0.023726    0.209152    0.292605    5.438362 ^ fanout31/X (sky130_fd_sc_hd__clkbuf_2)
+                                                         net31 (net)
+                      0.209152    0.000561    5.438922 ^ fanout30/A (sky130_fd_sc_hd__clkbuf_2)
+    10    0.032202    0.278013    0.405342    5.844264 ^ fanout30/X (sky130_fd_sc_hd__clkbuf_2)
+                                                         net30 (net)
+                      0.278013    0.000998    5.845262 ^ _089_/A_N (sky130_fd_sc_hd__and3b_1)
+     1    0.002009    0.063440    0.420190    6.265452 v _089_/X (sky130_fd_sc_hd__and3b_1)
+                                                         _001_ (net)
+                      0.063440    0.000018    6.265470 v _159_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              6.265470   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000327   25.308895 ^ clkbuf_1_0__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    14    0.038964    0.093038    0.247129   25.556025 ^ clkbuf_1_0__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.093039    0.000554   25.556578 ^ _159_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.306580   clock uncertainty
+                                  0.000000   25.306580   clock reconvergence pessimism
+                                 -0.260048   25.046532   library setup time
+                                             25.046532   data required time
+---------------------------------------------------------------------------------------------
+                                             25.046532   data required time
+                                             -6.265470   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.781061   slack (MET)
+
+
+Startpoint: reset (input port clocked by clk)
+Endpoint: _161_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.002955    0.033283    0.016591    5.016591 ^ reset (in)
+                                                         reset (net)
+                      0.033283    0.000000    5.016591 ^ input19/A (sky130_fd_sc_hd__clkbuf_1)
+     1    0.002453    0.069030    0.129145    5.145736 ^ input19/X (sky130_fd_sc_hd__clkbuf_1)
+                                                         net19 (net)
+                      0.069030    0.000020    5.145756 ^ fanout31/A (sky130_fd_sc_hd__clkbuf_2)
+     8    0.023726    0.209152    0.292605    5.438362 ^ fanout31/X (sky130_fd_sc_hd__clkbuf_2)
+                                                         net31 (net)
+                      0.209152    0.000561    5.438922 ^ fanout30/A (sky130_fd_sc_hd__clkbuf_2)
+    10    0.032202    0.278013    0.405342    5.844264 ^ fanout30/X (sky130_fd_sc_hd__clkbuf_2)
+                                                         net30 (net)
+                      0.278013    0.000829    5.845093 ^ _100_/A_N (sky130_fd_sc_hd__and3b_1)
+     1    0.001900    0.063868    0.418940    6.264033 v _100_/X (sky130_fd_sc_hd__and3b_1)
+                                                         _003_ (net)
+                      0.063868    0.000009    6.264042 v _161_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              6.264042   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000327   25.308895 ^ clkbuf_1_0__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    14    0.038964    0.093038    0.247129   25.556025 ^ clkbuf_1_0__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.093038    0.000295   25.556318 ^ _161_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.306320   clock uncertainty
+                                  0.000000   25.306320   clock reconvergence pessimism
+                                 -0.260226   25.046093   library setup time
+                                             25.046093   data required time
+---------------------------------------------------------------------------------------------
+                                             25.046093   data required time
+                                             -6.264042   data arrival time
+---------------------------------------------------------------------------------------------
+                                             18.782051   slack (MET)
+
+
+Startpoint: reset (input port clocked by clk)
+Endpoint: _158_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 v input external delay
+     1    0.002826    0.018561    0.009299    5.009299 v reset (in)
+                                                         reset (net)
+                      0.018561    0.000000    5.009299 v input19/A (sky130_fd_sc_hd__clkbuf_1)
+     1    0.002268    0.045086    0.131936    5.141235 v input19/X (sky130_fd_sc_hd__clkbuf_1)
+                                                         net19 (net)
+                      0.045086    0.000019    5.141254 v fanout31/A (sky130_fd_sc_hd__clkbuf_2)
+     8    0.022642    0.164818    0.268918    5.410172 v fanout31/X (sky130_fd_sc_hd__clkbuf_2)
+                                                         net31 (net)
+                      0.164818    0.000143    5.410316 v fanout29/A (sky130_fd_sc_hd__clkbuf_2)
+    10    0.027083    0.193901    0.346931    5.757246 v fanout29/X (sky130_fd_sc_hd__clkbuf_2)
+                                                         net29 (net)
+                      0.193901    0.000519    5.757765 v _083_/A (sky130_fd_sc_hd__nor3_1)
+     1    0.001951    0.219744    0.327502    6.085268 ^ _083_/Y (sky130_fd_sc_hd__nor3_1)
+                                                         _000_ (net)
+                      0.219744    0.000011    6.085278 ^ _158_/D (sky130_fd_sc_hd__dfxtp_1)
+                                              6.085278   data arrival time
+
+                                 25.000000   25.000000   clock clk (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.013699    0.106475    0.070784   25.070784 ^ clk (in)
+                                                         clk (net)
+                      0.106475    0.000000   25.070784 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     2    0.019669    0.067013    0.237785   25.308569 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.067013    0.000327   25.308895 ^ clkbuf_1_0__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    14    0.038964    0.093038    0.247129   25.556025 ^ clkbuf_1_0__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_1_0__leaf_clk (net)
+                      0.093040    0.000634   25.556658 ^ _158_/CLK (sky130_fd_sc_hd__dfxtp_1)
+                                 -0.250000   25.306660   clock uncertainty
+                                  0.000000   25.306660   clock reconvergence pessimism
+                                 -0.163393   25.143267   library setup time
+                                             25.143267   data required time
+---------------------------------------------------------------------------------------------
+                                             25.143267   data required time
+                                             -6.085278   data arrival time
+---------------------------------------------------------------------------------------------
+                                             19.057987   slack (MET)
+
+
+

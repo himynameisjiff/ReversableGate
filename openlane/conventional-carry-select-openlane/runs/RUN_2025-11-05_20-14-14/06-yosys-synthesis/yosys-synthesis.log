@@ -1,0 +1,1136 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2024  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.46 (git sha1 e97731b9dda91fa5fa53ed87df7c34163ba59a41, clang++ 16.0.6 -fPIC -O3)
+Loaded SDC plugin
+
+1. Executing Liberty frontend: /Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Imported 428 cell types from liberty file.
+[INFO] Using SDC file '/Users/prahalad/ReversableGate/openlane/conventional-carry-select-openlane/runs/RUN_2025-11-05_20-14-14/06-yosys-synthesis/synthesis.abc.sdc' for ABC…
+
+2. Executing Verilog-2005 frontend: /Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v
+Parsing SystemVerilog input from `/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v' to AST representation.
+Storing AST representation for module `$abstract\carry_select_wrapper'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: /Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v
+Parsing SystemVerilog input from `/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v' to AST representation.
+Storing AST representation for module `$abstract\full_adder'.
+Storing AST representation for module `$abstract\ripple_adder_4bit'.
+Storing AST representation for module `$abstract\carry_select'.
+Successfully finished Verilog frontend.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+
+5. Executing AST frontend in derive mode using pre-parsed AST for module `\carry_select_wrapper'.
+Generating RTLIL representation for module `\carry_select_wrapper'.
+
+5.1. Analyzing design hierarchy..
+Top module:  \carry_select_wrapper
+
+5.2. Executing AST frontend in derive mode using pre-parsed AST for module `\carry_select'.
+Generating RTLIL representation for module `\carry_select'.
+
+5.3. Analyzing design hierarchy..
+Top module:  \carry_select_wrapper
+Used module:     \carry_select
+
+5.4. Executing AST frontend in derive mode using pre-parsed AST for module `\ripple_adder_4bit'.
+Generating RTLIL representation for module `\ripple_adder_4bit'.
+
+5.5. Analyzing design hierarchy..
+Top module:  \carry_select_wrapper
+Used module:     \carry_select
+Used module:         \ripple_adder_4bit
+
+5.6. Executing AST frontend in derive mode using pre-parsed AST for module `\full_adder'.
+Generating RTLIL representation for module `\full_adder'.
+
+5.7. Analyzing design hierarchy..
+Top module:  \carry_select_wrapper
+Used module:     \carry_select
+Used module:         \ripple_adder_4bit
+Used module:             \full_adder
+
+5.8. Analyzing design hierarchy..
+Top module:  \carry_select_wrapper
+Used module:     \carry_select
+Used module:         \ripple_adder_4bit
+Used module:             \full_adder
+Removing unused module `$abstract\carry_select'.
+Removing unused module `$abstract\ripple_adder_4bit'.
+Removing unused module `$abstract\full_adder'.
+Removing unused module `$abstract\carry_select_wrapper'.
+Removed 4 unused modules.
+Renaming module carry_select_wrapper to carry_select_wrapper.
+
+6. Generating Graphviz representation of design.
+Writing dot description to `/Users/prahalad/ReversableGate/openlane/conventional-carry-select-openlane/runs/RUN_2025-11-05_20-14-14/06-yosys-synthesis/hierarchy.dot'.
+Dumping module carry_select_wrapper to page 1.
+
+7. Executing TRIBUF pass.
+
+8. Executing HIERARCHY pass (managing design hierarchy).
+
+8.1. Analyzing design hierarchy..
+Top module:  \carry_select_wrapper
+Used module:     \carry_select
+Used module:         \ripple_adder_4bit
+Used module:             \full_adder
+
+8.2. Analyzing design hierarchy..
+Top module:  \carry_select_wrapper
+Used module:     \carry_select
+Used module:         \ripple_adder_4bit
+Used module:             \full_adder
+Removed 0 unused modules.
+
+9. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+10. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:35$1 in module carry_select_wrapper.
+Removed a total of 0 dead cases.
+
+11. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 5 redundant assignments.
+Promoted 0 assignments to connections.
+
+12. Executing PROC_INIT pass (extract init attributes).
+
+13. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \reset in `\carry_select_wrapper.$proc$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:35$1'.
+
+14. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+15. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\carry_select_wrapper.$proc$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:35$1'.
+     1/5: $0\cout[0:0]
+     2/5: $0\sum[7:0]
+     3/5: $0\cin_r[0:0]
+     4/5: $0\b_r[7:0]
+     5/5: $0\a_r[7:0]
+
+16. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+17. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\carry_select_wrapper.\sum' using process `\carry_select_wrapper.$proc$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:35$1'.
+  created $adff cell `$procdff$11' with positive edge clock and positive level reset.
+Creating register for signal `\carry_select_wrapper.\cout' using process `\carry_select_wrapper.$proc$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:35$1'.
+  created $adff cell `$procdff$14' with positive edge clock and positive level reset.
+Creating register for signal `\carry_select_wrapper.\a_r' using process `\carry_select_wrapper.$proc$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:35$1'.
+  created $adff cell `$procdff$17' with positive edge clock and positive level reset.
+Creating register for signal `\carry_select_wrapper.\b_r' using process `\carry_select_wrapper.$proc$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:35$1'.
+  created $adff cell `$procdff$20' with positive edge clock and positive level reset.
+Creating register for signal `\carry_select_wrapper.\cin_r' using process `\carry_select_wrapper.$proc$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:35$1'.
+  created $adff cell `$procdff$23' with positive edge clock and positive level reset.
+
+18. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+19. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `carry_select_wrapper.$proc$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select-wrapper.v:35$1'.
+Cleaned up 0 empty switches.
+
+20. Executing CHECK pass (checking for obvious problems).
+Checking module carry_select_wrapper...
+Checking module ripple_adder_4bit...
+Checking module carry_select...
+Checking module full_adder...
+Found and reported 0 problems.
+
+21. Executing OPT_EXPR pass (perform const folding).
+Optimizing module carry_select_wrapper.
+<suppressed ~5 debug messages>
+Optimizing module ripple_adder_4bit.
+Optimizing module carry_select.
+Optimizing module full_adder.
+
+22. Executing FLATTEN pass (flatten design).
+Deleting now unused module ripple_adder_4bit.
+Deleting now unused module carry_select.
+Deleting now unused module full_adder.
+<suppressed ~8 debug messages>
+
+23. Executing OPT_EXPR pass (perform const folding).
+Optimizing module carry_select_wrapper.
+<suppressed ~1 debug messages>
+
+24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \carry_select_wrapper..
+Removed 0 unused cells and 28 unused wires.
+<suppressed ~2 debug messages>
+
+25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module carry_select_wrapper.
+
+26. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\carry_select_wrapper'.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
+
+27. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \carry_select_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~5 debug messages>
+
+28. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \carry_select_wrapper.
+Performed a total of 0 changes.
+
+29. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\carry_select_wrapper'.
+Removed a total of 0 cells.
+
+30. Executing OPT_DFF pass (perform DFF optimizations).
+
+31. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \carry_select_wrapper..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+32. Executing OPT_EXPR pass (perform const folding).
+Optimizing module carry_select_wrapper.
+
+33. Rerunning OPT passes. (Maybe there is more to do…)
+
+34. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \carry_select_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~5 debug messages>
+
+35. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \carry_select_wrapper.
+Performed a total of 0 changes.
+
+36. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\carry_select_wrapper'.
+Removed a total of 0 cells.
+
+37. Executing OPT_DFF pass (perform DFF optimizations).
+
+38. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \carry_select_wrapper..
+
+39. Executing OPT_EXPR pass (perform const folding).
+Optimizing module carry_select_wrapper.
+
+40. Executing FSM pass (extract and optimize FSM).
+
+40.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+40.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+40.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+40.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \carry_select_wrapper..
+
+40.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+40.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+40.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+40.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+41. Executing OPT_EXPR pass (perform const folding).
+Optimizing module carry_select_wrapper.
+
+42. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\carry_select_wrapper'.
+Removed a total of 0 cells.
+
+43. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \carry_select_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~5 debug messages>
+
+44. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \carry_select_wrapper.
+Performed a total of 0 changes.
+
+45. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\carry_select_wrapper'.
+Removed a total of 0 cells.
+
+46. Executing OPT_DFF pass (perform DFF optimizations).
+
+47. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \carry_select_wrapper..
+
+48. Executing OPT_EXPR pass (perform const folding).
+Optimizing module carry_select_wrapper.
+
+49. Executing WREDUCE pass (reducing word size of cells).
+
+50. Executing PEEPOPT pass (run peephole optimizers).
+
+51. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \carry_select_wrapper..
+
+52. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module carry_select_wrapper:
+  creating $macc model for $flatten\u_cs.\hi_block_c0.\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7 ($add).
+  creating $macc model for $flatten\u_cs.\hi_block_c0.\fa1.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7 ($add).
+  creating $macc model for $flatten\u_cs.\hi_block_c0.\fa1.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8 ($add).
+  creating $macc model for $flatten\u_cs.\hi_block_c0.\fa2.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7 ($add).
+  creating $macc model for $flatten\u_cs.\hi_block_c0.\fa2.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8 ($add).
+  creating $macc model for $flatten\u_cs.\hi_block_c0.\fa3.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7 ($add).
+  creating $macc model for $flatten\u_cs.\hi_block_c0.\fa3.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8 ($add).
+  creating $macc model for $flatten\u_cs.\hi_block_c1.\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8 ($add).
+  creating $macc model for $flatten\u_cs.\hi_block_c1.\fa1.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8 ($add).
+  creating $macc model for $flatten\u_cs.\hi_block_c1.\fa2.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8 ($add).
+  creating $macc model for $flatten\u_cs.\hi_block_c1.\fa3.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8 ($add).
+  creating $macc model for $flatten\u_cs.\lo_block.\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7 ($add).
+  creating $macc model for $flatten\u_cs.\lo_block.\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8 ($add).
+  creating $macc model for $flatten\u_cs.\lo_block.\fa1.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7 ($add).
+  creating $macc model for $flatten\u_cs.\lo_block.\fa1.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8 ($add).
+  creating $macc model for $flatten\u_cs.\lo_block.\fa2.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7 ($add).
+  creating $macc model for $flatten\u_cs.\lo_block.\fa2.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8 ($add).
+  creating $macc model for $flatten\u_cs.\lo_block.\fa3.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7 ($add).
+  creating $macc model for $flatten\u_cs.\lo_block.\fa3.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8 ($add).
+  merging $macc model for $flatten\u_cs.\lo_block.\fa3.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7 into $flatten\u_cs.\lo_block.\fa3.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8.
+  merging $macc model for $flatten\u_cs.\lo_block.\fa2.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7 into $flatten\u_cs.\lo_block.\fa2.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8.
+  merging $macc model for $flatten\u_cs.\lo_block.\fa1.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7 into $flatten\u_cs.\lo_block.\fa1.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8.
+  merging $macc model for $flatten\u_cs.\lo_block.\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7 into $flatten\u_cs.\lo_block.\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8.
+  creating $alu model for $macc $flatten\u_cs.\lo_block.\fa1.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8.
+  creating $alu model for $macc $flatten\u_cs.\lo_block.\fa2.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8.
+  creating $alu model for $macc $flatten\u_cs.\lo_block.\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8.
+  creating $alu model for $macc $flatten\u_cs.\lo_block.\fa3.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8.
+  creating $alu model for $macc $flatten\u_cs.\hi_block_c1.\fa3.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8.
+  creating $alu model for $macc $flatten\u_cs.\hi_block_c1.\fa2.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8.
+  creating $alu model for $macc $flatten\u_cs.\hi_block_c1.\fa1.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8.
+  creating $alu model for $macc $flatten\u_cs.\hi_block_c1.\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8.
+  creating $alu model for $macc $flatten\u_cs.\hi_block_c0.\fa3.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8.
+  creating $alu model for $macc $flatten\u_cs.\hi_block_c0.\fa3.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7.
+  creating $alu model for $macc $flatten\u_cs.\hi_block_c0.\fa2.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8.
+  creating $alu model for $macc $flatten\u_cs.\hi_block_c0.\fa2.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7.
+  creating $alu model for $macc $flatten\u_cs.\hi_block_c0.\fa1.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8.
+  creating $alu model for $macc $flatten\u_cs.\hi_block_c0.\fa1.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7.
+  creating $alu model for $macc $flatten\u_cs.\hi_block_c0.\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7.
+  creating $alu cell for $flatten\u_cs.\hi_block_c0.\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7: $auto$alumacc.cc:485:replace_alu$32
+  creating $alu cell for $flatten\u_cs.\hi_block_c0.\fa1.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7: $auto$alumacc.cc:485:replace_alu$35
+  creating $alu cell for $flatten\u_cs.\hi_block_c0.\fa1.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8: $auto$alumacc.cc:485:replace_alu$38
+  creating $alu cell for $flatten\u_cs.\hi_block_c0.\fa2.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7: $auto$alumacc.cc:485:replace_alu$41
+  creating $alu cell for $flatten\u_cs.\hi_block_c0.\fa2.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8: $auto$alumacc.cc:485:replace_alu$44
+  creating $alu cell for $flatten\u_cs.\hi_block_c0.\fa3.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$7: $auto$alumacc.cc:485:replace_alu$47
+  creating $alu cell for $flatten\u_cs.\hi_block_c0.\fa3.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8: $auto$alumacc.cc:485:replace_alu$50
+  creating $alu cell for $flatten\u_cs.\hi_block_c1.\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8: $auto$alumacc.cc:485:replace_alu$53
+  creating $alu cell for $flatten\u_cs.\hi_block_c1.\fa1.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8: $auto$alumacc.cc:485:replace_alu$56
+  creating $alu cell for $flatten\u_cs.\hi_block_c1.\fa2.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8: $auto$alumacc.cc:485:replace_alu$59
+  creating $alu cell for $flatten\u_cs.\hi_block_c1.\fa3.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8: $auto$alumacc.cc:485:replace_alu$62
+  creating $alu cell for $flatten\u_cs.\lo_block.\fa3.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8: $auto$alumacc.cc:485:replace_alu$65
+  creating $alu cell for $flatten\u_cs.\lo_block.\fa0.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8: $auto$alumacc.cc:485:replace_alu$68
+  creating $alu cell for $flatten\u_cs.\lo_block.\fa2.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8: $auto$alumacc.cc:485:replace_alu$71
+  creating $alu cell for $flatten\u_cs.\lo_block.\fa1.$add$/Users/prahalad/ReversableGate/src/conventional-carry-select/carry-select.v:9$8: $auto$alumacc.cc:485:replace_alu$74
+  created 15 $alu and 0 $macc cells.
+
+53. Executing SHARE pass (SAT-based resource sharing).
+
+54. Executing OPT_EXPR pass (perform const folding).
+Optimizing module carry_select_wrapper.
+
+55. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\carry_select_wrapper'.
+Removed a total of 0 cells.
+
+56. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \carry_select_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~5 debug messages>
+
+57. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \carry_select_wrapper.
+Performed a total of 0 changes.
+
+58. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\carry_select_wrapper'.
+Removed a total of 0 cells.
+
+59. Executing OPT_DFF pass (perform DFF optimizations).
+
+60. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \carry_select_wrapper..
+Removed 4 unused cells and 4 unused wires.
+<suppressed ~5 debug messages>
+
+61. Executing OPT_EXPR pass (perform const folding).
+Optimizing module carry_select_wrapper.
+
+62. Rerunning OPT passes. (Maybe there is more to do…)
+
+63. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \carry_select_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~5 debug messages>
+
+64. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \carry_select_wrapper.
+Performed a total of 0 changes.
+
+65. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\carry_select_wrapper'.
+Removed a total of 0 cells.
+
+66. Executing OPT_DFF pass (perform DFF optimizations).
+
+67. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \carry_select_wrapper..
+
+68. Executing OPT_EXPR pass (perform const folding).
+Optimizing module carry_select_wrapper.
+
+69. Executing MEMORY pass.
+
+69.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+69.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+69.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+69.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+69.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+69.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \carry_select_wrapper..
+
+69.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+69.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+69.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \carry_select_wrapper..
+
+69.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+70. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \carry_select_wrapper..
+
+71. Executing OPT_EXPR pass (perform const folding).
+Optimizing module carry_select_wrapper.
+
+72. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\carry_select_wrapper'.
+Removed a total of 0 cells.
+
+73. Executing OPT_DFF pass (perform DFF optimizations).
+
+74. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \carry_select_wrapper..
+
+75. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+76. Executing OPT_EXPR pass (perform const folding).
+Optimizing module carry_select_wrapper.
+
+77. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\carry_select_wrapper'.
+Removed a total of 0 cells.
+
+78. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \carry_select_wrapper..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~5 debug messages>
+
+79. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \carry_select_wrapper.
+Performed a total of 0 changes.
+
+80. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\carry_select_wrapper'.
+Removed a total of 0 cells.
+
+81. Executing OPT_SHARE pass.
+
+82. Executing OPT_DFF pass (perform DFF optimizations).
+
+83. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \carry_select_wrapper..
+
+84. Executing OPT_EXPR pass (perform const folding).
+Optimizing module carry_select_wrapper.
+
+85. Executing TECHMAP pass (map to technology primitives).
+
+85.1. Executing Verilog-2005 frontend: /nix/store/6zc2kdlrqrp4xxm125k2rsl0lf5n3bqz-yosys-with-plugins/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/nix/store/6zc2kdlrqrp4xxm125k2rsl0lf5n3bqz-yosys-with-plugins/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+85.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $adff.
+Using template $paramod$1d1e68f77481583066c6d429218f48ea9d5739b3\_90_alu for cells of type $alu.
+Using template $paramod$175e67c02b86e96b1288b9dc100122520d7240d8\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $and.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000010 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $or.
+No more expansions possible.
+<suppressed ~423 debug messages>
+
+86. Executing OPT_EXPR pass (perform const folding).
+Optimizing module carry_select_wrapper.
+<suppressed ~149 debug messages>
+
+87. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\carry_select_wrapper'.
+<suppressed ~21 debug messages>
+Removed a total of 7 cells.
+
+88. Executing OPT_DFF pass (perform DFF optimizations).
+
+89. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \carry_select_wrapper..
+Removed 22 unused cells and 415 unused wires.
+<suppressed ~23 debug messages>
+
+90. Executing OPT_EXPR pass (perform const folding).
+Optimizing module carry_select_wrapper.
+
+91. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\carry_select_wrapper'.
+Removed a total of 0 cells.
+
+92. Executing OPT_DFF pass (perform DFF optimizations).
+
+93. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \carry_select_wrapper..
+
+94. Executing ABC pass (technology mapping using ABC).
+
+94.1. Extracting gate netlist of module `\carry_select_wrapper' to `<abc-temp-dir>/input.blif'..
+Extracted 53 gates and 70 wires to a netlist network with 17 inputs and 9 outputs.
+
+94.1.1. Executing ABC.
+Running ABC command: "/nix/store/nfc55yg37krxzn5va3s91rns1l725sc8-yosys-abc/bin/abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: Entered genlib library with 13 gates from file "<abc-temp-dir>/stdcells.genlib".
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+94.1.2. Re-integrating ABC results.
+ABC RESULTS:              NAND cells:        1
+ABC RESULTS:             ORNOT cells:        3
+ABC RESULTS:               NOR cells:        2
+ABC RESULTS:               AND cells:        4
+ABC RESULTS:               NOT cells:        4
+ABC RESULTS:            ANDNOT cells:       13
+ABC RESULTS:               XOR cells:       15
+ABC RESULTS:               MUX cells:        4
+ABC RESULTS:              XNOR cells:       10
+ABC RESULTS:        internal signals:       44
+ABC RESULTS:           input signals:       17
+ABC RESULTS:          output signals:        9
+Removing temp directory.
+
+95. Executing OPT pass (performing simple optimizations).
+
+95.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module carry_select_wrapper.
+
+95.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\carry_select_wrapper'.
+Removed a total of 0 cells.
+
+95.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+95.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \carry_select_wrapper..
+Removed 0 unused cells and 92 unused wires.
+<suppressed ~43 debug messages>
+
+95.5. Finished fast OPT passes.
+
+96. Executing HIERARCHY pass (managing design hierarchy).
+
+96.1. Analyzing design hierarchy..
+Top module:  \carry_select_wrapper
+
+96.2. Analyzing design hierarchy..
+Top module:  \carry_select_wrapper
+Removed 0 unused modules.
+
+97. Executing CHECK pass (checking for obvious problems).
+Checking module carry_select_wrapper...
+Found and reported 0 problems.
+
+98. Printing statistics.
+
+=== carry_select_wrapper ===
+
+   Number of wires:                106
+   Number of wire bits:            193
+   Number of public wires:          59
+   Number of public wire bits:     146
+   Number of ports:                  7
+   Number of port bits:             28
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 98
+     $_ANDNOT_                      13
+     $_AND_                          4
+     $_DFF_PP0_                     26
+     $_MUX_                          4
+     $_NAND_                         1
+     $_NOR_                          2
+     $_NOT_                          4
+     $_ORNOT_                        3
+     $_XNOR_                        10
+     $_XOR_                         15
+     $scopeinfo                     16
+
+99. Generating Graphviz representation of design.
+Writing dot description to `/Users/prahalad/ReversableGate/openlane/conventional-carry-select-openlane/runs/RUN_2025-11-05_20-14-14/06-yosys-synthesis/primitive_techmap.dot'.
+Dumping module carry_select_wrapper to page 1.
+
+100. Executing OPT pass (performing simple optimizations).
+
+100.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module carry_select_wrapper.
+
+100.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\carry_select_wrapper'.
+Removed a total of 0 cells.
+
+100.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \carry_select_wrapper..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+100.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \carry_select_wrapper.
+Performed a total of 0 changes.
+
+100.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\carry_select_wrapper'.
+Removed a total of 0 cells.
+
+100.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+100.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \carry_select_wrapper..
+
+100.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module carry_select_wrapper.
+
+100.9. Finished OPT passes. (There is nothing left to do.)
+
+101. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \carry_select_wrapper..
+Removed 16 unused cells and 29 unused wires.
+<suppressed ~45 debug messages>
+{
+   "creator": "Yosys 0.46 (git sha1 e97731b9dda91fa5fa53ed87df7c34163ba59a41, clang++ 16.0.6 -fPIC -O3)",
+   "invocation": "stat -json -liberty /Users/prahalad/ReversableGate/openlane/conventional-carry-select-openlane/runs/RUN_2025-11-05_20-14-14/tmp/1df5b0c4e11d4aa5a806587ae47aa706.lib ",
+   "modules": {
+      "\\carry_select_wrapper": {
+         "num_wires":         77,
+         "num_wire_bits":     105,
+         "num_pub_wires":     30,
+         "num_pub_wire_bits": 58,
+         "num_ports":         7,
+         "num_port_bits":     28,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         82,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 13,
+            "$_AND_": 4,
+            "$_DFF_PP0_": 26,
+            "$_MUX_": 4,
+            "$_NAND_": 1,
+            "$_NOR_": 2,
+            "$_NOT_": 4,
+            "$_ORNOT_": 3,
+            "$_XNOR_": 10,
+            "$_XOR_": 15
+         }
+      }
+   },
+      "design": {
+         "num_wires":         77,
+         "num_wire_bits":     105,
+         "num_pub_wires":     30,
+         "num_pub_wire_bits": 58,
+         "num_ports":         7,
+         "num_port_bits":     28,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         82,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 13,
+            "$_AND_": 4,
+            "$_DFF_PP0_": 26,
+            "$_MUX_": 4,
+            "$_NAND_": 1,
+            "$_NOR_": 2,
+            "$_NOT_": 4,
+            "$_ORNOT_": 3,
+            "$_XNOR_": 10,
+            "$_XOR_": 15
+         }
+      }
+}
+
+102. Printing statistics.
+
+=== carry_select_wrapper ===
+
+   Number of wires:                 77
+   Number of wire bits:            105
+   Number of public wires:          30
+   Number of public wire bits:      58
+   Number of ports:                  7
+   Number of port bits:             28
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 82
+     $_ANDNOT_                      13
+     $_AND_                          4
+     $_DFF_PP0_                     26
+     $_MUX_                          4
+     $_NAND_                         1
+     $_NOR_                          2
+     $_NOT_                          4
+     $_ORNOT_                        3
+     $_XNOR_                        10
+     $_XOR_                         15
+
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+   Area for cell type $_DFF_PP0_ is unknown!
+
+[INFO] Applying tri-state buffer mapping from '/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v'…
+
+103. Executing TECHMAP pass (map to technology primitives).
+
+103.1. Executing Verilog-2005 frontend: /Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v
+Parsing Verilog input from `/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v' to AST representation.
+Generating RTLIL representation for module `\$_TBUF_'.
+Successfully finished Verilog frontend.
+
+103.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~3 debug messages>
+
+104. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+[INFO] Applying latch mapping from '/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v'…
+
+105. Executing TECHMAP pass (map to technology primitives).
+
+105.1. Executing Verilog-2005 frontend: /Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v
+Parsing Verilog input from `/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v' to AST representation.
+Generating RTLIL representation for module `\$_DLATCH_P_'.
+Generating RTLIL representation for module `\$_DLATCH_N_'.
+Successfully finished Verilog frontend.
+
+105.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~4 debug messages>
+
+106. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+107. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_2 (noninv, pins=3, area=21.27) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtp_2 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_2 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__dfbbn_2 (noninv, pins=6, area=35.03) is a direct match for cell type $_DFFSR_NNN_.
+  final dff cell mappings:
+    unmapped dff cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_2 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    unmapped dff cell: $_DFF_NN0_
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_2 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_2 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    \sky130_fd_sc_hd__dfbbn_2 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    unmapped dff cell: $_DFFSR_PNN_
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+107.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+Mapping DFF cells in module `\carry_select_wrapper':
+  mapped 26 $_DFF_PN0_ cells to \sky130_fd_sc_hd__dfrtp_2 cells.
+{
+   "creator": "Yosys 0.46 (git sha1 e97731b9dda91fa5fa53ed87df7c34163ba59a41, clang++ 16.0.6 -fPIC -O3)",
+   "invocation": "stat -json -liberty /Users/prahalad/ReversableGate/openlane/conventional-carry-select-openlane/runs/RUN_2025-11-05_20-14-14/tmp/1df5b0c4e11d4aa5a806587ae47aa706.lib ",
+   "modules": {
+      "\\carry_select_wrapper": {
+         "num_wires":         103,
+         "num_wire_bits":     131,
+         "num_pub_wires":     30,
+         "num_pub_wire_bits": 58,
+         "num_ports":         7,
+         "num_port_bits":     28,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         108,
+         "area":              683.155200,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 13,
+            "$_AND_": 4,
+            "$_MUX_": 4,
+            "$_NAND_": 1,
+            "$_NOR_": 2,
+            "$_NOT_": 30,
+            "$_ORNOT_": 3,
+            "$_XNOR_": 10,
+            "$_XOR_": 15,
+            "sky130_fd_sc_hd__dfrtp_2": 26
+         }
+      }
+   },
+      "design": {
+         "num_wires":         103,
+         "num_wire_bits":     131,
+         "num_pub_wires":     30,
+         "num_pub_wire_bits": 58,
+         "num_ports":         7,
+         "num_port_bits":     28,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         108,
+         "area":              683.155200,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 13,
+            "$_AND_": 4,
+            "$_MUX_": 4,
+            "$_NAND_": 1,
+            "$_NOR_": 2,
+            "$_NOT_": 30,
+            "$_ORNOT_": 3,
+            "$_XNOR_": 10,
+            "$_XOR_": 15,
+            "sky130_fd_sc_hd__dfrtp_2": 26
+         }
+      }
+}
+
+108. Printing statistics.
+
+=== carry_select_wrapper ===
+
+   Number of wires:                103
+   Number of wire bits:            131
+   Number of public wires:          30
+   Number of public wire bits:      58
+   Number of ports:                  7
+   Number of port bits:             28
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                108
+     $_ANDNOT_                      13
+     $_AND_                          4
+     $_MUX_                          4
+     $_NAND_                         1
+     $_NOR_                          2
+     $_NOT_                         30
+     $_ORNOT_                        3
+     $_XNOR_                        10
+     $_XOR_                         15
+     sky130_fd_sc_hd__dfrtp_2       26
+
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+
+   Chip area for module '\carry_select_wrapper': 683.155200
+     of which used for sequential elements: 683.155200 (100.00%)
+
+[INFO] Using generated ABC script '/Users/prahalad/ReversableGate/openlane/conventional-carry-select-openlane/runs/RUN_2025-11-05_20-14-14/06-yosys-synthesis/AREA_0.abc'…
+
+109. Executing ABC pass (technology mapping using ABC).
+
+109.1. Extracting gate netlist of module `\carry_select_wrapper' to `/tmp/yosys-abc-OD6Po1/input.blif'..
+Extracted 82 gates and 100 wires to a netlist network with 18 inputs and 35 outputs.
+
+109.1.1. Executing ABC.
+Running ABC command: "/nix/store/nfc55yg37krxzn5va3s91rns1l725sc8-yosys-abc/bin/abc" -s -f /tmp/yosys-abc-OD6Po1/abc.script 2>&1
+ABC: ABC command line: "source /tmp/yosys-abc-OD6Po1/abc.script".
+ABC: 
+ABC: + read_blif /tmp/yosys-abc-OD6Po1/input.blif 
+ABC: + read_lib -w /Users/prahalad/ReversableGate/openlane/conventional-carry-select-openlane/runs/RUN_2025-11-05_20-14-14/tmp/1df5b0c4e11d4aa5a806587ae47aa706.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.03 sec
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_8".
+ABC: Library "sky130_fd_sc_hd__tt_025C_1v80" from "/Users/prahalad/ReversableGate/openlane/conventional-carry-select-openlane/runs/RUN_2025-11-05_20-14-14/tmp/1df5b0c4e11d4aa5a806587ae47aa706.lib" has 175 cells (17 skipped: 14 seq; 3 tri-state; 0 no func; 0 dont_use).  Time =     0.05 sec
+ABC: Memory =    9.54 MB. Time =     0.05 sec
+ABC: Warning: Detected 2 multi-output gates (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + read_constr -v /Users/prahalad/ReversableGate/openlane/conventional-carry-select-openlane/runs/RUN_2025-11-05_20-14-14/06-yosys-synthesis/synthesis.abc.sdc 
+ABC: Setting driving cell to be "sky130_fd_sc_hd__inv_2/Y".
+ABC: Setting output load to be 33.442001.
+ABC: + source /Users/prahalad/ReversableGate/openlane/conventional-carry-select-openlane/runs/RUN_2025-11-05_20-14-14/06-yosys-synthesis/AREA_0.abc 
+ABC: Error: The network is combinational.
+ABC: Cannot find the default PI driving cell (sky130_fd_sc_hd__inv_2/Y) in the library.
+ABC: WireLoad = "none"  Gates =     77 ( 36.4 %)   Cap = 18.4 ff (  6.5 %)   Area =      565.54 ( 58.4 %)   Delay =  2482.73 ps  ( 19.5 %)               
+ABC: Path  0 --       9 : 0    2 pi                        A =   0.00  Df =   0.0   -0.0 ps  S =   0.0 ps  Cin =  0.0 ff  Cout =   6.1 ff  Cmax =   0.0 ff  G =    0  
+ABC: Path  1 --      56 : 2    3 sky130_fd_sc_hd__or2_2    A =   6.26  Df = 308.4 -195.7 ps  S =  79.0 ps  Cin =  1.5 ff  Cout =  11.7 ff  Cmax = 299.4 ff  G =  768  
+ABC: Path  2 --      58 : 3    2 sky130_fd_sc_hd__a21boi_2 A =  11.26  Df = 500.5 -294.9 ps  S = 156.2 ps  Cin =  3.6 ff  Cout =  10.1 ff  Cmax = 129.1 ff  G =  272  
+ABC: Path  3 --      60 : 2    2 sky130_fd_sc_hd__xnor2_2  A =  16.27  Df = 698.0 -290.6 ps  S = 224.2 ps  Cin =  8.5 ff  Cout =  13.5 ff  Cmax = 121.8 ff  G =  153  
+ABC: Path  4 --      61 : 3    2 sky130_fd_sc_hd__a21oi_2  A =   8.76  Df = 891.9 -376.7 ps  S = 157.6 ps  Cin =  4.6 ff  Cout =  10.1 ff  Cmax = 128.2 ff  G =  215  
+ABC: Path  5 --      64 : 2    2 sky130_fd_sc_hd__xnor2_2  A =  16.27  Df =1066.8 -406.0 ps  S = 138.7 ps  Cin =  8.5 ff  Cout =   6.1 ff  Cmax = 121.8 ff  G =   68  
+ABC: Path  6 --      65 : 2    3 sky130_fd_sc_hd__nand2_2  A =   6.26  Df =1147.3 -407.6 ps  S =  62.2 ps  Cin =  4.4 ff  Cout =   8.1 ff  Cmax = 295.7 ff  G =  175  
+ABC: Path  7 --      67 : 3    2 sky130_fd_sc_hd__or3b_2   A =   8.76  Df =1605.0 -664.0 ps  S =  90.3 ps  Cin =  1.5 ff  Cout =   6.7 ff  Cmax = 269.2 ff  G =  427  
+ABC: Path  8 --      69 : 3    6 sky130_fd_sc_hd__a21oi_2  A =   8.76  Df =1922.2 -879.2 ps  S = 326.0 ps  Cin =  4.6 ff  Cout =  25.7 ff  Cmax = 128.2 ff  G =  538  
+ABC: Path  9 --      94 : 2    1 sky130_fd_sc_hd__nand2b_2 A =   8.76  Df =2105.1 -873.1 ps  S =  43.7 ps  Cin =  3.0 ff  Cout =   3.5 ff  Cmax = 285.7 ff  G =  114  
+ABC: Path 10 --      96 : 3    1 sky130_fd_sc_hd__mux2_1   A =  11.26  Df =2482.7 -794.2 ps  S = 300.2 ps  Cin =  2.3 ff  Cout =  33.4 ff  Cmax = 173.0 ff  G = 1465  
+ABC: Start-point = pi8 (\u_cs.lo_block.fa0.a).  End-point = po2 (\sum_c [5]).
+ABC: netlist                       : i/o =   18/   35  lat =    0  nd =    77  edge =    146  area =565.57  delay =10.00  lev = 10
+ABC: + write_blif /tmp/yosys-abc-OD6Po1/output.blif 
+
+109.1.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__a21boi_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__or3b_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o21a_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__and3_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nand2_2 cells:        8
+ABC RESULTS:   sky130_fd_sc_hd__a32o_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__and2b_2 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__nand2b_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__mux2_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_2 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__nor3b_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a211o_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_2 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__nor2_2 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__or2_2 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__and2_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__xor2_2 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__inv_2 cells:       28
+ABC RESULTS:        internal signals:       47
+ABC RESULTS:           input signals:       18
+ABC RESULTS:          output signals:       35
+Removing temp directory.
+
+110. Executing SETUNDEF pass (replace undef values with defined constants).
+
+111. Executing HILOMAP pass (mapping to constant drivers).
+
+112. Executing SPLITNETS pass (splitting up multi-bit signals).
+
+113. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \carry_select_wrapper..
+Removed 0 unused cells and 104 unused wires.
+<suppressed ~5 debug messages>
+
+114. Executing INSBUF pass (insert buffer cells for connected wires).
+
+115. Executing CHECK pass (checking for obvious problems).
+Checking module carry_select_wrapper...
+Found and reported 0 problems.
+{
+   "creator": "Yosys 0.46 (git sha1 e97731b9dda91fa5fa53ed87df7c34163ba59a41, clang++ 16.0.6 -fPIC -O3)",
+   "invocation": "stat -json -liberty /Users/prahalad/ReversableGate/openlane/conventional-carry-select-openlane/runs/RUN_2025-11-05_20-14-14/tmp/1df5b0c4e11d4aa5a806587ae47aa706.lib ",
+   "modules": {
+      "\\carry_select_wrapper": {
+         "num_wires":         101,
+         "num_wire_bits":     122,
+         "num_pub_wires":     33,
+         "num_pub_wire_bits": 54,
+         "num_ports":         7,
+         "num_port_bits":     28,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         103,
+         "area":              1248.697600,
+         "num_cells_by_type": {
+            "sky130_fd_sc_hd__a211o_2": 1,
+            "sky130_fd_sc_hd__a21boi_2": 2,
+            "sky130_fd_sc_hd__a21oi_2": 5,
+            "sky130_fd_sc_hd__a32o_2": 1,
+            "sky130_fd_sc_hd__and2_2": 1,
+            "sky130_fd_sc_hd__and2b_2": 4,
+            "sky130_fd_sc_hd__and3_2": 2,
+            "sky130_fd_sc_hd__dfrtp_2": 26,
+            "sky130_fd_sc_hd__inv_2": 28,
+            "sky130_fd_sc_hd__mux2_1": 2,
+            "sky130_fd_sc_hd__nand2_2": 8,
+            "sky130_fd_sc_hd__nand2b_2": 2,
+            "sky130_fd_sc_hd__nor2_2": 5,
+            "sky130_fd_sc_hd__nor3b_2": 1,
+            "sky130_fd_sc_hd__o21a_2": 2,
+            "sky130_fd_sc_hd__or2_2": 4,
+            "sky130_fd_sc_hd__or3b_2": 1,
+            "sky130_fd_sc_hd__xnor2_2": 5,
+            "sky130_fd_sc_hd__xor2_2": 3
+         }
+      }
+   },
+      "design": {
+         "num_wires":         101,
+         "num_wire_bits":     122,
+         "num_pub_wires":     33,
+         "num_pub_wire_bits": 54,
+         "num_ports":         7,
+         "num_port_bits":     28,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         103,
+         "area":              1248.697600,
+         "num_cells_by_type": {
+            "sky130_fd_sc_hd__a211o_2": 1,
+            "sky130_fd_sc_hd__a21boi_2": 2,
+            "sky130_fd_sc_hd__a21oi_2": 5,
+            "sky130_fd_sc_hd__a32o_2": 1,
+            "sky130_fd_sc_hd__and2_2": 1,
+            "sky130_fd_sc_hd__and2b_2": 4,
+            "sky130_fd_sc_hd__and3_2": 2,
+            "sky130_fd_sc_hd__dfrtp_2": 26,
+            "sky130_fd_sc_hd__inv_2": 28,
+            "sky130_fd_sc_hd__mux2_1": 2,
+            "sky130_fd_sc_hd__nand2_2": 8,
+            "sky130_fd_sc_hd__nand2b_2": 2,
+            "sky130_fd_sc_hd__nor2_2": 5,
+            "sky130_fd_sc_hd__nor3b_2": 1,
+            "sky130_fd_sc_hd__o21a_2": 2,
+            "sky130_fd_sc_hd__or2_2": 4,
+            "sky130_fd_sc_hd__or3b_2": 1,
+            "sky130_fd_sc_hd__xnor2_2": 5,
+            "sky130_fd_sc_hd__xor2_2": 3
+         }
+      }
+}
+
+116. Printing statistics.
+
+=== carry_select_wrapper ===
+
+   Number of wires:                101
+   Number of wire bits:            122
+   Number of public wires:          33
+   Number of public wire bits:      54
+   Number of ports:                  7
+   Number of port bits:             28
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                103
+     sky130_fd_sc_hd__a211o_2        1
+     sky130_fd_sc_hd__a21boi_2       2
+     sky130_fd_sc_hd__a21oi_2        5
+     sky130_fd_sc_hd__a32o_2         1
+     sky130_fd_sc_hd__and2_2         1
+     sky130_fd_sc_hd__and2b_2        4
+     sky130_fd_sc_hd__and3_2         2
+     sky130_fd_sc_hd__dfrtp_2       26
+     sky130_fd_sc_hd__inv_2         28
+     sky130_fd_sc_hd__mux2_1         2
+     sky130_fd_sc_hd__nand2_2        8
+     sky130_fd_sc_hd__nand2b_2       2
+     sky130_fd_sc_hd__nor2_2         5
+     sky130_fd_sc_hd__nor3b_2        1
+     sky130_fd_sc_hd__o21a_2         2
+     sky130_fd_sc_hd__or2_2          4
+     sky130_fd_sc_hd__or3b_2         1
+     sky130_fd_sc_hd__xnor2_2        5
+     sky130_fd_sc_hd__xor2_2         3
+
+   Chip area for module '\carry_select_wrapper': 1248.697600
+     of which used for sequential elements: 683.155200 (54.71%)
+
+117. Executing Verilog backend.
+Dumping module `\carry_select_wrapper'.
+
+118. Executing JSON backend.

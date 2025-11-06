@@ -1,0 +1,38 @@
+108. Printing statistics.
+
+=== carry_select_wrapper ===
+
+   Number of wires:                103
+   Number of wire bits:            131
+   Number of public wires:          30
+   Number of public wire bits:      58
+   Number of ports:                  7
+   Number of port bits:             28
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                108
+     $_ANDNOT_                      13
+     $_AND_                          4
+     $_MUX_                          4
+     $_NAND_                         1
+     $_NOR_                          2
+     $_NOT_                         30
+     $_ORNOT_                        3
+     $_XNOR_                        10
+     $_XOR_                         15
+     sky130_fd_sc_hd__dfrtp_2       26
+
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+
+   Chip area for module '\carry_select_wrapper': 683.155200
+     of which used for sequential elements: 683.155200 (100.00%)
+
