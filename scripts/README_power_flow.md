@@ -33,21 +33,31 @@ OpenROAD is required for power analysis.
 
 **Installation options:**
 
+**OpenROAD-flow-scripts (recommended):**
 ```bash
-# Homebrew (macOS)
-brew install openroad
+git clone --recursive https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts
+cd OpenROAD-flow-scripts
+sudo ./setup.sh
+./build_openroad.sh --local
+source ./env.sh
+```
 
-# Ubuntu PPA
-sudo add-apt-repository ppa:openroad/openroad
-sudo apt-get update
-sudo apt-get install openroad
+**Build from source:**
+```bash
+# See full instructions at:
+# https://github.com/The-OpenROAD-Project/OpenROAD#build-openroad
+git clone --recursive https://github.com/The-OpenROAD-Project/OpenROAD
+cd OpenROAD
+./etc/DependencyInstaller.sh
+mkdir build && cd build
+cmake ..
+make -j$(nproc)
+```
 
-# Conda (cross-platform)
-conda install -c conda-forge openroad
-
-# Docker
-docker pull openroad/openroad
-# Then run scripts inside the container
+**Docker:**
+```bash
+docker pull openroad/flow-scripts
+docker run -it -v $(pwd):/work openroad/flow-scripts bash
 ```
 
 **Verify installation:**
@@ -167,7 +177,16 @@ scripts/run_all.sh
 
 **Problem:** `openroad: command not found`
 
-**Solution:** Install OpenROAD using one of the methods in the Prerequisites section. Verify installation:
+**Solution:** Install OpenROAD using OpenROAD-flow-scripts (recommended):
+```bash
+git clone --recursive https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts
+cd OpenROAD-flow-scripts
+sudo ./setup.sh
+./build_openroad.sh --local
+source ./env.sh
+```
+
+Verify installation:
 ```bash
 which openroad
 openroad -version
@@ -175,7 +194,7 @@ openroad -version
 
 If using Docker:
 ```bash
-docker run -v $(pwd):/work -w /work openroad/openroad scripts/run_all.sh
+docker run -v $(pwd):/work -w /work openroad/flow-scripts bash -c "source /OpenROAD-flow-scripts/env.sh && scripts/run_all.sh"
 ```
 
 ### VCD file not generated
