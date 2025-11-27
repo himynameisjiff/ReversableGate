@@ -8,13 +8,33 @@
 set DESIGN_NAME "reversible_wrapper"
 set RUN_DIR "openlane/reversable-openlane/runs/RUN_2025-11-05_20-20-54"
 
-# Liberty file (user should update this path based on their volare installation)
-set LIBERTY_FILE "/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+# Liberty file path
+# Set LIBERTY_FILE environment variable or update the default path below
+if {[info exists ::env(LIBERTY_FILE)]} {
+    set LIBERTY_FILE $::env(LIBERTY_FILE)
+} elseif {[info exists ::env(PDK_ROOT)]} {
+    set LIBERTY_FILE "$::env(PDK_ROOT)/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+} else {
+    set LIBERTY_FILE "/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+}
 
 # LEF files (technology and standard cells)
-# User should update these paths based on their PDK installation
-set TECH_LEF "/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef"
-set CELL_LEF "/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef"
+# Set TECH_LEF and CELL_LEF environment variables or update the default paths below
+if {[info exists ::env(TECH_LEF)]} {
+    set TECH_LEF $::env(TECH_LEF)
+} elseif {[info exists ::env(PDK_ROOT)]} {
+    set TECH_LEF "$::env(PDK_ROOT)/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef"
+} else {
+    set TECH_LEF "/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef"
+}
+
+if {[info exists ::env(CELL_LEF)]} {
+    set CELL_LEF $::env(CELL_LEF)
+} elseif {[info exists ::env(PDK_ROOT)]} {
+    set CELL_LEF "$::env(PDK_ROOT)/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef"
+} else {
+    set CELL_LEF "/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef"
+}
 
 # Powered netlist (used for cell definitions)
 set NETLIST_FILE "${RUN_DIR}/36-openroad-resizertimingpostcts/${DESIGN_NAME}.pnl.v"

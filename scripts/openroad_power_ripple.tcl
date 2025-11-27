@@ -8,8 +8,18 @@
 set DESIGN_NAME "ripple_adder_wrapper"
 set RUN_DIR "openlane/conventional-ripple-openlane/runs/RUN_2025-11-05_20-17-51"
 
-# Liberty file (user should update this path based on their volare installation)
-set LIBERTY_FILE "/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+# Liberty file path
+# Set LIBERTY_FILE environment variable or update the default path below
+# Common locations:
+#   volare: ~/.volare/volare/sky130/versions/<version>/sky130A/libs.ref/sky130_fd_sc_hd/lib/
+#   OpenLane: $PDK_ROOT/sky130A/libs.ref/sky130_fd_sc_hd/lib/
+if {[info exists ::env(LIBERTY_FILE)]} {
+    set LIBERTY_FILE $::env(LIBERTY_FILE)
+} elseif {[info exists ::env(PDK_ROOT)]} {
+    set LIBERTY_FILE "$::env(PDK_ROOT)/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+} else {
+    set LIBERTY_FILE "/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+}
 
 # Powered netlist (used for cell definitions)
 set NETLIST_FILE "${RUN_DIR}/36-openroad-resizertimingpostcts/${DESIGN_NAME}.pnl.v"

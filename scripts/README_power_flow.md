@@ -84,25 +84,46 @@ This will:
 
 ## Configuration
 
-### Liberty File Path
+### Environment Variables
 
-The OpenROAD scripts use a placeholder path for the Sky130 liberty file. Update the path in each script based on your volare installation:
+The scripts support the following environment variables:
 
-```tcl
-# In scripts/openroad_power_*.tcl
-set LIBERTY_FILE "/path/to/your/sky130_fd_sc_hd__tt_025C_1v80.lib"
+| Variable | Description |
+|----------|-------------|
+| `PDK_ROOT` | Root directory of the Sky130 PDK (e.g., `/path/to/sky130A`) |
+| `SKY130_LIB_DIR` | Direct path to `sky130_fd_sc_hd` library directory |
+| `LIBERTY_FILE` | Full path to the liberty file (`.lib`) |
+| `TECH_LEF` | Full path to the technology LEF file (for DEF-based flow) |
+| `CELL_LEF` | Full path to the cell LEF file (for DEF-based flow) |
+
+Example usage:
+```bash
+# Using PDK_ROOT
+export PDK_ROOT=/path/to/sky130A
+./scripts/run_all.sh
+
+# Or using SKY130_LIB_DIR directly
+export SKY130_LIB_DIR=/path/to/sky130_fd_sc_hd
+./scripts/run_all.sh
+
+# For OpenROAD scripts
+export LIBERTY_FILE=/path/to/sky130_fd_sc_hd__tt_025C_1v80.lib
+openroad -exit scripts/openroad_power_reversible.tcl
 ```
 
+### Liberty File Path
+
+The OpenROAD scripts support environment variables with fallback to default paths.
 Common locations:
 - volare: `~/.volare/volare/sky130/versions/<version>/sky130A/libs.ref/sky130_fd_sc_hd/lib/`
 - OpenLane: `$PDK_ROOT/sky130A/libs.ref/sky130_fd_sc_hd/lib/`
 
 ### Sky130 Verilog Models
 
-Update the `SKY130_LIB_DIR` variable in `run_all.sh`:
+Set `SKY130_LIB_DIR` environment variable or update the default in `run_all.sh`:
 
 ```bash
-SKY130_LIB_DIR="/path/to/sky130A/libs.ref/sky130_fd_sc_hd"
+export SKY130_LIB_DIR="/path/to/sky130A/libs.ref/sky130_fd_sc_hd"
 ```
 
 ## Manual Steps

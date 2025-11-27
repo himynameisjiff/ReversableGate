@@ -28,8 +28,11 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 # Sky130 standard cell library path
-# User should update this path based on their volare installation
-SKY130_LIB_DIR="/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd"
+# Set SKY130_LIB_DIR environment variable or update the default path below
+# Common locations:
+#   volare: ~/.volare/volare/sky130/versions/<version>/sky130A/libs.ref/sky130_fd_sc_hd
+#   OpenLane: $PDK_ROOT/sky130A/libs.ref/sky130_fd_sc_hd
+: "${SKY130_LIB_DIR:=${PDK_ROOT:-/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A}/libs.ref/sky130_fd_sc_hd}"
 SKY130_VERILOG="${SKY130_LIB_DIR}/verilog/sky130_fd_sc_hd.v"
 
 # Output directories
