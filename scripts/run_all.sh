@@ -13,6 +13,12 @@
 #   - OpenROAD on PATH
 #   - volare SKY130 PDK installed with primitives and liberty files
 #
+# Environment variables (optional):
+#   VOLARE_ROOT        - Path to volare PDK (default: auto-detect or ~/.volare/...)
+#   RUN_REVERSIBLE     - Path to reversible OpenLane run directory
+#   RUN_RIPPLE         - Path to ripple OpenLane run directory
+#   RUN_CARRY_SELECT   - Path to carry-select OpenLane run directory
+#
 # Usage:
 #   chmod +x scripts/run_all.sh
 #   scripts/run_all.sh
@@ -22,16 +28,31 @@ set -e  # Exit on first error
 
 # ============================ Configuration ==================================
 
-# Volare PDK paths (edit these if your volare install differs)
-VOLARE_ROOT="${VOLARE_ROOT:-$HOME/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A}"
+# Repository root
+REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+
+# Volare PDK paths (configurable via environment variable)
+# If not set, try common default paths
+if [[ -z "$VOLARE_ROOT" ]]; then
+    # Try to auto-detect volare installation
+    for candidate in \
+        "$HOME/.volare/volare/sky130/versions/"*/sky130A \
+        "$HOME/.volare/sky130A" \
+        "/opt/pdk/sky130A" \
+        "$PDK_ROOT/sky130A"; do
+        if [[ -d "$candidate" ]]; then
+            VOLARE_ROOT="$candidate"
+            break
+        fi
+    done
+    # Final fallback to the known version in the repo context
+    VOLARE_ROOT="${VOLARE_ROOT:-$HOME/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A}"
+fi
 
 # SKY130 HD cell library paths
 SKY130_PRIMITIVES="${VOLARE_ROOT}/libs.ref/sky130_fd_sc_hd/verilog/primitives.v"
 SKY130_CELLS="${VOLARE_ROOT}/libs.ref/sky130_fd_sc_hd/verilog/sky130_fd_sc_hd.v"
 LIB_TT="${VOLARE_ROOT}/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
-
-# Repository root
-REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 
 # Output directory for VCDs
 SIM_OUT="${REPO_ROOT}/sim_out"
@@ -39,10 +60,25 @@ SIM_OUT="${REPO_ROOT}/sim_out"
 # Testbench
 TB_GL="${REPO_ROOT}/sim/tb_common_gl.v"
 
-# OpenLane run directories (these contain the final netlists)
-RUN_REVERSIBLE="${REPO_ROOT}/openlane/reversable-openlane/runs/RUN_2025-11-05_20-20-54"
-RUN_RIPPLE="${REPO_ROOT}/openlane/conventional-ripple-openlane/runs/RUN_2025-11-05_20-17-51"
-RUN_CARRY_SELECT="${REPO_ROOT}/openlane/conventional-carry-select-openlane/runs/RUN_2025-11-05_20-14-14"
+# Function to find the latest run directory
+find_latest_run() {
+    local base_dir="$1"
+    # Find the most recently modified run directory
+    if [[ -d "$base_dir" ]]; then
+        ls -td "$base_dir"/RUN_* 2>/dev/null | head -1
+    fi
+}
+
+# OpenLane run directories (configurable via environment or auto-detected)
+if [[ -z "$RUN_REVERSIBLE" ]]; then
+    RUN_REVERSIBLE="$(find_latest_run "${REPO_ROOT}/openlane/reversable-openlane/runs")"
+fi
+if [[ -z "$RUN_RIPPLE" ]]; then
+    RUN_RIPPLE="$(find_latest_run "${REPO_ROOT}/openlane/conventional-ripple-openlane/runs")"
+fi
+if [[ -z "$RUN_CARRY_SELECT" ]]; then
+    RUN_CARRY_SELECT="$(find_latest_run "${REPO_ROOT}/openlane/conventional-carry-select-openlane/runs")"
+fi
 
 # Powered netlist files (.pnl.v)
 PNL_REVERSIBLE="${RUN_REVERSIBLE}/final/pnl/reversible_wrapper.pnl.v"

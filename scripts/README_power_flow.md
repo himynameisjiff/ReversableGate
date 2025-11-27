@@ -76,10 +76,29 @@ scripts/run_all.sh
 
 The script will:
 1. Check all dependencies
-2. Compile gate-level netlists with SKY130 primitives
-3. Run simulations to generate VCDs
-4. Run OpenROAD power analysis
-5. Parse reports into `scripts/power_summary_tt_025C_1v80.csv`
+2. Auto-detect the latest OpenLane run directories
+3. Compile gate-level netlists with SKY130 primitives
+4. Run simulations to generate VCDs
+5. Run OpenROAD power analysis
+6. Parse reports into `scripts/power_summary_tt_025C_1v80.csv`
+
+### Environment Variables
+
+You can customize the workflow using environment variables:
+
+| Variable | Description |
+|----------|-------------|
+| `VOLARE_ROOT` | Path to volare PDK installation (auto-detected if not set) |
+| `RUN_REVERSIBLE` | Override path to reversible OpenLane run directory |
+| `RUN_RIPPLE` | Override path to ripple OpenLane run directory |
+| `RUN_CARRY_SELECT` | Override path to carry-select OpenLane run directory |
+
+Example:
+```bash
+export VOLARE_ROOT=/path/to/sky130A
+export RUN_REVERSIBLE=/path/to/openlane/runs/RUN_2025-01-01_12-00-00
+scripts/run_all.sh
+```
 
 ## Output Files
 

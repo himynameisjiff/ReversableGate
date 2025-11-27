@@ -57,9 +57,6 @@ def parse_power_report(filepath: str) -> dict:
     #   Leakage Power:   7.89e-06 W
     #   Total Power:     1.69e-03 W
 
-    # Pattern for power values in scientific notation or decimal
-    power_pattern = r'([\d.]+(?:e[+-]?\d+)?)\s*([munpfW]+)?'
-
     # Try to find internal power
     match = re.search(r'Internal\s+Power[:\s]+([\d.]+(?:e[+-]?\d+)?)\s*([munpfW]*)', content, re.IGNORECASE)
     if match:
