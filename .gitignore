@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Simulation outputs
+sim_out/
+*.vcd
+*.vvp
+
+# macOS
+.DS_Store
+
+# Build artifacts
+*.o
+*.a
