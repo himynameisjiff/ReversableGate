@@ -115,16 +115,19 @@ def main():
             "name": "reversible_wrapper",
             "dir": openlane_dir / "reversable-openlane",
             "report_pattern": "power_reversible_wrapper_tt_025C_1v80.rpt",
+            "env_var": "RUN_REVERSIBLE",
         },
         {
             "name": "ripple_adder_wrapper",
             "dir": openlane_dir / "conventional-ripple-openlane",
             "report_pattern": "power_ripple_adder_wrapper_tt_025C_1v80.rpt",
+            "env_var": "RUN_RIPPLE",
         },
         {
             "name": "carry_select_wrapper",
             "dir": openlane_dir / "conventional-carry-select-openlane",
             "report_pattern": "power_carry_select*_tt_025C_1v80.rpt",
+            "env_var": "RUN_CARRY_SELECT",
         },
     ]
     
@@ -133,9 +136,9 @@ def main():
     for design in designs:
         run_dir = None
         
-        # Check for environment variable override
-        env_var_name = f"RUN_{design['name'].upper().replace('_WRAPPER', '').replace('_ADDER', '')}"
-        if env_var_name in os.environ:
+        # Check for environment variable override (using explicit mapping)
+        env_var_name = design.get("env_var", "")
+        if env_var_name and env_var_name in os.environ:
             run_dir = Path(os.environ[env_var_name])
         else:
             run_dir = find_latest_run(design["dir"])

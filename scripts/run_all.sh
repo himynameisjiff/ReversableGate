@@ -238,7 +238,9 @@ compile_and_simulate() {
     fi
     
     # Add source files if provided (for module dependencies)
+    # Note: src_files is expected to be a space-separated list of paths
     if [ -n "${src_files}" ]; then
+        # shellcheck disable=SC2086
         for sf in ${src_files}; do
             if [ -f "${sf}" ]; then
                 iverilog_cmd+=("${sf}")
