@@ -218,9 +218,9 @@ compile_and_simulate() {
   echo "✓ VCD generated: $vcd_output ($(du -h "$vcd_output" | awk '{print $1}'))"
 }
 
-compile_and_simulate "reversible"   "$PNL_REVERSIBLE"   "WRAP_REVERSIBLE"
-compile_and_simulate "ripple"       "$PNL_RIPPLE"       "WRAP_RIPPLE"
-compile_and_simulate "carry_select" "$PNL_CARRY_SELECT" "WRAP_CARRY_SELECT"
+compile_and_simulate "reversible"   "$PNL_REVERSIBLE"   "DESIGN_REVERSIBLE"
+compile_and_simulate "ripple"       "$PNL_RIPPLE"       "DESIGN_RIPPLE"
+compile_and_simulate "carry_select" "$PNL_CARRY_SELECT" "DESIGN_CARRY_SELECT"
 
 # ============================ OpenROAD Power Analysis ========================
 

@@ -54,10 +54,11 @@ module tb_common_gl;
     end
 `endif
 
-    // Clock
+    // Clock generation
+    // Note: Using CLK_PERIOD_NS/2.0 to avoid integer division issues
     initial begin
         clk = 0;
-        forever #(CLK_PERIOD_NS/2) clk = ~clk;
+        forever #(CLK_PERIOD_NS/2.0) clk = ~clk;
     end
 
     // VCD dump

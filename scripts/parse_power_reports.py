@@ -24,7 +24,8 @@ import argparse
 import pathlib
 import sys
 
-# Regex to match the first line starting with 'Total' in an OpenROAD power report
+# Pre-compiled regex for matching Total line in power reports.
+# Defined at module level for efficiency (compiled once) and clarity.
 TOTAL_LINE_RE = re.compile(r'^\s*Total\s+')
 
 
