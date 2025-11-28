@@ -231,7 +231,50 @@ Total                ...
 The CSV comparison includes:
 - Design name
 - Total, Internal, Switching, and Leakage power (in Watts)
-- Human-readable power values (in uW, mW, etc.)
+- Dynamic power (Internal + Switching)
+- Normalized energy metrics
+
+## Normalized Metrics
+
+The power summary CSV includes the following normalized energy metrics to enable fair comparisons between designs:
+
+| Column | Description |
+|--------|-------------|
+| `dynamic_power_W` | Internal + Switching power (dynamic component) |
+| `energy_per_op_J` | Energy per operation = Total Power × Clock Period |
+| `energy_per_bit_J` | Energy per bit = Energy per Operation / Bit Width |
+| `dynamic_energy_per_op_J` | Dynamic energy per operation (excludes leakage) |
+| `dynamic_energy_per_bit_J` | Dynamic energy per bit |
+
+### Computing Normalized Metrics
+
+The parser computes these metrics using:
+
+```
+dynamic_power = internal_power + switching_power
+energy_per_op = total_power × clock_period_ns × 1e-9
+energy_per_bit = energy_per_op / bit_width
+dynamic_energy_per_op = dynamic_power × clock_period_ns × 1e-9
+dynamic_energy_per_bit = dynamic_energy_per_op / bit_width
+```
+
+### Usage Example
+
+```bash
+python3 scripts/parse_power_reports.py \
+  --clock-period-ns 25 --bit-width 8 --out scripts/power_summary_tt_025C_1v80.csv \
+  power_reports/power_reversible_wrapper_tt_025C_1v80.rpt \
+  power_reports/power_ripple_adder_wrapper_tt_025C_1v80.rpt \
+  power_reports/power_carry_select_wrapper_tt_025C_1v80.rpt
+```
+
+### Extracting Clock Period from SDC
+
+You can automatically extract the clock period from an SDC file:
+
+```bash
+CLOCK_PERIOD_NS=$(python3 scripts/extract_clock_period.py path/to/design.sdc)
+```
 
 ## Troubleshooting
 
@@ -249,6 +292,14 @@ Install OpenROAD or add it to your PATH.
 
 ### Simulation errors
 Check the compile and simulation logs in `sim_out/` for detailed error messages.
+
+### "Annotated 0 pin activities"
+If OpenROAD reports "Annotated 0 pin activities" when reading the VCD, there may be a hierarchy mismatch. Try adjusting the `-scope` option in the TCL scripts:
+
+- Default: `-scope <TOP_MODULE>` (e.g., `reversible_wrapper`)
+- Alternative: `-scope tb_common_gl/dut`
+
+You may also need to use `-strip_path` if the VCD hierarchy differs from the design hierarchy.
 
 ## Design Interfaces
 
