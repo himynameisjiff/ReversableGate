@@ -33,25 +33,34 @@ OpenROAD is required for power analysis.
 
 **Installation options:**
 
-**OpenROAD-flow-scripts (recommended):**
+**OpenLane Nix shell (recommended if you already have OpenLane):**
+
+If you have OpenLane installed and working (which includes OpenROAD), you can run the power analysis scripts from within the OpenLane Nix shell:
+
+```bash
+# Navigate to your OpenLane installation directory
+cd /path/to/openlane
+
+# Enter the Nix shell
+nix-shell
+
+# Navigate back to this repository and run the script
+cd /path/to/ReversableGate
+scripts/run_all.sh
+```
+
+Alternatively, run the script directly with the Nix shell:
+```bash
+nix-shell /path/to/openlane/shell.nix --run "scripts/run_all.sh"
+```
+
+**OpenROAD-flow-scripts:**
 ```bash
 git clone --recursive https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts
 cd OpenROAD-flow-scripts
 sudo ./setup.sh
 ./build_openroad.sh --local
 source ./env.sh
-```
-
-**Build from source:**
-```bash
-# See full instructions at:
-# https://github.com/The-OpenROAD-Project/OpenROAD#build-openroad
-git clone --recursive https://github.com/The-OpenROAD-Project/OpenROAD
-cd OpenROAD
-./etc/DependencyInstaller.sh
-mkdir build && cd build
-cmake ..
-make -j$(nproc)
 ```
 
 **Docker:**
@@ -177,7 +186,20 @@ scripts/run_all.sh
 
 **Problem:** `openroad: command not found`
 
-**Solution:** Install OpenROAD using OpenROAD-flow-scripts (recommended):
+**Solution:** If you have OpenLane installed with Nix, run the power analysis from within the OpenLane Nix shell:
+
+```bash
+# Option 1: Enter the Nix shell first
+cd /path/to/openlane
+nix-shell
+cd /path/to/ReversableGate
+scripts/run_all.sh
+
+# Option 2: Run directly with nix-shell
+nix-shell /path/to/openlane/shell.nix --run "scripts/run_all.sh"
+```
+
+Alternatively, install OpenROAD using OpenROAD-flow-scripts:
 ```bash
 git clone --recursive https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts
 cd OpenROAD-flow-scripts
