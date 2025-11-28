@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+
+# Simulation output
+sim_out/
+*.vcd
+*_sim
+
+# Power analysis output
+power_reports/
+
+# Temporary files
+*.log
+*.tmp
+*~
+
+# macOS
+.DS_Store
