@@ -1,3 +1,37 @@
+`timescale 1ns / 1ps
+///////////////////////////////////////////////////////////////////////////////
+// tb_common_gl.v
+//
+// Common gate-level testbench for all three adder designs.
+// Exercises the DUT with various input patterns and generates a VCD file.
+//
+// Compile-time defines (pass one of these to select which design to test):
+//   SIM_REVERSIBLE   - Simulate reversible_wrapper
+//   SIM_RIPPLE       - Simulate ripple_adder_wrapper
+//   SIM_CARRY_SELECT - Simulate carry_select_wrapper
+//
+// Additional defines:
+//   VCD_FILE  - Path to VCD output file (default: "dump.vcd")
+//
+// Port differences:
+//   - reversible_wrapper: clk, reset, enable, a, b, anc, cin, sum, cout, g_a, g_ab, VPWR, VGND
+//   - ripple_adder_wrapper: clk, reset, enable, a, b, cin, sum, cout, VPWR, VGND
+//   - carry_select_wrapper: clk, reset, a, b, cin, sum, cout, VPWR, VGND (no enable)
+///////////////////////////////////////////////////////////////////////////////
+
+module tb_common_gl;
+
+    // ========================== Parameters ==================================
+    parameter CLK_PERIOD = 10;  // 100 MHz clock
+    parameter NUM_TESTS = 20;   // Number of random test vectors
+
+    // ========================== Signals =====================================
+    reg         clk;
+    reg         reset;
+    reg         enable;
+    reg  [7:0]  a;
+    reg  [7:0]  b;
+    reg  [7:0]  anc;
 //------------------------------------------------------------------------------
 // Common gate-level testbench for reversible_wrapper, ripple_adder_wrapper, 
 // and carry_select_wrapper designs.
@@ -28,6 +62,18 @@ module tb_common_gl;
 
     wire [7:0]  sum;
     wire        cout;
+    wire [7:0]  g_a;
+    wire [7:0]  g_ab;
+
+    // Power supply nets for gate-level simulation
+    wire        VPWR = 1'b1;
+    wire        VGND = 1'b0;
+
+    // ========================== DUT Instantiation ===========================
+    // The correct module is selected by which netlist is compiled in.
+    // We instantiate all possible modules conditionally.
+
+`ifdef SIM_REVERSIBLE
 
     // Reversible-specific signals
 `ifdef DESIGN_REVERSIBLE
@@ -63,6 +109,7 @@ module tb_common_gl;
         .VPWR(VPWR),
         .VGND(VGND)
     );
+`elsif SIM_RIPPLE
 `elsif DESIGN_RIPPLE
     ripple_adder_wrapper dut (
         .clk(clk),
