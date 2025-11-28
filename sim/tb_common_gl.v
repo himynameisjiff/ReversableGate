@@ -32,6 +32,32 @@ module tb_common_gl;
     reg  [7:0]  a;
     reg  [7:0]  b;
     reg  [7:0]  anc;
+//------------------------------------------------------------------------------
+// Common gate-level testbench for reversible_wrapper, ripple_adder_wrapper, 
+// and carry_select_wrapper designs.
+//
+// Compile-time defines:
+//   - DESIGN_REVERSIBLE: Instantiate reversible_wrapper
+//   - DESIGN_RIPPLE: Instantiate ripple_adder_wrapper
+//   - DESIGN_CARRY_SELECT: Instantiate carry_select_wrapper
+//   - VCD_FILE: VCD output file path (e.g., "sim_out/reversible.vcd")
+//
+// Clock period: 25 ns (40 MHz) consistent with SDC constraints.
+//------------------------------------------------------------------------------
+
+`timescale 1ns / 1ps
+
+module tb_common_gl;
+
+    // Parameters
+    localparam CLK_PERIOD = 25;         // 25 ns = 40 MHz
+    localparam NUM_CYCLES = 1024;       // Number of test cycles
+
+    // Common signals
+    reg         clk;
+    reg         reset;
+    reg  [7:0]  a;
+    reg  [7:0]  b;
     reg         cin;
 
     wire [7:0]  sum;
@@ -48,6 +74,26 @@ module tb_common_gl;
     // We instantiate all possible modules conditionally.
 
 `ifdef SIM_REVERSIBLE
+
+    // Reversible-specific signals
+`ifdef DESIGN_REVERSIBLE
+    reg         enable;
+    reg  [7:0]  anc;
+    wire [7:0]  g_a;
+    wire [7:0]  g_ab;
+`endif
+
+    // Ripple-specific signals (has enable)
+`ifdef DESIGN_RIPPLE
+    reg         enable;
+`endif
+
+    // Power/ground (for powered netlist)
+    wire VPWR = 1'b1;
+    wire VGND = 1'b0;
+
+    // Instantiate DUT based on design selection
+`ifdef DESIGN_REVERSIBLE
     reversible_wrapper dut (
         .clk(clk),
         .reset(reset),
@@ -64,6 +110,7 @@ module tb_common_gl;
         .VGND(VGND)
     );
 `elsif SIM_RIPPLE
+`elsif DESIGN_RIPPLE
     ripple_adder_wrapper dut (
         .clk(clk),
         .reset(reset),
@@ -76,7 +123,7 @@ module tb_common_gl;
         .VPWR(VPWR),
         .VGND(VGND)
     );
-`elsif SIM_CARRY_SELECT
+`elsif DESIGN_CARRY_SELECT
     carry_select_wrapper dut (
         .clk(clk),
         .reset(reset),
@@ -89,124 +136,77 @@ module tb_common_gl;
         .VGND(VGND)
     );
 `else
-    // Error if no design is selected at compile time
+    // Default error if no design specified
     initial begin
-        $display("ERROR: No design selected!");
-        $display("Pass one of: -DSIM_REVERSIBLE, -DSIM_RIPPLE, or -DSIM_CARRY_SELECT");
+        $display("ERROR: No design specified. Use -DDESIGN_REVERSIBLE, -DDESIGN_RIPPLE, or -DDESIGN_CARRY_SELECT");
         $finish;
     end
 `endif
 
-    // ========================== Clock Generation ============================
+    // Clock generation
     initial begin
         clk = 0;
-        forever #(CLK_PERIOD/2) clk = ~clk;
+        forever #(CLK_PERIOD / 2) clk = ~clk;
     end
 
-    // ========================== VCD Dump ====================================
+    // VCD dumping
     initial begin
-        `ifdef VCD_FILE
-            $dumpfile(`VCD_FILE);
-        `else
-            $dumpfile("dump.vcd");
-        `endif
+`ifdef VCD_FILE
+        $dumpfile(`VCD_FILE);
         $dumpvars(0, tb_common_gl);
+`else
+        $dumpfile("sim_out/default.vcd");
+        $dumpvars(0, tb_common_gl);
+`endif
     end
 
-    // ========================== Test Sequence ===============================
+    // Test sequence
     integer i;
-    integer seed;
+    reg [15:0] lfsr;   // LFSR for pseudo-random test patterns
 
     initial begin
-        // Display test info
-        `ifdef SIM_REVERSIBLE
-            $display("========================================");
-            $display(" Gate-Level Simulation: reversible_wrapper");
-            $display("========================================");
-        `elsif SIM_RIPPLE
-            $display("========================================");
-            $display(" Gate-Level Simulation: ripple_adder_wrapper");
-            $display("========================================");
-        `elsif SIM_CARRY_SELECT
-            $display("========================================");
-            $display(" Gate-Level Simulation: carry_select_wrapper");
-            $display("========================================");
-        `else
-            $display("========================================");
-            $display(" Gate-Level Simulation");
-            $display("========================================");
-        `endif
-
         // Initialize
-        seed = 12345;
         reset = 1;
-        enable = 0;
-        a = 8'h00;
-        b = 8'h00;
-        anc = 8'h00;
+        a = 8'b0;
+        b = 8'b0;
         cin = 0;
+`ifdef DESIGN_REVERSIBLE
+        enable = 0;
+        anc = 8'b0;
+`endif
+`ifdef DESIGN_RIPPLE
+        enable = 0;
+`endif
+        lfsr = 16'hACE1;  // Seed for LFSR
 
         // Hold reset for a few cycles
-        repeat(5) @(posedge clk);
+        repeat (4) @(posedge clk);
         reset = 0;
-        @(posedge clk);
 
-        // Enable inputs
+`ifdef DESIGN_REVERSIBLE
         enable = 1;
+`endif
+`ifdef DESIGN_RIPPLE
+        enable = 1;
+`endif
 
-        $display("Starting test vectors...");
-
-        // Test 1: Zero + Zero
-        a = 8'h00; b = 8'h00; cin = 0;
-        @(posedge clk);
-        repeat(2) @(posedge clk);  // Wait for pipeline
-        $display("Test %2d: %h + %h + %b = %h, cout=%b", 1, a, b, cin, sum, cout);
-
-        // Test 2: Max + Max
-        a = 8'hFF; b = 8'hFF; cin = 1;
-        @(posedge clk);
-        repeat(2) @(posedge clk);
-        $display("Test %2d: %h + %h + %b = %h, cout=%b", 2, a, b, cin, sum, cout);
-
-        // Test 3: Alternating bits
-        a = 8'hAA; b = 8'h55; cin = 0;
-        @(posedge clk);
-        repeat(2) @(posedge clk);
-        $display("Test %2d: %h + %h + %b = %h, cout=%b", 3, a, b, cin, sum, cout);
-
-        // Test 4-NUM_TESTS: Random vectors
-        for (i = 4; i <= NUM_TESTS; i = i + 1) begin
-            a = $random(seed);
-            b = $random(seed);
-            cin = $random(seed) & 1;
+        // Apply test vectors for NUM_CYCLES
+        for (i = 0; i < NUM_CYCLES; i = i + 1) begin
             @(posedge clk);
-            repeat(2) @(posedge clk);
-            $display("Test %2d: %h + %h + %b = %h, cout=%b", i, a, b, cin, sum, cout);
+            // LFSR-based pseudo-random pattern
+            lfsr = {lfsr[14:0], lfsr[15] ^ lfsr[13] ^ lfsr[12] ^ lfsr[10]};
+            a = lfsr[7:0];
+            b = lfsr[15:8];
+            cin = lfsr[0];
+`ifdef DESIGN_REVERSIBLE
+            anc = 8'b0;  // Ancilla should be zero
+`endif
         end
 
-        // Additional switching activity for power analysis
-        $display("Running additional switching activity...");
-        for (i = 0; i < 100; i = i + 1) begin
-            a = $random(seed);
-            b = $random(seed);
-            cin = $random(seed) & 1;
-            @(posedge clk);
-        end
+        // Additional cycles to capture outputs
+        repeat (10) @(posedge clk);
 
-        // Disable and wait
-        enable = 0;
-        repeat(5) @(posedge clk);
-
-        $display("========================================");
-        $display(" Simulation Complete");
-        $display("========================================");
-        $finish;
-    end
-
-    // ========================== Timeout Watchdog ============================
-    initial begin
-        #100000;  // 100us timeout
-        $display("ERROR: Simulation timeout!");
+        $display("Simulation completed successfully for %0d cycles", NUM_CYCLES);
         $finish;
     end
 
