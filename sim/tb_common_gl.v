@@ -11,16 +11,16 @@
 //      +define+DUT_CARRY_SELECT - Test carry_select_wrapper
 //
 //   2. Optionally control VCD dump depth:
-//      +define+DUMP_DEPTH1 - Dump only DUT top-level pins (default)
-//      +define+DUMP_DEPTH2 - Dump 2 levels of hierarchy
-//      +define+DUMP_ALL    - Dump all internal nets (WARNING: large VCD files!)
+//      (default)            - Dump testbench and DUT top-level pins only
+//      +define+DUMP_DEPTH2  - Dump 2 levels of hierarchy inside DUT
+//      +define+DUMP_ALL     - Dump all internal nets (WARNING: large VCD files!)
 //
 // VCD Size Warning:
 // -----------------
 // Dumping all internal nets (+define+DUMP_ALL) can produce extremely large VCD
 // files (100s of MB to GB), especially for longer simulations. Use with caution
-// and ensure adequate disk space. Default behavior (DUMP_DEPTH1) captures only
-// top-level DUT pins which is usually sufficient for power estimation.
+// and ensure adequate disk space. Default behavior captures only top-level DUT
+// pins which is usually sufficient for power estimation.
 
 `timescale 1ns / 1ps
 

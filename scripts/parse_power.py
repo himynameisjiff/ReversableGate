@@ -104,8 +104,9 @@ def parse_openroad_power_report(filepath: str) -> PowerMetrics:
     
     # Parse annotation coverage
     # Pattern: "Annotated X pin activities" or "Annotated X out of Y pins"
+    # Note: 'activit' matches both 'activity' and 'activities'
     annotation_patterns = [
-        r"Annotated\s+(\d+)\s+pin\s+activit",
+        r"Annotated\s+(\d+)\s+pin\s+activit(?:y|ies)",
         r"Annotated\s+(\d+)\s+out\s+of\s+(\d+)\s+pins",
         r"(\d+)\s+of\s+(\d+)\s+pins\s+annotated",
     ]
@@ -152,8 +153,9 @@ def parse_openroad_power_report(filepath: str) -> PowerMetrics:
     metrics.total_power_mw = total_sum * 1000
     metrics.clock_power_mw = clock_power * 1000
     
-    # Logic power = total - clock - leakage
-    metrics.logic_power_mw = max(0, metrics.total_power_mw - metrics.clock_power_mw - metrics.leakage_power_mw)
+    # Logic power = internal + switching power (dynamic power excluding clock network)
+    # Note: Clock power is typically reported separately from Sequential/Combinational
+    metrics.logic_power_mw = metrics.internal_power_mw + metrics.switching_power_mw - metrics.clock_power_mw
     
     # Alternative parsing if standard format wasn't found
     if metrics.total_power_mw == 0:
@@ -186,6 +188,11 @@ def parse_openroad_power_report(filepath: str) -> PowerMetrics:
     return metrics
 
 
+# Constants for simulation parameters
+CYCLES_PER_ADDITION = 2  # 1 for input register, 1 for output register
+IDLE_CYCLES = 10  # Additional cycles at end of simulation
+
+
 def compute_normalized_metrics(
     power_metrics: PowerMetrics,
     num_additions: int = 256,
@@ -205,9 +212,7 @@ def compute_normalized_metrics(
         NormalizedMetrics with energy per operation, per bit, etc.
     """
     # Simulation time = num_additions * clock_cycles_per_addition * clock_period
-    # Assuming 2 cycles per addition (1 for input register, 1 for output register)
-    cycles_per_addition = 2
-    total_cycles = num_additions * cycles_per_addition + 10  # +10 for idle cycles
+    total_cycles = num_additions * CYCLES_PER_ADDITION + IDLE_CYCLES
     simulation_time_ns = total_cycles * clock_period_ns
     
     # Total energy in picojoules: E = P * t
@@ -232,11 +237,10 @@ def compute_normalized_metrics(
     estimated_toggles = num_additions * bits_per_input * avg_toggle_rate
     energy_per_toggle_pj = total_energy_pj / estimated_toggles if estimated_toggles > 0 else 0
     
-    # Energy fractions
-    total = clock_energy_pj + logic_energy_pj + leakage_energy_pj
-    clock_fraction = clock_energy_pj / total if total > 0 else 0
-    logic_fraction = logic_energy_pj / total if total > 0 else 0
-    leakage_fraction = leakage_energy_pj / total if total > 0 else 0
+    # Energy fractions - use total_energy_pj as denominator for consistency
+    clock_fraction = clock_energy_pj / total_energy_pj if total_energy_pj > 0 else 0
+    logic_fraction = logic_energy_pj / total_energy_pj if total_energy_pj > 0 else 0
+    leakage_fraction = leakage_energy_pj / total_energy_pj if total_energy_pj > 0 else 0
     
     # Annotation coverage
     if power_metrics.total_pins > 0:
