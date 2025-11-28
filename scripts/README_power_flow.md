@@ -1,187 +1,311 @@
 # Power Analysis Workflow
 
-This directory contains scripts for running an end-to-end, reproducible power analysis workflow for the reversible and conventional adder designs.
+This document describes the end-to-end workflow for generating gate-level switching activity and running OpenROAD post-route power analysis for the three adder designs:
 
-## Overview
-
-The power analysis workflow:
-1. Compiles gate-level netlists using Icarus Verilog
-2. Runs simulation to generate VCD files with switching activity
-3. Uses OpenROAD to perform power analysis using the VCDs
-4. Parses the power reports into a summary CSV
+1. **Reversible Wrapper** (`reversible_wrapper`) - 8-bit reversible ripple adder
+2. **Ripple Adder Wrapper** (`ripple_adder_wrapper`) - 8-bit conventional ripple adder
+3. **Carry-Select Adder Wrapper** (`carry_select_wrapper`) - 8-bit conventional carry-select adder
 
 ## Prerequisites
 
-### Icarus Verilog
+- **Icarus Verilog**: For gate-level simulation (`iverilog`, `vvp`)
+- **OpenROAD**: For power analysis
+- **Python 3**: For parsing power reports
+- **Sky130 PDK**: Standard cell library (volare-managed or custom installation)
 
-Icarus Verilog is required for gate-level simulation.
+### Installing Prerequisites
 
-**Installation:**
-- **macOS (Homebrew):** `brew install icarus-verilog`
-- **Ubuntu/Debian:** `sudo apt install iverilog`
-- **Fedora:** `sudo dnf install iverilog`
-
-### Sky130 PDK
-
-The Sky130 PDK must be installed via [volare](https://github.com/efabless/volare).
-
-The script auto-detects the PDK in these locations:
-- `$HOME/.volare`
-- `/opt/volare`
-
-Or set `VOLARE_ROOT` environment variable to your volare installation.
-
-### OpenROAD (Optional)
-
-OpenROAD is required for power analysis. If not installed, the script will generate VCDs and provide installation instructions.
-
-**Installation options:**
-
-1. **Homebrew (macOS):**
-   ```bash
-   brew install openroad
-   ```
-
-2. **Ubuntu PPA:**
-   ```bash
-   sudo add-apt-repository ppa:openroad/openroad
-   sudo apt update
-   sudo apt install openroad
-   ```
-
-3. **Conda:**
-   ```bash
-   conda install -c conda-forge openroad
-   ```
-
-4. **Docker:**
-   ```bash
-   docker run -it openroad/openroad
-   ```
-
-5. **OpenLane Nix Shell:**
-   ```bash
-   nix-shell /path/to/openlane/shell.nix --run "./scripts/run_all.sh"
-   ```
-
-**Verify installation:**
 ```bash
-openroad -version
+# Ubuntu/Debian
+sudo apt-get install iverilog
+
+# macOS (Homebrew)
+brew install icarus-verilog
+
+# OpenROAD - Follow official installation guide:
+# https://openroad.readthedocs.io/en/latest/user/Build.html
+
+# Python 3 is typically pre-installed
 ```
 
-## Usage
+## Directory Structure
 
-### Basic Usage
+```
+ReversableGate/
+├── sim/
+│   └── tb_common_gl.v          # Common gate-level testbench
+├── scripts/
+│   ├── run_all.sh              # Main workflow script
+│   ├── openroad_power_reversible.tcl
+│   ├── openroad_power_ripple.tcl
+│   ├── openroad_power_carry_select.tcl
+│   ├── openroad_power_reversible_def.tcl  # DEF-based variant
+│   ├── parse_power_reports.py  # Power report parser
+│   └── README_power_flow.md    # This file
+├── sim_out/                    # Simulation output (generated)
+│   ├── reversible.vcd
+│   ├── ripple.vcd
+│   └── carry_select.vcd
+└── power_reports/              # Power analysis output (generated)
+    ├── reversible_power.rpt
+    ├── ripple_power.rpt
+    ├── carry_select_power.rpt
+    └── power_comparison.csv
+```
+
+## Quick Start
+
+### Run the Complete Workflow
 
 ```bash
+# From the repository root
 chmod +x scripts/run_all.sh
 ./scripts/run_all.sh
 ```
 
-### Environment Variables
+This will:
+1. Compile and run gate-level simulations for all three designs
+2. Generate VCD files with switching activity
+3. Run OpenROAD power analysis for each design
+4. Parse power reports and generate a CSV comparison
 
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `VOLARE_ROOT` | Path to volare PDK installation | Auto-detected (`$HOME/.volare`) |
-| `LIB_TT_LIB` | Path to liberty file for power analysis | Auto-detected from volare |
-| `RUN_REVERSIBLE` | Path to reversible design OpenLane run | Latest run in `openlane/reversable-openlane/runs/` |
-| `RUN_RIPPLE` | Path to ripple adder OpenLane run | Latest run in `openlane/conventional-ripple-openlane/runs/` |
-| `RUN_CARRY_SELECT` | Path to carry-select OpenLane run | Latest run in `openlane/conventional-carry-select-openlane/runs/` |
-
-### Example with Custom Paths
+### Run Individual Steps
 
 ```bash
-export VOLARE_ROOT=/opt/volare
-export LIB_TT_LIB=/path/to/sky130_fd_sc_hd__tt_025C_1v80.lib
-./scripts/run_all.sh
+# Only run simulations
+./scripts/run_all.sh --sim-only
+
+# Only run power analysis (requires VCD files)
+./scripts/run_all.sh --power-only
+
+# Only parse existing power reports
+./scripts/run_all.sh --parse-only
 ```
 
-## Output Files
+## Configuration
 
-### VCD Files
+### Environment Variables
 
-Generated in `sim_out/`:
-- `sim_out/reversible.vcd`
-- `sim_out/ripple.vcd`
-- `sim_out/carry_select.vcd`
+The scripts support the following environment variables:
 
-### Power Reports
+| Variable | Description |
+|----------|-------------|
+| `PDK_ROOT` | Root directory of the Sky130 PDK (e.g., `/path/to/sky130A`) |
+| `SKY130_LIB_DIR` | Direct path to `sky130_fd_sc_hd` library directory |
+| `LIBERTY_FILE` | Full path to the liberty file (`.lib`) |
+| `TECH_LEF` | Full path to the technology LEF file (for DEF-based flow) |
+| `CELL_LEF` | Full path to the cell LEF file (for DEF-based flow) |
 
-Generated in each design's run directory:
-- `openlane/reversable-openlane/runs/RUN_*/power_reversible_wrapper_tt_025C_1v80.rpt`
-- `openlane/conventional-ripple-openlane/runs/RUN_*/power_ripple_adder_wrapper_tt_025C_1v80.rpt`
-- `openlane/conventional-carry-select-openlane/runs/RUN_*/power_carry_select_*_tt_025C_1v80.rpt`
+Example usage:
+```bash
+# Using PDK_ROOT
+export PDK_ROOT=/path/to/sky130A
+./scripts/run_all.sh
 
-### Power Summary
+# Or using SKY130_LIB_DIR directly
+export SKY130_LIB_DIR=/path/to/sky130_fd_sc_hd
+./scripts/run_all.sh
 
-CSV summary of all designs:
-- `scripts/power_summary_tt_025C_1v80.csv`
+# For OpenROAD scripts
+export LIBERTY_FILE=/path/to/sky130_fd_sc_hd__tt_025C_1v80.lib
+openroad -exit scripts/openroad_power_reversible.tcl
+```
+
+### Liberty File Path
+
+The OpenROAD scripts support environment variables with fallback to default paths.
+Common locations:
+- volare: `~/.volare/volare/sky130/versions/<version>/sky130A/libs.ref/sky130_fd_sc_hd/lib/`
+- OpenLane: `$PDK_ROOT/sky130A/libs.ref/sky130_fd_sc_hd/lib/`
+
+### Sky130 Verilog Models
+
+Set `SKY130_LIB_DIR` environment variable or update the default in `run_all.sh`:
+
+```bash
+export SKY130_LIB_DIR="/path/to/sky130A/libs.ref/sky130_fd_sc_hd"
+```
+
+## Manual Steps
+
+### 1. Gate-Level Simulation
+
+Run simulations individually using Icarus Verilog:
+
+```bash
+mkdir -p sim_out
+
+# Reversible adder
+iverilog -g2012 \
+    -DDESIGN_REVERSIBLE \
+    -DVCD_FILE=\"sim_out/reversible.vcd\" \
+    -I/path/to/sky130_fd_sc_hd/verilog \
+    /path/to/sky130_fd_sc_hd.v \
+    openlane/reversable-openlane/runs/RUN_2025-11-05_20-20-54/36-openroad-resizertimingpostcts/reversible_wrapper.pnl.v \
+    sim/tb_common_gl.v \
+    -o sim_out/reversible_sim
+
+vvp sim_out/reversible_sim
+
+# Ripple adder
+iverilog -g2012 \
+    -DDESIGN_RIPPLE \
+    -DVCD_FILE=\"sim_out/ripple.vcd\" \
+    -I/path/to/sky130_fd_sc_hd/verilog \
+    /path/to/sky130_fd_sc_hd.v \
+    openlane/conventional-ripple-openlane/runs/RUN_2025-11-05_20-17-51/36-openroad-resizertimingpostcts/ripple_adder_wrapper.pnl.v \
+    sim/tb_common_gl.v \
+    -o sim_out/ripple_sim
+
+vvp sim_out/ripple_sim
+
+# Carry-select adder
+iverilog -g2012 \
+    -DDESIGN_CARRY_SELECT \
+    -DVCD_FILE=\"sim_out/carry_select.vcd\" \
+    -I/path/to/sky130_fd_sc_hd/verilog \
+    /path/to/sky130_fd_sc_hd.v \
+    openlane/conventional-carry-select-openlane/runs/RUN_2025-11-05_20-14-14/36-openroad-resizertimingpostcts/carry_select_wrapper.pnl.v \
+    sim/tb_common_gl.v \
+    -o sim_out/carry_select_sim
+
+vvp sim_out/carry_select_sim
+```
+
+### 2. OpenROAD Power Analysis
+
+Run power analysis scripts individually:
+
+```bash
+mkdir -p power_reports
+
+# From repository root
+openroad -exit scripts/openroad_power_reversible.tcl
+openroad -exit scripts/openroad_power_ripple.tcl
+openroad -exit scripts/openroad_power_carry_select.tcl
+```
+
+### 3. Parse Power Reports
+
+```bash
+python3 scripts/parse_power_reports.py \
+    power_reports/reversible_power.rpt \
+    power_reports/ripple_power.rpt \
+    power_reports/carry_select_power.rpt \
+    -o power_reports/power_comparison.csv
+```
+
+## Testbench Details
+
+The testbench (`sim/tb_common_gl.v`) provides:
+
+- **Clock**: 40 MHz (25 ns period) matching SDC constraints
+- **Test Pattern**: LFSR-based pseudo-random inputs for 1024 cycles
+- **Signals**:
+  - Reset held for 4 cycles
+  - Enable (where applicable) asserted after reset
+  - Random a, b, cin values driven each cycle
+  - Ancilla (anc) held at zero for reversible design
+
+The testbench uses compile-time defines:
+- `-DDESIGN_REVERSIBLE`: For reversible_wrapper
+- `-DDESIGN_RIPPLE`: For ripple_adder_wrapper
+- `-DDESIGN_CARRY_SELECT`: For carry_select_wrapper
+- `-DVCD_FILE="path"`: Output VCD file path
+
+## Power Report Format
+
+The OpenROAD power reports contain hierarchical power breakdown:
+
+```
+Group                    Internal    Switching      Leakage        Total
+                            Power        Power        Power        Power (Watts)
+------------------------------------------------------------------------
+Sequential           ...
+Combinational        ...
+Clock                ...
+------------------------------------------------------------------------
+Total                ...
+```
+
+The CSV comparison includes:
+- Design name
+- Total, Internal, Switching, and Leakage power (in Watts)
+- Human-readable power values (in uW, mW, etc.)
 
 ## Troubleshooting
 
-### "No design selected" Error
+### "Liberty file not found"
+Update the `LIBERTY_FILE` path in the OpenROAD TCL scripts to match your PDK installation.
 
-Ensure the testbench uses `SIM_*` defines to select the DUT. The script passes:
-- `-DSIM_REVERSIBLE` for reversible design
-- `-DSIM_RIPPLE` for ripple adder design
-- `-DSIM_CARRY_SELECT` for carry-select design
+### "Sky130 Verilog models not found"
+Update `SKY130_LIB_DIR` in `run_all.sh` to point to your Sky130 installation.
 
-### Missing Sky130 Primitives
+### "iverilog: command not found"
+Install Icarus Verilog or add it to your PATH.
 
-Include both Sky130 Verilog model files in iverilog:
-1. `sky130_fd_sc_hd__primitives.v` (or `primitives.v`)
-2. `sky130_fd_sc_hd.v`
+### "openroad: command not found"
+Install OpenROAD or add it to your PATH.
 
-The script auto-detects these files from your volare installation.
+### Simulation errors
+Check the compile and simulation logs in `sim_out/` for detailed error messages.
 
-### VPWR/VGND Port Errors
+## Design Interfaces
 
-Use `-DFUNCTIONAL` and `-DUSE_POWER_PINS` defines when compiling:
-```bash
-iverilog -DFUNCTIONAL -DUSE_POWER_PINS -DUNIT_DELAY='#1' ...
+### reversible_wrapper
+```verilog
+module reversible_wrapper (
+    input  wire        clk,
+    input  wire        reset,
+    input  wire        enable,
+    input  wire [7:0]  a,
+    input  wire [7:0]  b,
+    input  wire [7:0]  anc,
+    input  wire        cin,
+    output reg  [7:0]  sum,
+    output reg         cout,
+    output reg  [7:0]  g_a,
+    output reg  [7:0]  g_ab
+);
 ```
 
-### Liberty File Not Found
-
-Set `LIB_TT_LIB` to point to your liberty file:
-```bash
-export LIB_TT_LIB=/path/to/sky130_fd_sc_hd__tt_025C_1v80.lib
+### ripple_adder_wrapper
+```verilog
+module ripple_adder_wrapper (
+    input  wire        clk,
+    input  wire        reset,
+    input  wire        enable,
+    input  wire [7:0]  a,
+    input  wire [7:0]  b,
+    input  wire        cin,
+    output reg  [7:0]  sum,
+    output reg         cout
+);
 ```
 
-### OpenROAD Not Found
+### carry_select_wrapper
+```verilog
+module carry_select_wrapper (
+    input  wire        clk,
+    input  wire        reset,
+    input  wire [7:0]  a,
+    input  wire [7:0]  b,
+    input  wire        cin,
+    output reg  [7:0]  sum,
+    output reg         cout
+);
+```
 
-The script will print installation instructions if OpenROAD is not on PATH. VCD generation will still complete successfully.
+Note: `carry_select_wrapper` does not have an `enable` port; inputs are sampled every clock cycle.
 
-### Carry-Select Naming Ambiguity
-
-The script tries both `carry_select_wrapper` and `carry_select_adder_wrapper` module names automatically.
-
-## Files
+## Files Reference
 
 | File | Description |
 |------|-------------|
-| `run_all.sh` | Main script for end-to-end power analysis |
-| `openroad_power_reversible.tcl` | OpenROAD TCL script for reversible design |
-| `openroad_power_ripple.tcl` | OpenROAD TCL script for ripple design |
-| `openroad_power_carry_select.tcl` | OpenROAD TCL script for carry-select design |
-| `parse_power_reports.py` | Python script to parse power reports into CSV |
-| `README_power_flow.md` | This documentation file |
-
-## Testbench
-
-The testbench at `sim/tb_common_gl.v` uses `SIM_*` defines to select the design under test:
-
-```verilog
-`ifdef SIM_REVERSIBLE
-    // Instantiate reversible_wrapper
-`elsif SIM_RIPPLE
-    // Instantiate ripple_adder_wrapper
-`elsif SIM_CARRY_SELECT
-    // Instantiate carry_select_wrapper
-`else
-    initial begin
-        $display("ERROR: No design selected. Use -DSIM_REVERSIBLE, -DSIM_RIPPLE, or -DSIM_CARRY_SELECT");
-        $finish;
-    end
-`endif
-```
+| `sim/tb_common_gl.v` | Common gate-level testbench |
+| `scripts/run_all.sh` | Main workflow script |
+| `scripts/openroad_power_reversible.tcl` | Power analysis for reversible_wrapper |
+| `scripts/openroad_power_ripple.tcl` | Power analysis for ripple_adder_wrapper |
+| `scripts/openroad_power_carry_select.tcl` | Power analysis for carry_select_wrapper |
+| `scripts/openroad_power_reversible_def.tcl` | DEF-based power analysis variant |
+| `scripts/parse_power_reports.py` | Power report parser |

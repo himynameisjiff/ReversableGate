@@ -1,35 +1,99 @@
 `timescale 1ns / 1ps
-
-// Common gate-level testbench for power analysis
-// Uses SIM_* defines to select the design under test:
-//   -DSIM_REVERSIBLE  : Test reversible_wrapper
-//   -DSIM_RIPPLE      : Test ripple_adder_wrapper
-//   -DSIM_CARRY_SELECT: Test carry_select_wrapper
+///////////////////////////////////////////////////////////////////////////////
+// tb_common_gl.v
+//
+// Common gate-level testbench for all three adder designs.
+// Exercises the DUT with various input patterns and generates a VCD file.
+//
+// Compile-time defines (pass one of these to select which design to test):
+//   SIM_REVERSIBLE   - Simulate reversible_wrapper
+//   SIM_RIPPLE       - Simulate ripple_adder_wrapper
+//   SIM_CARRY_SELECT - Simulate carry_select_wrapper
+//
+// Additional defines:
+//   VCD_FILE  - Path to VCD output file (default: "dump.vcd")
+//
+// Port differences:
+//   - reversible_wrapper: clk, reset, enable, a, b, anc, cin, sum, cout, g_a, g_ab, VPWR, VGND
+//   - ripple_adder_wrapper: clk, reset, enable, a, b, cin, sum, cout, VPWR, VGND
+//   - carry_select_wrapper: clk, reset, a, b, cin, sum, cout, VPWR, VGND (no enable)
+///////////////////////////////////////////////////////////////////////////////
 
 module tb_common_gl;
 
-    // Clock period in ns
-    parameter CLK_PERIOD = 10;
-    
-    // Testbench signals
+    // ========================== Parameters ==================================
+    parameter CLK_PERIOD = 10;  // 100 MHz clock
+    parameter NUM_TESTS = 20;   // Number of random test vectors
+
+    // ========================== Signals =====================================
     reg         clk;
     reg         reset;
     reg         enable;
     reg  [7:0]  a;
     reg  [7:0]  b;
+    reg  [7:0]  anc;
+//------------------------------------------------------------------------------
+// Common gate-level testbench for reversible_wrapper, ripple_adder_wrapper, 
+// and carry_select_wrapper designs.
+//
+// Compile-time defines:
+//   - DESIGN_REVERSIBLE: Instantiate reversible_wrapper
+//   - DESIGN_RIPPLE: Instantiate ripple_adder_wrapper
+//   - DESIGN_CARRY_SELECT: Instantiate carry_select_wrapper
+//   - VCD_FILE: VCD output file path (e.g., "sim_out/reversible.vcd")
+//
+// Clock period: 25 ns (40 MHz) consistent with SDC constraints.
+//------------------------------------------------------------------------------
+
+`timescale 1ns / 1ps
+
+module tb_common_gl;
+
+    // Parameters
+    localparam CLK_PERIOD = 25;         // 25 ns = 40 MHz
+    localparam NUM_CYCLES = 1024;       // Number of test cycles
+
+    // Common signals
+    reg         clk;
+    reg         reset;
+    reg  [7:0]  a;
+    reg  [7:0]  b;
     reg         cin;
-    
-    // Common outputs
+
     wire [7:0]  sum;
     wire        cout;
-    
+    wire [7:0]  g_a;
+    wire [7:0]  g_ab;
+
+    // Power supply nets for gate-level simulation
+    wire        VPWR = 1'b1;
+    wire        VGND = 1'b0;
+
+    // ========================== DUT Instantiation ===========================
+    // The correct module is selected by which netlist is compiled in.
+    // We instantiate all possible modules conditionally.
+
 `ifdef SIM_REVERSIBLE
-    // Additional signals for reversible design
+
+    // Reversible-specific signals
+`ifdef DESIGN_REVERSIBLE
+    reg         enable;
     reg  [7:0]  anc;
     wire [7:0]  g_a;
     wire [7:0]  g_ab;
-    
-    // Instantiate reversible_wrapper
+`endif
+
+    // Ripple-specific signals (has enable)
+`ifdef DESIGN_RIPPLE
+    reg         enable;
+`endif
+
+    // Power/ground (for powered netlist)
+    wire VPWR = 1'b1;
+    wire VGND = 1'b0;
+
+    // Instantiate DUT based on design selection
+`ifdef DESIGN_REVERSIBLE
     reversible_wrapper dut (
         .clk(clk),
         .reset(reset),
@@ -41,15 +105,12 @@ module tb_common_gl;
         .sum(sum),
         .cout(cout),
         .g_a(g_a),
-        .g_ab(g_ab)
+        .g_ab(g_ab),
+        .VPWR(VPWR),
+        .VGND(VGND)
     );
-    
-    initial begin
-        $display("Testbench: reversible_wrapper");
-    end
-
 `elsif SIM_RIPPLE
-    // Instantiate ripple_adder_wrapper
+`elsif DESIGN_RIPPLE
     ripple_adder_wrapper dut (
         .clk(clk),
         .reset(reset),
@@ -58,15 +119,11 @@ module tb_common_gl;
         .b(b),
         .cin(cin),
         .sum(sum),
-        .cout(cout)
+        .cout(cout),
+        .VPWR(VPWR),
+        .VGND(VGND)
     );
-    
-    initial begin
-        $display("Testbench: ripple_adder_wrapper");
-    end
-
-`elsif SIM_CARRY_SELECT
-    // Instantiate carry_select_wrapper
+`elsif DESIGN_CARRY_SELECT
     carry_select_wrapper dut (
         .clk(clk),
         .reset(reset),
@@ -74,18 +131,14 @@ module tb_common_gl;
         .b(b),
         .cin(cin),
         .sum(sum),
-        .cout(cout)
+        .cout(cout),
+        .VPWR(VPWR),
+        .VGND(VGND)
     );
-    
-    initial begin
-        $display("Testbench: carry_select_wrapper");
-    end
-
 `else
-    // No design selected - error
+    // Default error if no design specified
     initial begin
-        $display("ERROR: No design selected.");
-        $display("       Use -DSIM_REVERSIBLE, -DSIM_RIPPLE, or -DSIM_CARRY_SELECT");
+        $display("ERROR: No design specified. Use -DDESIGN_REVERSIBLE, -DDESIGN_RIPPLE, or -DDESIGN_CARRY_SELECT");
         $finish;
     end
 `endif
@@ -93,114 +146,67 @@ module tb_common_gl;
     // Clock generation
     initial begin
         clk = 0;
-        forever #(CLK_PERIOD/2) clk = ~clk;
+        forever #(CLK_PERIOD / 2) clk = ~clk;
     end
-    
-    // VCD dump - use +vcd_file plusarg if provided
+
+    // VCD dumping
     initial begin
-        string vcd_filename;
-        if ($value$plusargs("vcd_file=%s", vcd_filename)) begin
-            $dumpfile(vcd_filename);
-        end else begin
-`ifdef SIM_REVERSIBLE
-            $dumpfile("reversible.vcd");
-`elsif SIM_RIPPLE
-            $dumpfile("ripple.vcd");
-`elsif SIM_CARRY_SELECT
-            $dumpfile("carry_select.vcd");
-`else
-            $dumpfile("simulation.vcd");
-`endif
-        end
+`ifdef VCD_FILE
+        $dumpfile(`VCD_FILE);
         $dumpvars(0, tb_common_gl);
+`else
+        $dumpfile("sim_out/default.vcd");
+        $dumpvars(0, tb_common_gl);
+`endif
     end
-    
-    // Test stimulus
+
+    // Test sequence
+    integer i;
+    reg [15:0] lfsr;   // LFSR for pseudo-random test patterns
+
     initial begin
         // Initialize
         reset = 1;
+        a = 8'b0;
+        b = 8'b0;
+        cin = 0;
+`ifdef DESIGN_REVERSIBLE
         enable = 0;
-        a = 8'h00;
-        b = 8'h00;
-        cin = 0;
-`ifdef SIM_REVERSIBLE
-        anc = 8'h00;
+        anc = 8'b0;
 `endif
-        
-        // Release reset after a few cycles
-        repeat (3) @(posedge clk);
+`ifdef DESIGN_RIPPLE
+        enable = 0;
+`endif
+        lfsr = 16'hACE1;  // Seed for LFSR
+
+        // Hold reset for a few cycles
+        repeat (4) @(posedge clk);
         reset = 0;
-        
-        // Enable and start testing
-        @(posedge clk);
+
+`ifdef DESIGN_REVERSIBLE
         enable = 1;
-        
-        // Test case 1: Simple addition
-        a = 8'h01;
-        b = 8'h02;
-        cin = 0;
-        repeat (2) @(posedge clk);
-        
-        // Test case 2: Addition with carry-in
-        a = 8'h0F;
-        b = 8'h01;
-        cin = 1;
-        repeat (2) @(posedge clk);
-        
-        // Test case 3: Larger values
-        a = 8'h55;
-        b = 8'hAA;
-        cin = 0;
-        repeat (2) @(posedge clk);
-        
-        // Test case 4: Maximum values
-        a = 8'hFF;
-        b = 8'hFF;
-        cin = 1;
-        repeat (2) @(posedge clk);
-        
-        // Test case 5: Random patterns
-        repeat (20) begin
-            a = $random;
-            b = $random;
-            cin = $random & 1;
-            repeat (2) @(posedge clk);
-        end
-        
-        // Test case 6: All zeros
-        a = 8'h00;
-        b = 8'h00;
-        cin = 0;
-        repeat (2) @(posedge clk);
-        
-        // Test case 7: Alternating patterns
-        a = 8'hAA;
-        b = 8'h55;
-        cin = 0;
-        repeat (2) @(posedge clk);
-        
-        a = 8'h55;
-        b = 8'hAA;
-        cin = 1;
-        repeat (2) @(posedge clk);
-        
-        // More random testing for power analysis
-        repeat (50) begin
-            a = $random;
-            b = $random;
-            cin = $random & 1;
+`endif
+`ifdef DESIGN_RIPPLE
+        enable = 1;
+`endif
+
+        // Apply test vectors for NUM_CYCLES
+        for (i = 0; i < NUM_CYCLES; i = i + 1) begin
             @(posedge clk);
+            // LFSR-based pseudo-random pattern
+            lfsr = {lfsr[14:0], lfsr[15] ^ lfsr[13] ^ lfsr[12] ^ lfsr[10]};
+            a = lfsr[7:0];
+            b = lfsr[15:8];
+            cin = lfsr[0];
+`ifdef DESIGN_REVERSIBLE
+            anc = 8'b0;  // Ancilla should be zero
+`endif
         end
-        
-        // Finish simulation
-        $display("Simulation complete.");
-        $finish;
-    end
-    
-    // Timeout watchdog
-    initial begin
-        #10000;
-        $display("TIMEOUT: Simulation exceeded maximum time.");
+
+        // Additional cycles to capture outputs
+        repeat (10) @(posedge clk);
+
+        $display("Simulation completed successfully for %0d cycles", NUM_CYCLES);
         $finish;
     end
 

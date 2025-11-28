@@ -1,103 +1,192 @@
+###############################################################################
 # openroad_power_ripple.tcl
-# OpenROAD power analysis script for ripple_adder_wrapper design
+#
+# OpenROAD power analysis script for the ripple adder design.
+# Reads the design database, SPEF parasitics, and VCD activity file,
+# then reports total power.
+#
+# Usage:
+#   openroad -exit scripts/openroad_power_ripple.tcl
+#
+# Environment variables (optional):
+#   VOLARE_ROOT - Path to volare PDK installation
+#   RUN_RIPPLE  - Path to the OpenLane run directory for this design
+#
+# Note: Adjust lib_tt path if your volare installation differs.
+###############################################################################
 
-# Get environment variables
-set run_dir $::env(RUN_RIPPLE)
-set sim_out $::env(SIM_OUT)
+# ========================== Configuration ====================================
 
-# Liberty file - use environment variable if set
-if {[info exists ::env(LIB_TT_LIB)]} {
-    set lib_file $::env(LIB_TT_LIB)
+# Liberty file path for TT corner (25°C, 1.8V)
+# Use environment variable if set, otherwise use default volare path
+if {[info exists ::env(VOLARE_ROOT)]} {
+    set volare_root $::env(VOLARE_ROOT)
 } else {
-    # Fallback path (adjust as needed for your environment)
-    set lib_file "$::env(HOME)/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+    set volare_root "$::env(HOME)/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A"
 }
+set lib_tt "$volare_root/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
 
-# Design name
-set design_name "ripple_adder_wrapper"
+# Repository root (relative to this script)
+set script_dir [file dirname [info script]]
+set repo_root [file normalize "$script_dir/.."]
 
-# Find powered netlist - prefer final/pnl, fallback to 36-openroad-resizertimingpostcts
-if {[file exists "${run_dir}/final/pnl/${design_name}.pnl.v"]} {
-    set pnl_file "${run_dir}/final/pnl/${design_name}.pnl.v"
-} elseif {[file exists "${run_dir}/36-openroad-resizertimingpostcts/${design_name}.pnl.v"]} {
-    set pnl_file "${run_dir}/36-openroad-resizertimingpostcts/${design_name}.pnl.v"
+# Design-specific paths
+set design_name "ripple"
+
+# Use environment variable for run directory if set, otherwise find latest run
+if {[info exists ::env(RUN_RIPPLE)]} {
+    set run_dir $::env(RUN_RIPPLE)
 } else {
-    puts "ERROR: Could not find powered netlist for ${design_name}"
-    exit 1
-}
-
-# Find ODB file - prefer final/odb
-if {[file exists "${run_dir}/final/odb/${design_name}.odb"]} {
-    set odb_file "${run_dir}/final/odb/${design_name}.odb"
-} else {
-    puts "ERROR: Could not find ODB file for ${design_name}"
-    exit 1
-}
-
-# Find SDC file from 54-openroad-stapostpnr
-set sdc_dir "${run_dir}/54-openroad-stapostpnr/nom_tt_025C_1v80"
-if {[file exists "${sdc_dir}"]} {
-    # Look for SDC file in this directory or use the final SDC
-    if {[file exists "${run_dir}/final/sdc/${design_name}.sdc"]} {
-        set sdc_file "${run_dir}/final/sdc/${design_name}.sdc"
+    # Find the latest run directory
+    set runs_base "$repo_root/openlane/conventional-ripple-openlane/runs"
+    set run_dirs [glob -nocomplain -type d "$runs_base/RUN_*"]
+    if {[llength $run_dirs] > 0} {
+        set run_dir [lindex [lsort -decreasing $run_dirs] 0]
     } else {
-        set sdc_file ""
+        error "No run directories found in $runs_base"
     }
-} else {
-    set sdc_file ""
 }
 
-# VCD file
-set vcd_file "${sim_out}/ripple.vcd"
+# Input files
+set odb_file "$run_dir/final/odb/ripple_adder_wrapper.odb"
+set spef_file "$run_dir/final/spef/nom/ripple_adder_wrapper.nom.spef"
+set vcd_file "$repo_root/sim_out/ripple.vcd"
 
-# Output power report
-set power_report "${run_dir}/power_${design_name}_tt_025C_1v80.rpt"
+# ========================== Load Design ======================================
 
-puts "========================================"
-puts "Power Analysis: ${design_name}"
-puts "========================================"
-puts "Liberty:  ${lib_file}"
-puts "Netlist:  ${pnl_file}"
-puts "ODB:      ${odb_file}"
-puts "SDC:      ${sdc_file}"
-puts "VCD:      ${vcd_file}"
-puts "Report:   ${power_report}"
-puts "========================================"
+puts "======================================================================"
+puts " OpenROAD Power Analysis: $design_name"
+puts "======================================================================"
 
-# Read liberty
-read_liberty ${lib_file}
+# Read liberty file for timing/power characterization
+puts "\nReading liberty file..."
+read_liberty $lib_tt
 
-# Read design database
-read_db ${odb_file}
+# Read the design database (contains netlist, placement, routing)
+puts "Reading design database..."
+read_db $odb_file
 
-# Read SDC if available
-if {${sdc_file} ne "" && [file exists ${sdc_file}]} {
-    read_sdc ${sdc_file}
-} else {
-    puts "WARNING: No SDC file found, using default constraints"
-    # Create default clock constraint
-    create_clock -name clk -period 10 [get_ports clk]
-}
+# Read parasitic extraction (SPEF)
+puts "Reading SPEF parasitics..."
+read_spef $spef_file
 
-# Read VCD for switching activity
-if {[file exists ${vcd_file}]} {
-    read_power_activities -scope ${design_name} -vcd ${vcd_file}
-} else {
-    puts "WARNING: VCD file not found: ${vcd_file}"
-    puts "         Using default switching activity"
-    set_power_activity -global -activity 0.1
-}
+# ========================== Power Analysis ===================================
+
+puts "\nReading VCD activity file..."
+puts "  VCD: $vcd_file"
+
+# Read switching activity from VCD
+# The VCD was generated from gate-level simulation
+read_power_activities -scope tb_common_gl/dut -vcd $vcd_file
+
+# Set process corner conditions
+set_power_activity -global -activity 0.1 -duty 0.5
 
 # Report power
-puts ""
-puts "Power Analysis Results:"
-puts "========================================"
+puts "\n======================================================================"
+puts " Power Report: $design_name"
+puts "======================================================================"
+
 report_power
 
+puts "\n======================================================================"
+puts " Power Analysis Complete: $design_name"
+puts "======================================================================"
+#------------------------------------------------------------------------------
+# OpenROAD Power Analysis Script for ripple_adder_wrapper
+# Uses ODB for physical database and VCD for switching activity
+# Corner: tt_025C_1v80
+#------------------------------------------------------------------------------
+
+# Configuration - paths relative to repository root
+set DESIGN_NAME "ripple_adder_wrapper"
+set RUN_DIR "openlane/conventional-ripple-openlane/runs/RUN_2025-11-05_20-17-51"
+
+# Liberty file path
+# Set LIBERTY_FILE environment variable or update the default path below
+# Common locations:
+#   volare: ~/.volare/volare/sky130/versions/<version>/sky130A/libs.ref/sky130_fd_sc_hd/lib/
+#   OpenLane: $PDK_ROOT/sky130A/libs.ref/sky130_fd_sc_hd/lib/
+if {[info exists ::env(LIBERTY_FILE)]} {
+    set LIBERTY_FILE $::env(LIBERTY_FILE)
+} elseif {[info exists ::env(PDK_ROOT)]} {
+    set LIBERTY_FILE "$::env(PDK_ROOT)/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+} else {
+    set LIBERTY_FILE "/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+}
+
+# Powered netlist (used for cell definitions)
+set NETLIST_FILE "${RUN_DIR}/36-openroad-resizertimingpostcts/${DESIGN_NAME}.pnl.v"
+
+# ODB file (physical database)
+set ODB_FILE "${RUN_DIR}/52-odb-cellfrequencytables/${DESIGN_NAME}.odb"
+
+# SDC constraints
+set SDC_FILE "${RUN_DIR}/36-openroad-resizertimingpostcts/${DESIGN_NAME}.sdc"
+
+# VCD file from simulation
+set VCD_FILE "sim_out/ripple.vcd"
+
+# Output power report
+set POWER_REPORT "power_reports/ripple_power.rpt"
+
+# Check if files exist
+proc check_file {filepath desc} {
+    if {![file exists $filepath]} {
+        puts "ERROR: $desc not found: $filepath"
+        exit 1
+    }
+}
+
+puts "==================================================================="
+puts "OpenROAD Power Analysis for $DESIGN_NAME"
+puts "Corner: tt_025C_1v80"
+puts "==================================================================="
+
+# Read liberty file
+check_file $LIBERTY_FILE "Liberty file"
+read_liberty $LIBERTY_FILE
+
+# Read the physical database from ODB
+check_file $ODB_FILE "ODB file"
+read_db $ODB_FILE
+
+# Read the powered gate-level netlist
+check_file $NETLIST_FILE "Powered netlist"
+read_verilog $NETLIST_FILE
+link_design $DESIGN_NAME
+
+# Read SDC timing constraints
+check_file $SDC_FILE "SDC file"
+read_sdc $SDC_FILE
+
+# Read VCD switching activity
+if {[file exists $VCD_FILE]} {
+    puts "Reading VCD file: $VCD_FILE"
+    read_power_activities -scope tb_common_gl/dut -vcd $VCD_FILE
+} else {
+    puts "WARNING: VCD file not found: $VCD_FILE"
+    puts "Running power analysis without switching activity data."
+}
+
+# Create output directory
+file mkdir [file dirname $POWER_REPORT]
+
+# Generate power report
+puts "Generating power report..."
+set power_rpt [report_power -corner nom_tt_025C_1v80]
+
 # Write power report to file
-set fp [open ${power_report} w]
-puts $fp [report_power]
+set fp [open $POWER_REPORT w]
+puts $fp "==================================================================="
+puts $fp "Power Report for $DESIGN_NAME"
+puts $fp "Corner: tt_025C_1v80"
+puts $fp "==================================================================="
+puts $fp ""
+puts $fp $power_rpt
 close $fp
 
-puts ""
-puts "Power report written to: ${power_report}"
+puts "Power report written to: $POWER_REPORT"
+puts "==================================================================="
+
+exit 0

@@ -1,17 +1,69 @@
+# Simulation outputs
+sim_out/
+*.vvp
+*.vcd
+
+# Generated power reports (keep in separate directory, not scripts/)
+scripts/*_power_report.txt
+scripts/power_summary_*.csv
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
-*.pyc
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# Simulation outputs
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+.Python
+*.so
+
+# Simulation output
 sim_out/
 *.vcd
-*.vvp
+*_sim
+
+# Power analysis output
+power_reports/
+
+# Temporary files
+*.log
+*.tmp
+*~
 
 # macOS
 .DS_Store
-
-# Build artifacts
-*.o
-*.a

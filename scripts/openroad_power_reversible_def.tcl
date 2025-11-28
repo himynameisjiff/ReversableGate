@@ -1,18 +1,15 @@
 #------------------------------------------------------------------------------
-# OpenROAD Power Analysis Script for carry_select_wrapper
-# Uses ODB for physical database and VCD for switching activity
+# OpenROAD Power Analysis Script for reversible_wrapper (DEF-based variant)
+# Uses DEF for physical database instead of ODB, and VCD for switching activity
 # Corner: tt_025C_1v80
 #------------------------------------------------------------------------------
 
 # Configuration - paths relative to repository root
-set DESIGN_NAME "carry_select_wrapper"
-set RUN_DIR "openlane/conventional-carry-select-openlane/runs/RUN_2025-11-05_20-14-14"
+set DESIGN_NAME "reversible_wrapper"
+set RUN_DIR "openlane/reversable-openlane/runs/RUN_2025-11-05_20-20-54"
 
 # Liberty file path
 # Set LIBERTY_FILE environment variable or update the default path below
-# Common locations:
-#   volare: ~/.volare/volare/sky130/versions/<version>/sky130A/libs.ref/sky130_fd_sc_hd/lib/
-#   OpenLane: $PDK_ROOT/sky130A/libs.ref/sky130_fd_sc_hd/lib/
 if {[info exists ::env(LIBERTY_FILE)]} {
     set LIBERTY_FILE $::env(LIBERTY_FILE)
 } elseif {[info exists ::env(PDK_ROOT)]} {
@@ -21,20 +18,38 @@ if {[info exists ::env(LIBERTY_FILE)]} {
     set LIBERTY_FILE "/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
 }
 
+# LEF files (technology and standard cells)
+# Set TECH_LEF and CELL_LEF environment variables or update the default paths below
+if {[info exists ::env(TECH_LEF)]} {
+    set TECH_LEF $::env(TECH_LEF)
+} elseif {[info exists ::env(PDK_ROOT)]} {
+    set TECH_LEF "$::env(PDK_ROOT)/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef"
+} else {
+    set TECH_LEF "/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef"
+}
+
+if {[info exists ::env(CELL_LEF)]} {
+    set CELL_LEF $::env(CELL_LEF)
+} elseif {[info exists ::env(PDK_ROOT)]} {
+    set CELL_LEF "$::env(PDK_ROOT)/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef"
+} else {
+    set CELL_LEF "/Users/prahalad/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef"
+}
+
 # Powered netlist (used for cell definitions)
 set NETLIST_FILE "${RUN_DIR}/36-openroad-resizertimingpostcts/${DESIGN_NAME}.pnl.v"
 
-# ODB file (physical database)
-set ODB_FILE "${RUN_DIR}/52-odb-cellfrequencytables/${DESIGN_NAME}.odb"
+# DEF file (physical database)
+set DEF_FILE "${RUN_DIR}/43-openroad-detailedrouting/${DESIGN_NAME}.def"
 
 # SDC constraints
 set SDC_FILE "${RUN_DIR}/36-openroad-resizertimingpostcts/${DESIGN_NAME}.sdc"
 
 # VCD file from simulation
-set VCD_FILE "sim_out/carry_select.vcd"
+set VCD_FILE "sim_out/reversible.vcd"
 
 # Output power report
-set POWER_REPORT "power_reports/carry_select_power.rpt"
+set POWER_REPORT "power_reports/reversible_power_def.rpt"
 
 # Check if files exist
 proc check_file {filepath desc} {
@@ -45,7 +60,7 @@ proc check_file {filepath desc} {
 }
 
 puts "==================================================================="
-puts "OpenROAD Power Analysis for $DESIGN_NAME"
+puts "OpenROAD Power Analysis for $DESIGN_NAME (DEF-based)"
 puts "Corner: tt_025C_1v80"
 puts "==================================================================="
 
@@ -53,14 +68,21 @@ puts "==================================================================="
 check_file $LIBERTY_FILE "Liberty file"
 read_liberty $LIBERTY_FILE
 
-# Read the physical database from ODB
-check_file $ODB_FILE "ODB file"
-read_db $ODB_FILE
+# Read LEF files (technology and standard cells)
+check_file $TECH_LEF "Technology LEF"
+read_lef $TECH_LEF
+
+check_file $CELL_LEF "Cell LEF"
+read_lef $CELL_LEF
 
 # Read the powered gate-level netlist
 check_file $NETLIST_FILE "Powered netlist"
 read_verilog $NETLIST_FILE
 link_design $DESIGN_NAME
+
+# Read DEF physical database
+check_file $DEF_FILE "DEF file"
+read_def $DEF_FILE
 
 # Read SDC timing constraints
 check_file $SDC_FILE "SDC file"
@@ -85,7 +107,7 @@ set power_rpt [report_power -corner nom_tt_025C_1v80]
 # Write power report to file
 set fp [open $POWER_REPORT w]
 puts $fp "==================================================================="
-puts $fp "Power Report for $DESIGN_NAME"
+puts $fp "Power Report for $DESIGN_NAME (DEF-based)"
 puts $fp "Corner: tt_025C_1v80"
 puts $fp "==================================================================="
 puts $fp ""
