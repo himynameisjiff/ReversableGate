@@ -1,0 +1,3 @@
+I want to implement all the gates in ngpsice using opensrouce pdk. Simulate in spice as well.
+Write the spice files indivudally. ill run the simulation myself. use default voltages etc, timing (2ns i think). then make a plan to run transient and do power analysis
+pull from openlane if needed.
